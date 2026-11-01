@@ -43,7 +43,8 @@ There is no targeting reticle, progress bar or fake mission indicator.
 
 All exported tuning is provisional: motor speed 4 units/s, gravity 18 units/s²,
 lever duration 3 seconds, interaction radius 2.2 units from actor torso to target,
-camera sensitivity 0.003 radians/pixel, pitch -65°…20°, spring length 4 units.
+camera sensitivity 0.003 radians/pixel, pitch -65°…20°, spring length 4 units,
+above-head pivot height 2.1 units and spherical camera probe radius 0.2 units.
 Change these through the scene Inspector; they are not finalized balance. Duration
 and radius must remain positive. The target checks reach/line of sight on every
 work request and allows one worker, retaining progress for any later worker.
@@ -68,6 +69,7 @@ Run from repository root with Godot 4.7.2 explicitly selected:
 ```sh
 godot --headless --path . --editor --import
 godot --headless --path . --script res://tests/m1/test_graybox.gd
+godot --headless --path . --script res://tests/m1/test_camera_clearance.gd
 godot --headless --path . --quit-after 120
 ```
 
@@ -77,7 +79,13 @@ Import and instantiation cover scene/resource/script validation; individual scri
 can additionally use `--headless --path . --check-only --script <res://path.gd>`.
 The tests exercise real Godot physics, shared commands, synthetic local input,
 camera angle bounds and spring collision, and interaction ownership/cancel/resume/
-obstruction/completion. They do not establish physical keyboard/mouse behavior,
+obstruction/completion. The camera regression additionally samples 336 wall/corner/
+obstacle orbits at 1280×720, checking conservative camera/near-plane bounds against
+character meshes and solid yard geometry, visibility flags, arm retraction and
+continuous small open-space orbit steps. Frustum checks also require the character
+center to stay in view, including complete arm collapse. These are geometric/physics checks, not
+rendered screenshots or a guarantee for unsampled geometry/viewports.
+They do not establish physical keyboard/mouse behavior,
 comfortable camera control, visuals or rendering performance.
 
 In the cloud, export writable locations before these commands:
@@ -91,23 +99,65 @@ export XDG_CONFIG_HOME=/workspace/.config
 Godot editor import needs its local sockets permitted by the execution sandbox.
 No network service or external dependency is required by this prototype.
 
-## Manual verification still required
+## User-reported graphical verification
 
-Use a graphical Godot 4.7.2 session, preferably on the target Windows Intel i5 /
-16 GB / integrated-graphics laptop. Record OS/driver, renderer, resolution and results:
+The user tested M1 on a Windows laptop using Godot 4.7.2. Reported passes, before
+this camera fix: scene launch/rendering, WASD, mouse orbit in all directions,
+ground/central-obstacle collision, lever progress while holding E, release retaining
+partial progress, resume, completion, out-of-range rejection, solid-geometry
+obstruction, camera collision with surrounding walls, and Escape cancel followed by
+click-to-restore controls. The earlier observed session reported 0 errors/0 warnings.
+These are user reports, not graphical tests rerun by the agent. Tested build SHA,
+duration, driver, resolution and detailed laptop specifications were not supplied.
+No FPS, GPU, frame-time or memory benchmark or Windows export result was reported.
 
-1. F5 opens the yard with visible character, obstacle and lever. Walk all four
-   directions, diagonally and into the central box/perimeter; ground remains solid.
-2. Orbit while stationary/moving, reach both pitch limits and approach walls from
-   several angles. Check camera visibility, clipping, sensitivity and framing.
-3. Approach lever, hold E partway, release, wait, and resume to completion. The handle
-   must retain partial rotation and finish once. Try from too far away and through
-   the central obstacle; no work should advance. Restart the scene for repeat runs.
-4. Walk away during work; Escape/focus loss during work must stop it without losing
-   progress. Click to recapture and confirm normal movement/work resume.
-5. Check Godot debugger/output for runtime errors and measure actual frame times/RAM
-   before making performance claims. Headless checks cannot replace this playtest.
+The later wall-front orbit case exposed a separate camera/character overlap despite
+the generally passing wall collision. Do not interpret the reports as approval of
+the corrected camera's framing or complete absence of clipping at every angle.
 
-No graphical display or Xvfb was available in the implementation environment, so
-these scenarios remain unrun. Complete this M1 verification before advancing to
-another milestone. Do not begin M2 under the M1 task.
+## Camera clearance fix
+
+The original spring origin was at torso/head height (1.5 units), inside the visible
+1.8-unit character. The character is excluded from the spring's world collision
+query; a wall could therefore retract the camera into the character. Including the
+character in that query would start the sweep inside its own collider.
+
+The scene now places the pivot at 2.1 units, 0.3 above the capsule's top. With the
+existing pitch limits, this keeps even a fully compressed camera outside the mesh.
+An explicit 0.2-unit sphere protects the camera origin and near plane during world
+collision sweeps; the default camera-shaped probe could leave the camera origin
+slightly inside a wall. The existing arm length, margin, yaw/pitch controls,
+character visibility and collision exclusions are retained. The follow camera aims
+at the existing character body center after the spring update, keeping it framed
+when the raised pivot is compressed. A yaw-relative up vector handles the vertical
+view at zero arm length without a look-at singularity. There is no minimum-arm
+clamp that could push the camera through a wall, no mesh hiding, new camera mode,
+or new smoothing/input behavior. A path above a 2-unit wall may use full arm length
+when clear; it must not intersect the wall. The yard and movement are unchanged.
+
+These clearances are provisional for the current capsule, facing marker, FOV and
+pitch range. Recheck them if character geometry, camera FOV/aspect or the world
+changes; this is not a general arbitrary-character/low-ceiling camera solver.
+The existing spring collision test now aims down toward the wall because its
+previous horizontal ray clears the 2-unit wall from the raised pivot.
+
+## Graphical recheck required after the fix
+
+On Windows with Godot 4.7.2, using this fix branch:
+
+1. Press the character against every wall, then orbit to its front and through a
+   full circle at low/middle/high pitch. Repeat at corners and the central obstacle.
+   Confirm the camera/near plane stay outside both character and world, the character
+   remains rendered, and the new framing is usable without jitter or sudden jumps.
+2. Move toward/away from walls while orbiting; verify smooth retraction/extension
+   and unobstructed following. Check visibility when the camera passes above a wall.
+3. Recheck basic WASD and E start/release/resume/completion plus Escape/click after
+   the camera adjustment. Explicit window-focus loss, walking-away cancellation,
+   dedicated diagonal/perimeter checks and single-completion behavior were not
+   separately confirmed in the latest user report; record them if tested.
+4. Record actual results/debugger messages. Measure FPS/frame times/RAM separately
+   before making performance claims; headless geometry checks cannot establish them.
+
+No graphical display is available to the agent. The fix has automated clearance
+coverage but has not yet been visually accepted on Windows. Do not start M2 as
+part of the camera fix or its verification.

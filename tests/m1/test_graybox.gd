@@ -70,7 +70,8 @@ func _run() -> void:
 	var direction := rig.movement_direction(Vector2(0, -1))
 	expect(direction.is_equal_approx(Vector3.LEFT), "W direction follows camera yaw, not pitch")
 	rig.rotation.y = 0.0
-	rig.pitch_pivot.rotation.x = 0.0
+	# Aim down enough to intersect the 2 m wall from the above-head pivot.
+	rig.pitch_pivot.rotation.x = deg_to_rad(20.0)
 	actor.position = Vector3(5, 0, 10)
 	await frames(5)
 	expect(rig.spring.get_hit_length() < rig.spring.spring_length - 0.5,

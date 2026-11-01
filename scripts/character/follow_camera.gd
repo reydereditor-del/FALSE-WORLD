@@ -7,6 +7,8 @@ extends Node3D
 @export_range(0.0, 70.0) var maximum_pitch_degrees: float = 20.0
 @onready var pitch_pivot: Node3D = $Pitch
 @onready var spring: SpringArm3D = $Pitch/SpringArm3D
+@onready var camera: Camera3D = $Pitch/SpringArm3D/Camera3D
+@onready var focus: Node3D = $"../Visual/Body"
 
 
 func _ready() -> void:
@@ -25,3 +27,14 @@ func orbit(relative_motion: Vector2) -> void:
 
 func movement_direction(input_axis: Vector2) -> Vector3:
 	return global_basis * Vector3(input_axis.x, 0.0, input_axis.y)
+
+
+func _process(_delta: float) -> void:
+	# Keep the existing character in view when the safe, above-head arm retracts.
+	# Resolve after the spring's physics update; no distance clamp or mesh hiding.
+	var direction := camera.global_position.direction_to(focus.global_position)
+	var up := Vector3.UP
+	if absf(direction.dot(up)) > 0.999:
+		# At full compression the view is vertical: retain orbit yaw without roll flips.
+		up = -global_basis.z
+	camera.look_at(focus.global_position, up)

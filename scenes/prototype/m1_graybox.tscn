@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=24 format=3]
 
 [ext_resource type="Script" path="res://scripts/character/character_motor.gd" id="1_motor"]
 [ext_resource type="Script" path="res://scripts/character/follow_camera.gd" id="2_camera"]
@@ -77,6 +77,9 @@ size = Vector3(24, 2, 0.5)
 [sub_resource type="BoxShape3D" id="WallShape"]
 size = Vector3(24, 2, 0.5)
 
+[sub_resource type="SphereShape3D" id="CameraShape"]
+radius = 0.2
+
 [node name="M1Graybox" type="Node3D"]
 
 [node name="Environment" type="WorldEnvironment" parent="."]
@@ -141,7 +144,7 @@ position = Vector3(0, 1.2, -0.35)
 mesh = SubResource("NoseMesh")
 
 [node name="CameraRig" type="Node3D" parent="Character"]
-position = Vector3(0, 1.5, 0)
+position = Vector3(0, 2.1, 0)
 script = ExtResource("2_camera")
 
 [node name="Pitch" type="Node3D" parent="Character/CameraRig"]
@@ -149,6 +152,7 @@ rotation_degrees = Vector3(-18, 0, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Character/CameraRig/Pitch"]
 spring_length = 4.0
+shape = SubResource("CameraShape")
 margin = 0.2
 collision_mask = 1
 

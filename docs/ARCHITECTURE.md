@@ -246,3 +246,13 @@ paid service, or runtime dependency was added; all new code is GDScript. Scene/i
 values are exported or explicitly configured prototype tuning, not finalized rules.
 Headless physics/synthetic-input tests cannot validate player camera comfort or GPU
 performance; the manual M1 checklist remains a prerequisite to later implementation.
+
+M1 camera clearance correction: the spring origin is 2.1 units above the character's
+feet (above its 1.8-unit capsule) and its world sweep uses a 0.2-unit sphere. This
+avoids retraction into the excluded character and protects the camera origin/near
+plane at walls. The camera keeps looking at the existing body center after spring
+updates; a yaw-relative up vector stabilizes the vertical, fully compressed view.
+Orbit input/arm behavior and mesh visibility are retained.
+No forced minimum distance, mesh fading, or camera mode was added. These are current
+M1 geometry/pitch/FOV clearances; future geometry or viewport changes need regression
+and graphical rechecks. See M1_PROTOTYPE.md and PROGRESS.md for evidence/limitations.
