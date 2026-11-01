@@ -1,15 +1,17 @@
 # FALSE WORLD — architecture
 
-Status: planned implementation boundaries; no runtime systems implemented.
+Status: planned full-game boundaries; M1 local movement/camera/interaction is
+implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Other systems remain planned.
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) controls approved gameplay;
 [GAME_DESIGN.md](GAME_DESIGN.md) reconciles it. Technical choices below are proposals
-unless required by that handoff. The current task authorizes documentation only.
+unless required by that handoff. M1 authorizes only the local graybox slice.
 
 ## Existing project and preservation
 
 The root `project.godot` declares `4.7`, `Forward Plus`, Jolt 3D physics, a Windows
-D3D12 preference, `New Game Project`, and a .NET assembly name. It has no main scene.
-Retain all these settings; future gameplay uses GDScript. Do not recreate the project,
+D3D12 preference, `New Game Project`, and a .NET assembly name. M1 adds the graybox
+startup scene and its six input actions; all other settings are retained. Runtime
+code uses GDScript. Do not recreate the project,
 change renderer, downgrade its feature declaration, or infer a playable game from docs.
 
 Earlier foundation inspection recorded default Godot 4.6.3, older than the declared
@@ -27,10 +29,14 @@ engine selection before implementation; do not assume the default `godot` change
 - `docs/ARCHITECTURE.md`: this planned system design.
 - `docs/PROGRESS.md`: actual completion, checks, limitations, next task.
 - `.agents/skills/{godot-development,game-ai,game-testing}/SKILL.md`: portable skills.
-- `scenes/`, `scripts/`, `assets/`, `tests/`: empty `.gitkeep` reservations.
+- `scenes/prototype/m1_graybox.tscn`: standalone local yard and character composition.
+- `scripts/character/`, `scripts/interaction/`: M1 control, camera, motor and work logic.
+- `tests/m1/test_graybox.gd`: built-in Godot headless behavior checks.
+- `docs/M1_PROTOTYPE.md`: controls, tuning, validation and manual playtest instructions.
+- `assets/`: empty reservation; existing directory markers are retained.
 
-No extra `GAME_LOGIC.md`, services, addons, dependencies, assets, or scaffolding are
-needed for this reconciliation. Add feature directories only with authorized code.
+No extra `GAME_LOGIC.md`, services, addons, dependencies, assets, or framework
+scaffolding are needed for M1. Add feature directories only with authorized code.
 
 ## Modules and dependency direction (handoff §16)
 
@@ -221,3 +227,22 @@ acceptance requirements, not tests executed by this task. Test rules independent
 then Godot integration, networking/privacy, real four-human play and target-hardware
 performance at the relevant stages. Simulated peers are not four-human deception
 evidence. Record exact checks, actual outcomes and untested cases in PROGRESS.md.
+
+## M1 implementation decisions
+
+M1 corresponds to handoff §19 stage 2, not the obsolete M0–M5 ordering. The user
+explicitly authorized local runtime code plus startup configuration; subsequent
+milestones remain outside this increment. Five small modules and one scene implement
+only world-space movement, local input, following/orbit camera, and a resumable lever.
+The motor's command interface and the interactor's held/released intent do not poll
+input; the local adapter can later be replaced without introducing AI now. Target
+ownership/progress/completion live on the target with range and line-of-sight checks.
+The lever's transform is the real observable result; it creates no fake objective
+or extraction logic. Progress lasts for the scene's lifetime, not across restarts.
+
+One unshadowed light, rough primitive geometry and flat ambient background keep
+content bounded without changing the user's renderer. No external asset, framework,
+paid service, or runtime dependency was added; all new code is GDScript. Scene/input
+values are exported or explicitly configured prototype tuning, not finalized rules.
+Headless physics/synthetic-input tests cannot validate player camera comfort or GPU
+performance; the manual M1 checklist remains a prerequisite to later implementation.
