@@ -5,12 +5,16 @@ Updated: 2026-11-02 (Asia/Tashkent).
 ## Current status — M1 local graybox
 
 M1 runtime implementation is complete as a local technical slice, corresponding to
-handoff §19 stage 2. Automated checks pass; graphical acceptance is still pending.
+handoff §19 stage 2. Automated checks passed in the implementation increment.
+The user has reported Windows/Godot 4.7.2 manual passes, including the additional
+results below, and a front-orbit camera/character overlap near walls. The camera
+clearance fix passes headless regression checks; its graphical recheck and all
+performance measurements remain unverified.
 There is no multiplayer, AI, combat, HP, inventory, mission/extraction, or gameplay
 UI. The full game remains planned. Approved handoff v1.0 rules remain unchanged.
 
-Base: freshly fetched `origin/main` at merge `2d0effe` (includes `4e05ce9`). Verified
-with `git merge-base --is-ancestor 2d0effe HEAD` after creating dedicated branch
+Original M1 implementation base: fetched `origin/main` at merge `2d0effe`
+(includes `4e05ce9`). Verified with `git merge-base --is-ancestor 2d0effe HEAD` after creating dedicated branch
 `feat/m1-local-graybox`. The initial working tree was clean. No push or merge is
 part of this increment. Use `git log -1 --oneline` for the resulting M1 commit ID.
 
@@ -78,16 +82,151 @@ explicit binary, not the older default system executable.
 - `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
   Only intended M1 source/scene/test/configuration/docs files included.
 
+## Latest M1 report and camera clearance correction
+
+Recorded: 2026-11-02 (Asia/Tashkent). The user reports the following additional
+passes on their Windows laptop with Godot 4.7.2, before this camera fix:
+
+- Holding E until the end completes the interaction.
+- Interaction is rejected outside the allowed range and blocked by solid geometry.
+- The camera avoids clipping through the surrounding walls in the tested cases.
+- Escape during interaction stops work; clicking again restores control.
+- Previously confirmed WASD, mouse camera rotation, ground/obstacle collision and
+  retained partial interaction progress continue to be reported as passing.
+
+These are user-reported observations, not agent-observed graphical tests. The prior
+session's 0 errors/0 warnings report remains scoped to that session. No additional
+performance numbers, build SHA, resolution, driver or detailed hardware were given.
+The newly reported failure is separate: when pressed against a wall and orbiting
+to the character's front, the camera can enter the visible character mesh.
+
+Repository inspection: clean local `docs/m1-manual-verification` at `6803e0b`.
+Fetched latest main `fb77ab0` (M1 merge); its runtime files match that checkout,
+with only PROGRESS.md differing. Created dedicated `fix/m1-camera-clearance` from
+`6803e0b`, preserving that verification commit as an ancestor rather than resetting
+or recreating it. This task authorizes pushing the completed fix branch; it does
+not authorize merging main or beginning M2.
+
+Analysis and minimal fix:
+
+- Reproduced front-wall camera overlap in Godot 4.7.2 using the real M1 scene.
+  The old spring pivot was 1.5 units above the feet, inside the 1.8-unit capsule.
+  Its character collision exclusion allowed walls to retract the camera into it.
+- Changed the camera configuration in the scene: pivot height 2.1 units (0.3 above
+  the capsule), and an explicit 0.2-unit sphere for SpringArm3D world sweeps. The
+  sphere protects the origin and near plane; the default camera-shaped cast could
+  leave the camera origin slightly inside a wall in sampled cases. Raising the
+  pivot alone removed self-overlap but did not satisfy this world-clearance check.
+- Preserved arm length, margin, orbit/pitch controls, character visibility and
+  character collision exclusion. No forced minimum arm, mesh hiding/fading,
+  first-person mode, camera input/smoothing feature, or unrelated gameplay change.
+  `follow_camera.gd` now keeps the existing body center in view after the spring
+  update; a yaw-relative up vector avoids a singular look-at at full compression.
+  This keeps the raised pivot from merely moving the character out of frame.
+  Moving the pivot above a 2-unit wall allows full extension on clear paths above
+  it, while the sphere still retracts the arm on obstructed paths.
+- Added `tests/m1/test_camera_clearance.gd` and its UID. Updated the original wall
+  regression to aim down toward the wall: the old horizontal ray clears a 2-unit
+  wall from the new above-head pivot. Updated M1_PROTOTYPE.md and architecture notes.
+
+Automated checks actually performed from `/workspace/FALSE-WORLD`, using explicit
+`/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` (version output
+`4.7.2.stable.official.ed1daf0bf`) with the same writable XDG paths as the M1 checks:
+
+- Before the fix, the first camera regression ran 6 checks with 3 failures (exit 1):
+  the reported front-wall overlap, other sampled self-overlaps and world-clearance
+  violations. Evidence is retained in `/tmp/m1-camera-before.log`. These are
+  conservative geometric enclosures, not graphical observations of every sample.
+- After the scene correction, the expanded camera regression ran **9 checks,
+  0 failures** (exit 0), via `--headless --path /workspace/FALSE-WORLD --script
+  res://tests/m1/test_camera_clearance.gd`. Tested 336 orbit configurations across
+  seven positions (four walls, two corners, central obstacle), twelve yaw samples
+  and four pitches including both limits. Camera origin/near-plane bounds plus a
+  0.02-unit safety margin had zero self/world overlaps. Logical mesh visibility,
+  obstructed arm retraction, small-step open-space orbit continuity, character-center
+  frustum inclusion and fully collapsed-arm clearance/framing passed. Final output:
+  `/tmp/m1-camera-final.log`.
+- A framing extension of the regression initially failed 2 of 9 checks after
+  the scene-only correction: clearance alone could leave the character out of view.
+  Keeping the existing body center as the follow-camera focus fixed both geometric
+  framing failures; final results above include these assertions. Intermediate
+  evidence: `/tmp/m1-camera-framing-before.log`.
+- Existing `--headless --path /workspace/FALSE-WORLD --script
+  res://tests/m1/test_graybox.gd`: **31 checks, 0 failures**, exit 0, no engine errors.
+  Output: `/tmp/m1-camera-graybox.log`. These tests use physics/synthetic input.
+- `--headless --path /workspace/FALSE-WORLD --editor --import`: PASS, exit 0,
+  no script/engine errors (permitted editor local sockets); output retained in
+  `/tmp/m1-camera-import.log`. `--headless --path /workspace/FALSE-WORLD
+  --quit-after 120`: PASS, exit 0, no errors (`/tmp/m1-camera-startup.log`).
+- `--headless --path /workspace/FALSE-WORLD --check-only --script res://<path>`:
+  PASS for the camera runtime script and both camera/original graybox test scripts.
+  Import also validates the referenced scene resources and runtime scripts.
+- `python3 /tmp/validate_false_world_camera.py`, `git diff --check`, and
+  `git diff --cached --check`: PASS. Reviewed the intended eight-file staged diff;
+  checked links/format/UID, exact file scope, preserved handoff/project configuration/
+  unrelated runtime scripts and retained `6803e0b` ancestry. No new dependency or asset.
+
+No graphical display is available to the agent. The correction needs a Windows
+Godot 4.7.2 recheck of front/side/rear wall and corner orbits, both pitch limits,
+wall approach/retreat, camera framing, mesh rendering and retraction/extension
+smoothness. Tests check geometric clearance and visibility flags, not actual
+rendered visibility or comfort. Sampled coverage is not a guarantee for arbitrary
+future geometry, low ceilings, FOV/aspect ratios or altered characters. No FPS,
+GPU, frame-time, RAM, Windows export or full-game performance result is claimed.
+
+## User-reported M1 manual verification (first report)
+
+Recorded: 2026-11-02 (Asia/Tashkent), on branch `docs/m1-manual-verification`,
+based on clean checkout `9230c71`. Source: the user's report of testing M1 on their
+Windows laptop with Godot 4.7.2. These are user-reported observations, not tests
+rerun or independently observed by the agent. The exact tested build SHA, session
+duration, laptop specifications, resolution and driver were not supplied.
+
+Confirmed by the user in the observed session:
+
+- The 3D scene launches and renders.
+- WASD movement works.
+- Mouse-controlled camera rotation works in all directions.
+- The character cannot pass through the central solid obstacle.
+- Holding E moves the interaction lever.
+- Releasing E stops interaction and retains partial progress.
+- Holding E again resumes progress from the previous position.
+- Godot showed **0 errors and 0 warnings** in that observed session.
+
+At the time of this first report, completion/single completion, range/obstruction
+rejection, walking-away cancellation, Escape/focus loss, click-to-recapture, dedicated
+diagonal/ground/perimeter tests and wall clipping were not separately established.
+The latest report above supersedes the corresponding omissions, while unreported
+cases and post-fix graphical behavior remain unverified. Prior automated coverage
+remains distinct. No FPS, frame-time, GPU, RAM or other
+performance measurement, Windows export, or full-game result was reported.
+
+This update changes only `docs/PROGRESS.md`; no gameplay, scene, configuration or
+M2 work is included. Documentation verification performed for this update:
+
+- Python standard-library checks: PASS for UTF-8/newline/trailing whitespace,
+  local Markdown links, required project paths, three skill metadata headers and
+  original empty directory markers; checked the recorded confirmations against
+  the user's report and retained explicit untested/performance limits.
+- `git diff --name-only` and byte comparisons against HEAD: PASS; only
+  `docs/PROGRESS.md` changed, with every other tracked file unchanged and no new
+  untracked files. Handoff, Godot configuration, scripts and scenes are preserved.
+- `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
+  No engine invocation, gameplay test or benchmark was run in this docs-only update.
+
 ## M1 limitations and provisional details
 
-No graphical display or Xvfb is installed in this environment. Physical keyboard/
-mouse input, cursor recapture/focus behavior on a real desktop, camera comfort and
-persistent clipping, lever readability and the complete manual scenario remain
-unverified. No Windows export, Intel-iGPU FPS/frame times/RAM or laptop benchmarks
-were run. Headless physics and synthetic input do not establish those results.
+The agent implementation environment had no graphical display or Xvfb. The user
+reports above provide the listed Windows M1 passes and identify the camera bug.
+The corrected camera still needs graphical revalidation. Window-focus loss,
+walking-away cancellation, dedicated diagonal/perimeter and single-completion
+checks were not separately confirmed in the latest report. No Windows export,
+Intel-iGPU FPS/frame times/RAM or laptop benchmarks were reported. Neither the observed rendering nor the earlier
+headless physics/synthetic input establishes target-hardware performance.
 
 Tuning is provisional: speed 4, gravity 18, work duration 3 seconds, range 2.2 units,
-mouse sensitivity 0.003, pitch -65°…20°, spring length 4; values are configurable.
+mouse sensitivity 0.003, pitch -65°…20°, spring length 4, pivot height 2.1 and
+spherical camera probe radius 0.2; values are prototype tuning for current geometry.
 The single target is explicitly wired, with no general targeting framework. No
 jump/sprint, save-to-disk, animation, settings/menu UI, damage interruption or later
 systems were implemented. Saved partial progress means in-memory progress across
@@ -96,12 +235,15 @@ All remaining full-game technical questions in the historical record remain open
 
 ## Exact next step
 
-Complete the graphical **M1 acceptance pass** in `docs/M1_PROTOTYPE.md` using
-Godot 4.7.2: walk/diagonal/ground/obstacle checks, mouse orbit near walls, E start/
-cancel/resume/completion and blocked/out-of-range rejection, Escape/focus loss and
-click-to-recapture. Record actual visual/input outcomes, debugger errors and target
-hardware evidence, fixing any M1 defects within that scope. Do not claim M1 manual
-acceptance before this pass or begin M2 in this increment.
+Graphically revalidate the **camera clearance fix** on Windows in Godot 4.7.2:
+press against each wall/corner and orbit through the front and both pitch limits;
+move toward/away from obstructions while orbiting. Confirm no camera/character or
+world clipping, that the character stays rendered, and usable smooth framing and
+retraction/extension. Recheck basic WASD/E/Escape-click behavior after the change.
+Record actual outcomes/debugger messages in PROGRESS.md. Complete any separately
+unreported M1 cases from M1_PROTOTYPE.md without claiming them passed in advance.
+No new implementation milestone is authorized; do not start M2. Measure performance
+separately before claiming FPS/GPU/RAM results.
 
 Only after that validation and a new scoped task, follow the approved next handoff
 stage (1 human + 3 AI perception/memory/Director/local-dialogue proof); full survival
