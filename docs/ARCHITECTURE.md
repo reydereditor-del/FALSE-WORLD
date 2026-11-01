@@ -247,8 +247,8 @@ values are exported or explicitly configured prototype tuning, not finalized rul
 Headless physics/synthetic-input tests cannot validate player camera comfort or GPU
 performance; the manual M1 checklist remains a prerequisite to later implementation.
 
-M1 camera clearance correction: the spring origin is 2.1 units above the character's
-feet (above its 1.8-unit capsule) and its world sweep uses a 0.2-unit sphere. This
+M1 camera framing correction: the spring origin is 3.2 units above the character's
+feet (1.4 above its 1.8-unit capsule) and its world sweep uses a 0.2-unit sphere. This
 avoids retraction into the excluded character and protects the camera origin/near
 plane at walls. The camera keeps looking at the existing body center after spring
 updates; a yaw-relative up vector stabilizes the vertical, fully compressed view.
@@ -256,3 +256,11 @@ Orbit input/arm behavior and mesh visibility are retained.
 No forced minimum distance, mesh fading, or camera mode was added. These are current
 M1 geometry/pitch/FOV clearances; future geometry or viewport changes need regression
 and graphical rechecks. See M1_PROTOTYPE.md and PROGRESS.md for evidence/limitations.
+
+The previous 2.1-unit origin passed penetration and center-frustum tests but was
+reported to lose third-person framing. The fixed higher origin reserves lens-to-mesh
+clearance even at zero arm length, without bypassing the world sweep or modifying
+movement/interaction. Regression criteria now include projected whole-body screen
+size and minimum surface clearance, plus tall-wall/corner compression. A fixed-size
+SubViewport replaces the headless window assumption. All values remain M1 tuning;
+the resulting higher viewpoint requires graphical acceptance, not a performance claim.

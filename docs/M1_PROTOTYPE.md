@@ -44,7 +44,7 @@ There is no targeting reticle, progress bar or fake mission indicator.
 All exported tuning is provisional: motor speed 4 units/s, gravity 18 units/s²,
 lever duration 3 seconds, interaction radius 2.2 units from actor torso to target,
 camera sensitivity 0.003 radians/pixel, pitch -65°…20°, spring length 4 units,
-above-head pivot height 2.1 units and spherical camera probe radius 0.2 units.
+above-head pivot height 3.2 units and spherical camera probe radius 0.2 units.
 Change these through the scene Inspector; they are not finalized balance. Duration
 and radius must remain positive. The target checks reach/line of sight on every
 work request and allows one worker, retaining progress for any later worker.
@@ -79,14 +79,17 @@ Import and instantiation cover scene/resource/script validation; individual scri
 can additionally use `--headless --path . --check-only --script <res://path.gd>`.
 The tests exercise real Godot physics, shared commands, synthetic local input,
 camera angle bounds and spring collision, and interaction ownership/cancel/resume/
-obstruction/completion. The camera regression additionally samples 336 wall/corner/
-obstacle orbits at 1280×720, checking conservative camera/near-plane bounds against
-character meshes and solid yard geometry, visibility flags, arm retraction and
-continuous small open-space orbit steps. Frustum checks also require the character
-center to stay in view, including complete arm collapse. These are geometric/physics checks, not
-rendered screenshots or a guarantee for unsampled geometry/viewports.
-They do not establish physical keyboard/mouse behavior,
-comfortable camera control, visuals or rendering performance.
+obstruction/completion. The camera regression uses a fixed 1280×720 SubViewport
+and asserts its actual size: the headless window itself can reset to 64×64. It tests
+336 yard orbits, 48 tall-wall and 48 tall-corner stress poses, both pitch limits,
+full arm collapse, camera/near-plane clearance, visibility flags, center-frustum
+inclusion, projected whole-body size and continuous small open-space orbit steps.
+Character bounds must fit on screen and occupy no more than 80% of either dimension;
+camera-to-body-bounds distance must be at least 1.1 units. These are provisional
+M1 regression thresholds, not final camera balance. Conservative box projections
+are a stronger framing proxy than checking only the character center.
+These physics/projection checks are not rendered screenshots or proof of camera
+comfort, physical input behavior, unsampled geometry support or GPU performance.
 
 In the cloud, export writable locations before these commands:
 
@@ -111,35 +114,43 @@ These are user reports, not graphical tests rerun by the agent. Tested build SHA
 duration, driver, resolution and detailed laptop specifications were not supplied.
 No FPS, GPU, frame-time or memory benchmark or Windows export result was reported.
 
-The later wall-front orbit case exposed a separate camera/character overlap despite
-the generally passing wall collision. Do not interpret the reports as approval of
-the corrected camera's framing or complete absence of clipping at every angle.
+A subsequent wall-front orbit case exposed camera/character overlap; the first
+clearance correction was then reported to produce excessive close-up framing.
+Those user-reported failures are not considered graphically resolved by headless
+tests. The latest correction below still requires Windows acceptance.
 
-## Camera clearance fix
+## Camera framing correction
 
-The original spring origin was at torso/head height (1.5 units), inside the visible
-1.8-unit character. The character is excluded from the spring's world collision
-query; a wall could therefore retract the camera into the character. Including the
-character in that query would start the sweep inside its own collider.
+The earlier clearance fix prevented penetration but failed the user's Windows
+framing test: near an obstacle, retraction could make the blue character fill the
+screen. The 2.1-unit pivot was only 0.3 units above the 1.8-unit mesh. The 0.2-radius
+sphere correctly hit nearby geometry, shortening the arm to about 0.18 units in
+reproduction. Aiming at the body center kept that point in view while the head was
+much nearer the lens; center-in-frustum checks did not prevent extreme magnification.
+The 0.1 near plane prevents close geometry being drawn, not third-person framing.
+Changing the margin or shrinking the probe alone did not resolve this case.
 
-The scene now places the pivot at 2.1 units, 0.3 above the capsule's top. With the
-existing pitch limits, this keeps even a fully compressed camera outside the mesh.
-An explicit 0.2-unit sphere protects the camera origin and near plane during world
-collision sweeps; the default camera-shaped probe could leave the camera origin
-slightly inside a wall. The existing arm length, margin, yaw/pitch controls,
-character visibility and collision exclusions are retained. The follow camera aims
-at the existing character body center after the spring update, keeping it framed
-when the raised pivot is compressed. A yaw-relative up vector handles the vertical
-view at zero arm length without a look-at singularity. There is no minimum-arm
-clamp that could push the camera through a wall, no mesh hiding, new camera mode,
-or new smoothing/input behavior. A path above a 2-unit wall may use full arm length
-when clear; it must not intersect the wall. The yard and movement are unchanged.
+The minimal runtime correction moves the pivot to **3.2 units** above the feet,
+providing 1.4 units above the current capsule. The existing 4-unit arm, 0.2-radius
+sphere, 0.2 margin, 0.1 near plane, FOV 70, pitch limits and body-center focus remain
+unchanged. The raised orbit origin provides framing clearance even when collision
+shortens the arm completely. It is a fixed scene calibration, with no clamp forcing
+the camera past a wall, automatic mode switch, FOV zoom, character hiding, or new
+camera-control algorithm. Normal SpringArm3D world sweeps still decide the arm
+length; taller test walls explicitly force short-arm collision to verify this.
 
-These clearances are provisional for the current capsule, facing marker, FOV and
-pitch range. Recheck them if character geometry, camera FOV/aspect or the world
-changes; this is not a general arbitrary-character/low-ceiling camera solver.
-The existing spring collision test now aims down toward the wall because its
-previous horizontal ray clears the 2-unit wall from the raised pivot.
+For the sampled M1 yard poses the corrected camera is at least 2.49 units from
+conservative body bounds, whose largest screen extent is about 45.4%. Additional
+near-zero/zero-arm tests enforce the 1.1-unit clearance and 80% framing budgets.
+These are geometric measurements, not measured pixel coverage or graphical acceptance.
+The higher origin changes the viewpoint; usability needs Windows revalidation.
+Clear paths above the 2-unit walls may retain full arm length without clipping.
+The existing wall retraction fixture starts farther from the wall so the requested
+arm crosses it at the new height; world geometry and gameplay are unchanged.
+
+This calibration is specific to the M1 capsule, facing marker, current orbit pitch
+range and FOV. Revalidate if character size, near plane, aspect/FOV or geometry changes.
+No support for arbitrary low ceilings or confined future maps is claimed.
 
 ## Graphical recheck required after the fix
 
@@ -148,7 +159,9 @@ On Windows with Godot 4.7.2, using this fix branch:
 1. Press the character against every wall, then orbit to its front and through a
    full circle at low/middle/high pitch. Repeat at corners and the central obstacle.
    Confirm the camera/near plane stay outside both character and world, the character
-   remains rendered, and the new framing is usable without jitter or sudden jumps.
+   remains rendered, and the full character remains reasonably sized, with usable framing and no jitter
+   or sudden jumps. Pay particular attention to downward/front orbits at the lever
+   pedestal, central obstacle and tight corners.
 2. Move toward/away from walls while orbiting; verify smooth retraction/extension
    and unobstructed following. Check visibility when the camera passes above a wall.
 3. Recheck basic WASD and E start/release/resume/completion plus Escape/click after

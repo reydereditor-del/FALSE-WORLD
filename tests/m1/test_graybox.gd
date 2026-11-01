@@ -72,7 +72,7 @@ func _run() -> void:
 	rig.rotation.y = 0.0
 	# Aim down enough to intersect the 2 m wall from the above-head pivot.
 	rig.pitch_pivot.rotation.x = deg_to_rad(20.0)
-	actor.position = Vector3(5, 0, 10)
+	actor.position = Vector3(5, 0, 8.2)
 	await frames(5)
 	expect(rig.spring.get_hit_length() < rig.spring.spring_length - 0.5,
 		"spring arm retracts against yard wall")
