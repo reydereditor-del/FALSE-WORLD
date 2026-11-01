@@ -144,7 +144,7 @@ position = Vector3(0, 1.2, -0.35)
 mesh = SubResource("NoseMesh")
 
 [node name="CameraRig" type="Node3D" parent="Character"]
-position = Vector3(0, 2.1, 0)
+position = Vector3(0, 3.2, 0)
 script = ExtResource("2_camera")
 
 [node name="Pitch" type="Node3D" parent="Character/CameraRig"]

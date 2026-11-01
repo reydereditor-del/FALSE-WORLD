@@ -6,7 +6,6 @@ var failures: int = 0
 
 
 func _initialize() -> void:
-	root.size = Vector2i(1280, 720)
 	call_deferred("_run")
 
 
@@ -35,9 +34,31 @@ func camera_bounds(camera: Camera3D) -> AABB:
 	return bounds.grow(0.02)
 
 
+func projected_fraction(camera: Camera3D, bounds: AABB) -> float:
+	var screen_min := Vector2(INF, INF)
+	var screen_max := Vector2(-INF, -INF)
+	var viewport_size := camera.get_viewport().get_visible_rect().size
+	for corner in range(8):
+		var point := bounds.get_endpoint(corner)
+		if camera.is_position_behind(point):
+			return INF
+		var pixel := camera.unproject_position(point)
+		screen_min = screen_min.min(pixel)
+		screen_max = screen_max.max(pixel)
+	if screen_min.x < 0.0 or screen_min.y < 0.0 or screen_max.x > viewport_size.x or screen_max.y > viewport_size.y:
+		return INF
+	var fraction := (screen_max - screen_min) / viewport_size
+	return maxf(fraction.x, fraction.y)
+
+
 func _run() -> void:
 	var world := load("res://scenes/prototype/m1_graybox.tscn").instantiate() as Node3D
-	root.add_child(world)
+	# The headless window forces 64x64; use a real fixed-size render viewport.
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	viewport.own_world_3d = true
+	root.add_child(viewport)
+	viewport.add_child(world)
 	var actor := world.get_node("Character") as CharacterMotor
 	actor.get_node("LocalController").set_physics_process(false)
 	actor.get_node("LocalController").set_process_unhandled_input(false)
@@ -46,6 +67,8 @@ func _run() -> void:
 	var body := actor.get_node("Visual/Body") as MeshInstance3D
 	var marker := actor.get_node("Visual/FacingMarker") as MeshInstance3D
 	await frames(10)
+	expect(camera.get_viewport().get_visible_rect().size == Vector2(1280, 720),
+		"framing regression uses a stable 1280x720 viewport")
 
 	# Original reported case: character pressed against north wall, camera at front.
 	actor.position = Vector3(0, 0, -11.14)
@@ -67,6 +90,9 @@ func _run() -> void:
 	var wall_overlaps: int = 0
 	var hidden: int = 0
 	var out_of_frame: int = 0
+	var min_surface_distance: float = INF
+	var max_screen_fraction: float = 0.0
+	var minimum_arm: float = INF
 	var samples: int = 0
 	var walls: Array[AABB] = []
 	for name in ["NorthWall", "SouthWall", "EastWall", "WestWall", "Obstacle", "Ground"]:
@@ -90,6 +116,11 @@ func _run() -> void:
 					hidden += 1
 				if not camera.is_position_in_frustum(body.global_position):
 					out_of_frame += 1
+				var body_box := body.global_transform * body.get_aabb()
+				var nearest := camera.global_position.clamp(body_box.position, body_box.end)
+				min_surface_distance = minf(min_surface_distance, camera.global_position.distance_to(nearest))
+				max_screen_fraction = maxf(max_screen_fraction, projected_fraction(camera, body_box))
+				minimum_arm = minf(minimum_arm, rig.spring.get_hit_length())
 				samples += 1
 	print("Orbit samples: %d; self overlaps: %d; geometry overlaps: %d" % [samples, overlaps, wall_overlaps])
 	expect(overlaps == 0, "camera/near-plane clearance across walls, corners, obstacle and pitch limits")
@@ -98,8 +129,68 @@ func _run() -> void:
 
 	expect(out_of_frame == 0, "character center stays inside camera frustum during sampled retraction")
 
+	print("Framing: nearest surface=", min_surface_distance, " largest screen fraction=", max_screen_fraction, " shortest arm=", minimum_arm)
+	expect(min_surface_distance >= 1.1, "camera maintains at least 1.1 units of character surface clearance")
+	expect(max_screen_fraction <= 0.8, "projected character bounds use at most 80 percent of either screen dimension")
+
+	# Taller test-only wall forces true near-zero retraction instead of clearing
+	# the top of the 2 m yard. Runtime world geometry is not modified.
+	var tall_wall := StaticBody3D.new()
+	var collision := CollisionShape3D.new()
+	var tall_shape := BoxShape3D.new()
+	tall_shape.size = Vector3(24, 6, 0.5)
+	collision.shape = tall_shape
+	tall_wall.add_child(collision)
+	world.add_child(tall_wall)
+	tall_wall.position = Vector3(0, 1, -11.75)
+	actor.position = Vector3(0, 0, -11.14)
+	await frames(3)
+	var stress_clear := true
+	var stress_framed := true
+	var stress_retracted := false
+	var tall_bounds := AABB(tall_wall.position - tall_shape.size / 2.0, tall_shape.size)
+	for pitch in [-65.0, -18.0, 0.0, 20.0]:
+		rig.pitch_pivot.rotation.x = deg_to_rad(pitch)
+		for yaw in range(0, 360, 30):
+			rig.rotation.y = deg_to_rad(float(yaw))
+			await frames(2)
+			var box := body.global_transform * body.get_aabb()
+			var nearest := camera.global_position.clamp(box.position, box.end)
+			stress_clear = stress_clear and camera.global_position.distance_to(nearest) >= 1.1
+			stress_clear = stress_clear and not camera_bounds(camera).intersects(tall_bounds)
+			stress_framed = stress_framed and projected_fraction(camera, box) <= 0.8
+			stress_retracted = stress_retracted or rig.spring.get_hit_length() < 0.5
+	expect(stress_clear and stress_framed and stress_retracted,
+		"tall-wall short-arm stress preserves world clearance and third-person framing")
+	var corner_wall := StaticBody3D.new()
+	var corner_collision := CollisionShape3D.new()
+	corner_collision.shape = tall_shape
+	corner_wall.add_child(corner_collision)
+	world.add_child(corner_wall)
+	corner_wall.position = Vector3(-11.75, 1, 0)
+	corner_wall.rotation.y = PI / 2.0
+	actor.position = Vector3(-11.14, 0, -11.14)
+	await frames(3)
+	var corner_bounds := corner_wall.global_transform * AABB(-tall_shape.size / 2.0, tall_shape.size)
+	var corner_clear := true
+	for pitch in [-65.0, -18.0, 0.0, 20.0]:
+		rig.pitch_pivot.rotation.x = deg_to_rad(pitch)
+		for yaw in range(0, 360, 30):
+			rig.rotation.y = deg_to_rad(float(yaw))
+			await frames(2)
+			var box := body.global_transform * body.get_aabb()
+			var nearest := camera.global_position.clamp(box.position, box.end)
+			corner_clear = corner_clear and camera.global_position.distance_to(nearest) >= 1.1
+			corner_clear = corner_clear and projected_fraction(camera, box) <= 0.8
+			corner_clear = corner_clear and not camera_bounds(camera).intersects(tall_bounds)
+			corner_clear = corner_clear and not camera_bounds(camera).intersects(corner_bounds)
+	expect(corner_clear, "tall-corner stress retains framing and clearance at steep pitch")
+	tall_wall.queue_free()
+	corner_wall.queue_free()
+	await frames(3)
+
 	# An obstructed ray must still retract, not enforce a minimum arm through a wall.
-	actor.position = Vector3(5, 0, 10)
+	actor.position = Vector3(5, 0, 8.2)
 	rig.rotation.y = 0.0
 	rig.pitch_pivot.rotation.x = deg_to_rad(20.0)
 	await frames(4)
@@ -126,16 +217,19 @@ func _run() -> void:
 	rig.spring.spring_length = 0.0
 	var collapsed_clear := true
 	var collapsed_framed := true
+	var collapsed_sized := true
 	for pitch in [-65.0, -18.0, 0.0, 20.0]:
 		rig.pitch_pivot.rotation.x = deg_to_rad(pitch)
 		await frames(2)
+		collapsed_sized = collapsed_sized and projected_fraction(camera, body.global_transform * body.get_aabb()) <= 0.8
 		collapsed_framed = collapsed_framed and camera.is_position_in_frustum(body.global_position)
 		collapsed_clear = collapsed_clear and not camera_bounds(camera).intersects(
 			body.global_transform * body.get_aabb())
 	expect(collapsed_clear, "fully retracted camera and near plane stay above the character")
 	expect(collapsed_framed, "fully retracted camera still frames the character center")
+	expect(collapsed_sized, "fully retracted view retains whole-character size below 80 percent")
 	rig.spring.spring_length = normal_length
-	world.queue_free()
+	viewport.queue_free()
 	await frames(2)
 	print("Camera regression: %d checks, %d failures" % [checks, failures])
 	quit(0 if failures == 0 else 1)
