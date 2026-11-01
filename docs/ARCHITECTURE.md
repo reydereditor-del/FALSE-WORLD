@@ -299,3 +299,29 @@ and limits are in STAGE3A_PROTOTYPE.md. Physics/navigation are not promised to b
 bitwise deterministic across platforms, and no target-hardware performance is yet
 measured. M1 user-reported magnification resolution does not establish all camera
 occlusion resolved or Stage 3A graphical acceptance. No UI or role labels were added.
+
+
+## Stage 3A.1 exploration boundaries
+
+The new default scene inherits the retained Stage 3A composition, overrides floor/
+perimeter resources, and adds authored primitive shells, lanes, obstacles and sixteen
+static destination markers. Its separate baked NavigationMesh has 214 polygons.
+M1 and the original 3A scenes/navmesh remain byte-preserved. No renderer change,
+external asset, dependency or gameplay UI was added.
+
+The base composition now exposes initial positions/patrol data and a controller
+factory; legacy defaults are unchanged. ExplorationChoices ranks static sites using
+private visit history, distance/area novelty and seeded variation. ExplorationController
+validates bounded candidate paths, travels with blended input, pauses on arrival,
+and cools down failed destinations after bounded repaths. No actor registry,
+perception memory or human state enters that selector. The existing knowledge
+modules and selective delayed reports are unchanged; there is no Director strategy.
+
+The shared motor adds only an opt-in visual turn-speed limit, preserving its zero
+legacy default and identical movement/gravity/collision equations. New AI opt in;
+human and legacy M1 behavior are preserved. Native physics still constrains actual
+motion. Three agents use staggered low-frequency decisions, limited candidate/path
+checks and the existing per-tick path follower. Dynamic crowd avoidance is not added.
+See STAGE3A1_PROTOTYPE.md for authored access routes, tuning, rebake commands and
+manual acceptance. Automated path/angle bounds are not proof of natural-looking
+movement or GPU performance; expanded-map occlusion and usability remain unverified.

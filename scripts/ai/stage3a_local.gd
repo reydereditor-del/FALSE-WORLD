@@ -10,6 +10,10 @@ const ACTOR := preload("res://scenes/character/shared_character.tscn")
 @export_range(10.0, 180.0) var perception_fov: float = 120.0
 @export_range(1, 64) var memory_capacity: int = 8
 @export_range(1, 64) var report_queue_capacity: int = 12
+@export var start_positions := PackedVector3Array([
+	Vector3(-6, 0.1, -5), Vector3(6, 0.1, -5), Vector3(6, 0.1, 5)])
+@export var patrol_points := PackedVector3Array([
+	Vector3(-6, 0, -5), Vector3(6, 0, -5), Vector3(6, 0, 5), Vector3(-6, 0, 5)])
 var actors: Dictionary = {}
 var sensors: Array[LocalPerception] = []
 var controllers: Array[WaypointController] = []
@@ -22,15 +26,12 @@ func _ready() -> void:
 	process_physics_priority = -20
 	actors[&"F11"] = $Character
 	var ids: Array[StringName] = [&"K72", &"B14", &"D09"]
-	var starts := [Vector3(-6, 0.1, -5), Vector3(6, 0.1, -5), Vector3(6, 0.1, 5)]
-	var route := PackedVector3Array([Vector3(-6, 0, -5), Vector3(6, 0, -5),
-		Vector3(6, 0, 5), Vector3(-6, 0, 5)])
 	channel.delay_ticks = report_delay_ticks
 	channel.capacity = report_queue_capacity
 	for index in range(3):
 		var actor := ACTOR.instantiate() as CharacterMotor
 		actor.name = String(ids[index])
-		actor.position = starts[index]
+		actor.position = start_positions[index]
 		add_child(actor)
 		actors[ids[index]] = actor
 		var navigator := NavigationAgent3D.new()
@@ -42,10 +43,10 @@ func _ready() -> void:
 		navigator.max_speed = actor.move_speed
 		navigator.avoidance_enabled = false
 		actor.add_child(navigator)
-		var controller := WaypointController.new()
+		var controller := create_controller(index)
 		controller.motor = actor
 		controller.navigator = navigator
-		controller.waypoints = route
+		controller.waypoints = patrol_points
 		controller.seed_value = simulation_seed + index
 		controller.update_interval_ticks = update_interval_ticks
 		controller.schedule_offset = floori(float(index * update_interval_ticks) / 3.0)
@@ -80,3 +81,7 @@ func _physics_process(_delta: float) -> void:
 		controller.plan(simulation_tick)
 		sampled += 1
 	max_sensors_per_tick = maxi(max_sensors_per_tick, sampled)
+
+
+func create_controller(_index: int) -> WaypointController:
+	return WaypointController.new()

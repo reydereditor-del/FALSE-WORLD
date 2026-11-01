@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @export_range(0.1, 20.0) var move_speed: float = 4.0
 @export_range(0.1, 50.0) var gravity: float = 18.0
+@export_range(0.0, 12.0) var facing_turn_speed: float = 0.0
 var _move_intent: Vector3 = Vector3.ZERO
 
 
@@ -20,4 +21,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 	move_and_slide()
 	if _move_intent.length_squared() > 0.001:
-		$Visual.rotation.y = atan2(-_move_intent.x, -_move_intent.z)
+		var target_yaw := atan2(-_move_intent.x, -_move_intent.z)
+		if facing_turn_speed > 0.0:
+			$Visual.rotation.y = rotate_toward($Visual.rotation.y, target_yaw, facing_turn_speed * delta)
+		else:
+			$Visual.rotation.y = target_yaw

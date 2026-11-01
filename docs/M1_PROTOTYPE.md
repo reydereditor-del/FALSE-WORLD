@@ -9,8 +9,8 @@ All geometry/materials are original Godot primitives; no imported assets/depende
 ## Run and controls
 
 Use **Godot 4.7.2 standard** with GDScript. Import root `project.godot`, then F6 with
-`scenes/prototype/m1_graybox.tscn` open. F5 now starts Stage 3A (the same yard plus
-three agents); see [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md).
+`scenes/prototype/m1_graybox.tscn` open. F5 now starts the larger Stage 3A.1 exploration demo; see
+[STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md).
 From the repository root, the equivalent command is:
 
 ```sh
