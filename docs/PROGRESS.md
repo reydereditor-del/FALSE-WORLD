@@ -2,7 +2,143 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — M1 local graybox
+## Current status — Stage 3A local AI foundation
+
+Stage 3A adds one local human and exactly three local agents with shared character
+physics/model, built-in waypoint navigation, bounded LOS perception, separate memory
+and delayed selective observed-fact sharing. This is only the foundation of handoff
+§19 stage 3, not a completed deception proof. No dialogue, deception decisions,
+combat, inventory, mission/extraction, mobs, multiplayer, external service or UI.
+
+The user visually confirmed the latest M1 camera prevents the previous extreme
+magnification and reported M1 movement/collision/interaction/camera controls passing
+on Windows/Godot 4.7.2. This is user-reported evidence, not an agent rerun. Remaining
+camera occlusion is not claimed solved, and FPS/GPU/frame-time/RAM remain unmeasured.
+New Stage 3A agents and their additional blocking/occlusion need graphical validation.
+
+Inspected a clean checkout at `d5fc70b`, fetched main merge `811db0e`, and created
+`feat/stage3a-local-ai` from it. Prior M1/verification commits are preserved. This
+user task explicitly authorizes the Stage 3A branch push; no merge into main.
+
+## Completed Stage 3A work
+
+- Extracted preserved M1 mesh/material/capsule/motor composition to
+  `scenes/character/shared_character.tscn`. M1 now instances it, retaining its exact
+  camera/input/interactor hierarchy. All existing character, camera and interaction
+  GDScript files are unchanged; no movement rewrite or new physical ability.
+- Added `scenes/prototype/stage3a_local.tscn`, inheriting the small M1 yard. The scene
+  composes exactly three agent bodies through `scripts/ai/stage3a_local.gd`, while
+  the M1 human and lever remain functional. F5 starts Stage 3A; original M1 still
+  runs directly/F6. Only the project's startup-scene setting changed.
+- Added a built-in static navigation resource (24 polygons), a Godot-only rebake
+  tool, and waypoint controllers using NavigationAgent3D. All motion goes through
+  the unchanged CharacterMotor. Static obstacles route paths; physics remains final
+  collision authority. Stalled routes retry twice then abandon their waypoint.
+- Added range/cone/LOS sensing, one LocalMemory per agent, and seven-field observed
+  snapshots: observer, subject, event, position, tick, confidence, source. No role,
+  HP, inventory, intentions, mission state or live target references in memory.
+- Added a small delayed channel wired only to actual perception signals matching
+  their sensor memory. Fixed selective ring routing, bounded queue, one delivery per
+  tick, no rebroadcast. Pending reports retain the original snapshot/due time;
+  recipient freshness uses observation time. Provenance validation is a pure lookup
+  and cannot alter observer memory based on an incoming report tick.
+- Patrol decisions only: shared facts do not drive behavior yet. No strategic
+  Director or dialogue system is represented as implemented. Three staggered
+  sensor/planning phases, seeded initial waypoint choices and injectable simulation
+  ticks make the current rules configurable/testable and keep work bounded.
+- Added Stage 3A tests and run/settings/manual-check documentation. Updated design,
+  architecture, M1 launch instructions and the AI skill's stale docs-only wording.
+  No dependency, paid service, imported asset, gameplay UI or full map added.
+
+## Checks actually performed in this increment
+
+All Godot commands ran from `/workspace/FALSE-WORLD` using explicit
+`/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` (version verified:
+`4.7.2.stable.official.ed1daf0bf`) with `XDG_CACHE_HOME=/workspace/.cache`,
+`XDG_DATA_HOME=/workspace/.local/share`, `XDG_CONFIG_HOME=/workspace/.config`.
+Here `GODOT` denotes that explicit binary, not the older default system executable.
+
+- `$GODOT --headless --path /workspace/FALSE-WORLD --script
+  res://tools/bake_stage3a_navigation.gd`: PASS, 24 navigation polygons saved, exit 0.
+  The actual navigation bake ran; no plugin or dependency installation was needed.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --editor --import`: final PASS,
+  exit 0, no engine/script errors (`/tmp/stage3a-import.log`). Initial sandbox import
+  emitted local-socket errors; permitted editor-socket validation succeeded.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --check-only --script res://<path>`:
+  PASS for all five new AI scripts, the navigation bake tool and Stage 3A test
+  (seven parser checks). The initial test script had an inference parse error for a
+  dynamically loaded world; corrected before running its behavioral checks.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --script
+  res://tests/stage3a/test_foundation.gd`: **39 checks, 0 failures**, exit 0, clean
+  engine output (`/tmp/stage3a-tests.log`). Tests cover actual agent traversal,
+  identical model/collider resources, common speed/ground rules, staggered updates,
+  blocked/range/cone vision, stable last-seen, capacity/expiry/isolation, delayed
+  selective sharing, original provenance, unsupported-fact rejection without memory
+  mutation, two observations overflowing a one-entry queue, perception work budget,
+  physical detour around the central obstacle, seeded waypoint choice and finite
+  stalled-route retries. The test uses real physics plus injected-tick rule checks.
+- Existing `$GODOT --headless --path /workspace/FALSE-WORLD --script
+  res://tests/m1/test_graybox.gd`: **31 checks, 0 failures**, exit 0
+  (`/tmp/stage3a-m1-tests.log`). Existing `res://tests/m1/test_camera_clearance.gd`:
+  **15 checks, 0 failures**, exit 0 (`/tmp/stage3a-camera-tests.log`).
+- Startup default Stage 3A with `--headless --path /workspace/FALSE-WORLD
+  --fixed-fps 60 --quit-after 600`: PASS, exit 0, no errors
+  (`/tmp/stage3a-startup.log`). This runs fixed simulation frames, not a hardware
+  performance benchmark. Explicit original M1 scene startup with `--quit-after 120`
+  also passed (`/tmp/stage3a-m1-startup.log`).
+- `python3 /tmp/validate_false_world_stage3a.py`: PASS for exact intended file scope,
+  protected-file SHA-256 equality, preserved original character resource definitions,
+  only intended startup configuration change, local references/format/skill metadata,
+  UID pairs and original directory markers, clean logs and completed test counts.
+- `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
+  No protected handoff, unrelated project setting, camera/movement/interaction code,
+  existing tests or third-party asset changes.
+
+## Known limits and unresolved technical details
+
+No agent-observed graphical Stage 3A session, target-laptop performance test, Windows
+export or real-human deception playtest was run. The prior user M1 confirmation
+does not verify this new scene or prove all camera occlusion resolved. Confirm the
+three models, navigation/collision, camera visibility and lever controls on Windows.
+
+The navmesh is static and must be rebaked after static M1 geometry changes. RVO/
+dynamic crowd avoidance is disabled; agents may physically block each other or the
+human before bounded retry/waypoint abandonment. Longer-run path behavior needs
+manual observation. No general map generator, dynamic navigation, multi-tier AI,
+visual-ID recognition, human-role classification, strategy or dialogue is implemented.
+The small private tracking IDs are not a full player-facing identity system.
+
+Rules/settings are provisional: seed 431, 15-tick sensing/planning interval with
+three offsets, 30-tick report delay, 300-tick freshness, 8 memory entries, 12 queued
+reports, four candidates, range 8 and FOV 120°. At 60 physics ticks/s that is 4 Hz
+per agent, 0.5 s report delay and 5 s freshness. Defaults are Inspector-configurable
+on the stage root. Tick-time logic/seeded choices are repeatable; bitwise physics/
+navigation behavior across platforms is not guaranteed. No full 22–25-AI or 1×1 km
+capacity/performance claim follows from this small foundation.
+
+## Exact next step
+
+Run the Stage 3A graphical checklist in `docs/STAGE3A_PROTOTYPE.md` on Windows with
+Godot 4.7.2: observe three identical agents traversing the yard, test human blocking/
+agent recovery and obstacle collision, recheck camera occlusion/framing and E/
+Escape/click behavior, and record actual debugger/visual outcomes. Fix demonstrated
+foundation defects within scope; measure FPS/RAM separately before scaling.
+
+Only after that acceptance and a new scoped task, implement the next Stage 3B
+slice: a minimal deterministic decision layer consuming fresh local/reported facts
+through the existing action interfaces. Dialogue/deception remains a separately
+scoped next part of the approved proof, not something implemented by Stage 3A.
+Do not proceed to the larger playable or other excluded systems in this increment.
+
+## Historical M1 record (before Stage 3A)
+
+The following records earlier increments, including then-pending verification and
+then-planned next steps. The current Stage 3A status and latest user M1 confirmation
+above supersede those historical status statements, not the recorded test evidence.
+
+Updated: 2026-11-02 (Asia/Tashkent).
+
+### Current status — M1 local graybox
 
 M1 runtime implementation is complete as a local technical slice, corresponding to
 handoff §19 stage 2. Automated checks passed in the implementation increment.
@@ -18,7 +154,7 @@ Original M1 implementation base: fetched `origin/main` at merge `2d0effe`
 `feat/m1-local-graybox`. The initial working tree was clean. No push or merge is
 part of this increment. Use `git log -1 --oneline` for the resulting M1 commit ID.
 
-## Completed M1 work
+### Completed M1 work
 
 - Added `scenes/prototype/m1_graybox.tscn`: 24×24-unit primitive yard, collision floor,
   central obstacle, perimeter, one capsule character, follow camera and adjustable
@@ -40,7 +176,7 @@ part of this increment. Use `git log -1 --oneline` for the resulting M1 commit I
   godot-development skill; this user task explicitly authorizes M1 implementation.
   All other skills and the handoff are preserved.
 
-## M1 verification actually performed
+### M1 verification actually performed
 
 Engine: explicit
 `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`, reporting
@@ -82,7 +218,7 @@ explicit binary, not the older default system executable.
 - `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
   Only intended M1 source/scene/test/configuration/docs files included.
 
-## Latest framing failure and correction
+### Latest framing failure and correction
 
 Recorded: 2026-11-02 (Asia/Tashkent). The user reports that the previous fix is not
 fully successful on Windows/Godot 4.7.2: near obstacles, downward/front orbit retracts
@@ -169,7 +305,7 @@ walls and corners, and approaching the central obstacle/lever pedestal. Verify
 whole-character size, rendering, smoothness and input/interaction preservation.
 No FPS/GPU/frame-time/RAM, export, arbitrary low-ceiling or future-map guarantee.
 
-## Previous clearance correction (historical)
+### Previous clearance correction (historical)
 
 Recorded: 2026-11-02 (Asia/Tashkent). The user reports the following additional
 passes on their Windows laptop with Godot 4.7.2, before this camera fix:
@@ -261,7 +397,7 @@ rendered visibility or comfort. Sampled coverage is not a guarantee for arbitrar
 future geometry, low ceilings, FOV/aspect ratios or altered characters. No FPS,
 GPU, frame-time, RAM, Windows export or full-game performance result is claimed.
 
-## User-reported M1 manual verification (first report)
+### User-reported M1 manual verification (first report)
 
 Recorded: 2026-11-02 (Asia/Tashkent), on branch `docs/m1-manual-verification`,
 based on clean checkout `9230c71`. Source: the user's report of testing M1 on their
@@ -301,7 +437,7 @@ M2 work is included. Documentation verification performed for this update:
 - `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
   No engine invocation, gameplay test or benchmark was run in this docs-only update.
 
-## M1 limitations and provisional details
+### M1 limitations and provisional details
 
 The agent implementation environment had no graphical display or Xvfb. The user
 reports above provide the listed Windows M1 passes and identify the camera bug.
@@ -320,7 +456,7 @@ systems were implemented. Saved partial progress means in-memory progress across
 cancel/resume in the same scene. Runtime values do not finalize handoff balance.
 All remaining full-game technical questions in the historical record remain open.
 
-## Exact next step
+### Exact next step
 
 Graphically revalidate **this framing fix branch** on Windows with Godot 4.7.2.
 Press against the central obstacle, pedestal, walls and corners; orbit steeply
@@ -335,7 +471,7 @@ Only after that validation and a new scoped task, follow the approved next hando
 stage (1 human + 3 AI perception/memory/Director/local-dialogue proof); full survival
 and rescue systems remain later work. No AI proof or M2 implementation has begun.
 
-## Historical reconciliation record (before M1)
+### Historical reconciliation record (before M1)
 
 The following preserves the previous documentation increment's evidence and planned
 next step as history. Its statements about absent runtime code and docs-only scope

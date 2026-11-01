@@ -9,11 +9,12 @@ All geometry/materials are original Godot primitives; no imported assets/depende
 ## Run and controls
 
 Use **Godot 4.7.2 standard** with GDScript. Import root `project.godot`, then F6 with
-`scenes/prototype/m1_graybox.tscn` open, or F5 for the configured startup scene.
+`scenes/prototype/m1_graybox.tscn` open. F5 now starts Stage 3A (the same yard plus
+three agents); see [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md).
 From the repository root, the equivalent command is:
 
 ```sh
-godot --path .
+godot --path . res://scenes/prototype/m1_graybox.tscn
 ```
 
 Ensure `godot --version` is 4.7.2. The cloud's default binary may still be 4.6.3;
@@ -70,7 +71,7 @@ Run from repository root with Godot 4.7.2 explicitly selected:
 godot --headless --path . --editor --import
 godot --headless --path . --script res://tests/m1/test_graybox.gd
 godot --headless --path . --script res://tests/m1/test_camera_clearance.gd
-godot --headless --path . --quit-after 120
+godot --headless --path . res://scenes/prototype/m1_graybox.tscn --quit-after 120
 ```
 
 The built-in GDScript runner exits nonzero on failed expectations and prints its
@@ -152,7 +153,7 @@ This calibration is specific to the M1 capsule, facing marker, current orbit pit
 range and FOV. Revalidate if character size, near plane, aspect/FOV or geometry changes.
 No support for arbitrary low ceilings or confined future maps is claimed.
 
-## Graphical recheck required after the fix
+## Remaining graphical checks and Stage 3A regression pass
 
 On Windows with Godot 4.7.2, using this fix branch:
 
@@ -171,6 +172,17 @@ On Windows with Godot 4.7.2, using this fix branch:
 4. Record actual results/debugger messages. Measure FPS/frame times/RAM separately
    before making performance claims; headless geometry checks cannot establish them.
 
-No graphical display is available to the agent. The fix has automated clearance
-coverage but has not yet been visually accepted on Windows. Do not start M2 as
-part of the camera fix or its verification.
+No graphical display is available to the agent. The later user confirmation below
+covers reported M1 controls and removal of extreme magnification, not complete
+occlusion/performance acceptance. Stage 3A adds bodies and needs a fresh graphical
+regression pass. No larger playable systems are authorized by this checklist.
+
+
+## Later user confirmation
+
+The user has visually confirmed that the latest M1 camera fix prevents the previous
+extreme magnification, and reports passing M1 movement, collision, interaction and
+camera controls. These are user reports, not fresh agent graphical tests. Remaining
+camera occlusion is not claimed fixed, and FPS/RAM/GPU/frame times remain unmeasured.
+Stage 3A adds agents without changing the movement or camera scripts; its new visual
+behavior and additional occlusion still require separate graphical verification.

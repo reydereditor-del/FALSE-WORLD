@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=20 format=3]
 
-[ext_resource type="Script" path="res://scripts/character/character_motor.gd" id="1_motor"]
+[ext_resource type="PackedScene" path="res://scenes/character/shared_character.tscn" id="1_character"]
 [ext_resource type="Script" path="res://scripts/character/follow_camera.gd" id="2_camera"]
 [ext_resource type="Script" path="res://scripts/character/local_controller.gd" id="3_input"]
 [ext_resource type="Script" path="res://scripts/interaction/character_interactor.gd" id="4_interactor"]
@@ -22,10 +22,6 @@ roughness = 1.0
 albedo_color = Color(0.54, 0.56, 0.58, 1)
 roughness = 1.0
 
-[sub_resource type="StandardMaterial3D" id="CharacterMaterial"]
-albedo_color = Color(0.2, 0.48, 0.68, 1)
-roughness = 1.0
-
 [sub_resource type="StandardMaterial3D" id="LeverMaterial"]
 albedo_color = Color(0.9, 0.62, 0.16, 1)
 roughness = 1.0
@@ -44,17 +40,6 @@ size = Vector3(3, 2, 2)
 [sub_resource type="BoxShape3D" id="ObstacleShape"]
 size = Vector3(3, 2, 2)
 
-[sub_resource type="CapsuleMesh" id="CharacterMesh"]
-material = SubResource("CharacterMaterial")
-radius = 0.35
-height = 1.8
-radial_segments = 12
-rings = 4
-
-[sub_resource type="CapsuleShape3D" id="CharacterShape"]
-radius = 0.35
-height = 1.8
-
 [sub_resource type="BoxMesh" id="PedestalMesh"]
 material = SubResource("ObstacleMaterial")
 size = Vector3(0.6, 2, 0.6)
@@ -65,10 +50,6 @@ size = Vector3(0.6, 2, 0.6)
 [sub_resource type="BoxMesh" id="HandleMesh"]
 material = SubResource("LeverMaterial")
 size = Vector3(0.14, 0.8, 0.14)
-
-[sub_resource type="BoxMesh" id="NoseMesh"]
-material = SubResource("LeverMaterial")
-size = Vector3(0.18, 0.18, 0.3)
 
 [sub_resource type="BoxMesh" id="WallMesh"]
 material = SubResource("ObstacleMaterial")
@@ -125,23 +106,8 @@ position = Vector3(0, 1, 0)
 position = Vector3(0, 0.4, 0)
 mesh = SubResource("HandleMesh")
 
-[node name="Character" type="CharacterBody3D" parent="."]
+[node name="Character" parent="." instance=ExtResource("1_character")]
 position = Vector3(0, 0.1, 5)
-script = ExtResource("1_motor")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
-position = Vector3(0, 0.9, 0)
-shape = SubResource("CharacterShape")
-
-[node name="Visual" type="Node3D" parent="Character"]
-
-[node name="Body" type="MeshInstance3D" parent="Character/Visual"]
-position = Vector3(0, 0.9, 0)
-mesh = SubResource("CharacterMesh")
-
-[node name="FacingMarker" type="MeshInstance3D" parent="Character/Visual"]
-position = Vector3(0, 1.2, -0.35)
-mesh = SubResource("NoseMesh")
 
 [node name="CameraRig" type="Node3D" parent="Character"]
 position = Vector3(0, 3.2, 0)

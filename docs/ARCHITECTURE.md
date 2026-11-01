@@ -1,10 +1,12 @@
 # FALSE WORLD — architecture
 
 Status: planned full-game boundaries; M1 local movement/camera/interaction is
-implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Other systems remain planned.
+implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A local AI
+foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md); later systems
+and the complete deception proof remain planned.
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) controls approved gameplay;
 [GAME_DESIGN.md](GAME_DESIGN.md) reconciles it. Technical choices below are proposals
-unless required by that handoff. M1 authorizes only the local graybox slice.
+unless required by that handoff. Implement only the current explicitly scoped task.
 
 ## Existing project and preservation
 
@@ -263,4 +265,37 @@ clearance even at zero arm length, without bypassing the world sweep or modifyin
 movement/interaction. Regression criteria now include projected whole-body screen
 size and minimum surface clearance, plus tall-wall/corner compression. A fixed-size
 SubViewport replaces the headless window assumption. All values remain M1 tuning;
-the resulting higher viewpoint requires graphical acceptance, not a performance claim.
+the user now reports extreme magnification resolved. Remaining occlusion and the
+new Stage 3A scene still need graphical validation; no performance claim follows.
+
+
+## Stage 3A implementation boundaries
+
+The shared character PackedScene contains the preserved M1 geometry/materials,
+collision shape and unchanged motor. M1 adds its existing local input, camera and
+interactor children; Stage 3A instances three bodies with NavigationAgent3D and
+waypoint controllers. The startup scene is now stage3a_local.tscn; M1 remains
+standalone. This small scene inherits the M1 yard rather than building a full map.
+
+Built-in static-collider parsing/Recast baking produces a checked-in navigation
+resource; an explicit Godot tool rebakes after geometry changes. No plugin, asset,
+package or paid service is added. Agent radius exceeds the body radius for static
+clearance, while the shared motor retains final collision authority. Dynamic RVO is
+not implemented; bounded stall/repath/waypoint-abandonment prevents infinite retries.
+
+Perception alone holds candidate world nodes and samples bounded range/cone/LOS.
+Each agent owns separate copied memory with provenance and original simulation tick.
+The small report channel subscribes only to actual perception signals matching the
+observer's memory, snapshots once, delays, checks recipient freshness and routes to
+one configured peer. It never reads actor transforms or authoritative hidden state.
+No automatic relay chain, strategic Director, dialogue or target-pursuit behavior
+is implemented. The patrol planner reads only authored waypoints/its own body and
+navigation agent; reports do not drive decisions in this increment.
+
+Seeded waypoint selection and injected tick-time rules support repeatable tests.
+Three staggered low-frequency sensor/plan phases, bounded memory/candidate/queue
+sizes and finite route retries keep work bounded. Detailed settings, command paths
+and limits are in STAGE3A_PROTOTYPE.md. Physics/navigation are not promised to be
+bitwise deterministic across platforms, and no target-hardware performance is yet
+measured. M1 user-reported magnification resolution does not establish all camera
+occlusion resolved or Stage 3A graphical acceptance. No UI or role labels were added.
