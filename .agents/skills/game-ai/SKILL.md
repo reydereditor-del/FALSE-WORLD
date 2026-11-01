@@ -6,8 +6,8 @@ description: Design and validate lightweight local coordinated deception AI for 
 # Game AI
 
 1. Read `AGENTS.md`, `docs/FALSE_WORLD_HANDOFF.md` v1.0, design, architecture and
-   progress. The handoff overrides earlier gameplay proposals. This reconciliation
-   is documentation-only; implement AI only in a subsequent authorized scoped task.
+   progress. The handoff overrides earlier gameplay proposals. Documentation alone
+   never authorizes code; implement only the current explicitly scoped AI task.
 2. Define allowed inputs, observations/reports, commands, seed/time and a measurable
    scenario before implementation. Full target: varying 22–25 hidden human-like AI,
    Basic majority, Intermediate, rare Advanced; ratios are provisional. Begin with

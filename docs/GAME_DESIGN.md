@@ -5,7 +5,9 @@ Status: approved gameplay specification, not implemented gameplay.
 older proposals. This document reconciles its rules in English; technical choices
 and balance remain provisional unless explicitly fixed below. The reconciliation
 increment implemented no gameplay. The later M1 local traversal/interaction slice is
-documented in [M1_PROTOTYPE.md](M1_PROTOTYPE.md); full gameplay below remains planned.
+documented in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A adds only local navigation,
+perception, memory and a delayed fact interface; see [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md).
+Dialogue/deception and the full gameplay below remain planned.
 
 ## Concept, participants, and identity (handoff §§1–3)
 

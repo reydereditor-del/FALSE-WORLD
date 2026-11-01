@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/prototype/m1_graybox.tscn" id="1_yard"]
+[ext_resource type="Script" path="res://scripts/ai/stage3a_local.gd" id="2_setup"]
+[ext_resource type="NavigationMesh" path="res://scenes/prototype/stage3a_navigation.tres" id="3_navigation"]
+
+[node name="Stage3ALocal" instance=ExtResource("1_yard")]
+script = ExtResource("2_setup")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("3_navigation")
