@@ -2,7 +2,120 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status and authority
+## Current status — M1 local graybox
+
+M1 runtime implementation is complete as a local technical slice, corresponding to
+handoff §19 stage 2. Automated checks pass; graphical acceptance is still pending.
+There is no multiplayer, AI, combat, HP, inventory, mission/extraction, or gameplay
+UI. The full game remains planned. Approved handoff v1.0 rules remain unchanged.
+
+Base: freshly fetched `origin/main` at merge `2d0effe` (includes `4e05ce9`). Verified
+with `git merge-base --is-ancestor 2d0effe HEAD` after creating dedicated branch
+`feat/m1-local-graybox`. The initial working tree was clean. No push or merge is
+part of this increment. Use `git log -1 --oneline` for the resulting M1 commit ID.
+
+## Completed M1 work
+
+- Added `scenes/prototype/m1_graybox.tscn`: 24×24-unit primitive yard, collision floor,
+  central obstacle, perimeter, one capsule character, follow camera and adjustable
+  lever. One unshadowed light and simple materials; preserved renderer and physics.
+- Added five modular GDScript files under `scripts/character/` and
+  `scripts/interaction/`: world-space motor intent, local WASD/mouse adapter,
+  collision-retracting orbit camera, interaction intent adapter, target-owned
+  resumable work. No AI/network code or new dependencies/assets.
+- Hold E starts/continues local lever work; release, range/line-of-sight loss, Escape,
+  or application focus loss cancels without clearing progress. A later worker may
+  resume. Completion turns and leaves the lever set, emitting once; no fake mission,
+  resource, reward or extraction is connected. Progress is scene-lifetime only.
+- Added startup scene and six input actions to `project.godot`; unrelated settings
+  retained. Added built-in Godot tests at `tests/m1/test_graybox.gd`, and included
+  engine-generated `.gd.uid` files for all six scripts.
+- Added `docs/M1_PROTOTYPE.md` with controls, launch/test commands, provisional
+  settings, boundaries and manual checklist. Updated architecture/design status
+  and made the old docs-only restriction conditional in AGENTS.md and the
+  godot-development skill; this user task explicitly authorizes M1 implementation.
+  All other skills and the handoff are preserved.
+
+## M1 verification actually performed
+
+Engine: explicit
+`/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`, reporting
+`4.7.2.stable.official.ed1daf0bf`. Commands ran from `/workspace/FALSE-WORLD` with
+`XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`, and
+`XDG_CONFIG_HOME=/workspace/.config`. In the commands below `GODOT` denotes that
+explicit binary, not the older default system executable.
+
+- `$GODOT --headless --path /workspace/FALSE-WORLD --editor --import`: final PASS,
+  exit 0 with no script/engine errors. Initial sandboxed import logged local socket
+  errors; rerunning with the permitted editor socket access succeeded. Final import
+  output retained at `/tmp/m1-import.log` in this instance.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --check-only --script res://<path>`:
+  PASS for each of `scripts/character/{character_motor,follow_camera,local_controller}.gd`,
+  `scripts/interaction/{character_interactor,work_target}.gd` and
+  `tests/m1/test_graybox.gd` (six parser checks, all exit 0, no errors).
+- `$GODOT --headless --path /workspace/FALSE-WORLD --script res://tests/m1/test_graybox.gd`:
+  final PASS, **31 checks, 0 failures**, exit 0. Tests instantiate the actual scene;
+  exercise ground and obstacle collision, diagonal speed/stop, camera bounds/yaw
+  and spring collision, synthetic local W/E commands, Escape/focus cancellation,
+  lever visual progress, cancellation persistence/resume, ownership, range and
+  obstruction rejection, worker removal recovery, negative time and single completion.
+  Synthetic input and transform assertions are not manual input or visual tests.
+- Initial automated run failed 4 of 30 checks. Diagnosis found a real range-loss
+  cancellation lock bug (fixed in the interactor), a test worker overlapping the
+  player's collider (fixture moved), and headless mouse capture reporting visible
+  despite a capture request (adapter now tracks active controls separately from the
+  display driver). Reran after corrections; expanded focus-loss coverage passed.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --quit-after 120`: PASS, exit 0,
+  startup scene instantiates/runs without runtime errors. Output retained at
+  `/tmp/m1-startup.log`. This is not a graphical playtest or performance measurement.
+- `python3 /tmp/validate_false_world_m1.py`: PASS, protected-file SHA-256 comparison
+  against the clean baseline, only intended pre-existing modifications, unchanged
+  handoff and unrelated Godot settings, valid resource/local-document references,
+  skill metadata, original markers, new-script UID pairs and whitespace checks.
+- Engine constant inspection with `/tmp/m1_environment_constants.gd` confirmed
+  COLOR ambient = 2 and DISABLED reflection = 1; the scene uses those flat-lighting
+  settings rather than requesting an absent sky. This is not visual validation.
+- `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
+  Only intended M1 source/scene/test/configuration/docs files included.
+
+## M1 limitations and provisional details
+
+No graphical display or Xvfb is installed in this environment. Physical keyboard/
+mouse input, cursor recapture/focus behavior on a real desktop, camera comfort and
+persistent clipping, lever readability and the complete manual scenario remain
+unverified. No Windows export, Intel-iGPU FPS/frame times/RAM or laptop benchmarks
+were run. Headless physics and synthetic input do not establish those results.
+
+Tuning is provisional: speed 4, gravity 18, work duration 3 seconds, range 2.2 units,
+mouse sensitivity 0.003, pitch -65°…20°, spring length 4; values are configurable.
+The single target is explicitly wired, with no general targeting framework. No
+jump/sprint, save-to-disk, animation, settings/menu UI, damage interruption or later
+systems were implemented. Saved partial progress means in-memory progress across
+cancel/resume in the same scene. Runtime values do not finalize handoff balance.
+All remaining full-game technical questions in the historical record remain open.
+
+## Exact next step
+
+Complete the graphical **M1 acceptance pass** in `docs/M1_PROTOTYPE.md` using
+Godot 4.7.2: walk/diagonal/ground/obstacle checks, mouse orbit near walls, E start/
+cancel/resume/completion and blocked/out-of-range rejection, Escape/focus loss and
+click-to-recapture. Record actual visual/input outcomes, debugger errors and target
+hardware evidence, fixing any M1 defects within that scope. Do not claim M1 manual
+acceptance before this pass or begin M2 in this increment.
+
+Only after that validation and a new scoped task, follow the approved next handoff
+stage (1 human + 3 AI perception/memory/Director/local-dialogue proof); full survival
+and rescue systems remain later work. No AI proof or M2 implementation has begun.
+
+## Historical reconciliation record (before M1)
+
+The following preserves the previous documentation increment's evidence and planned
+next step as history. Its statements about absent runtime code and docs-only scope
+refer to that earlier increment; the M1 status above supersedes them.
+
+Updated: 2026-11-02 (Asia/Tashkent).
+
+### Current status and authority
 
 Documentation is reconciled with preserved `FALSE_WORLD_HANDOFF.md` v1.0.
 Approved gameplay rules are specified, not implemented. There are still no gameplay
@@ -14,7 +127,7 @@ on local branch `work` (not `main`). Dedicated branch: `docs/reconcile-handoff-v
 The reconciliation commit contains this record; use `git log -1 --oneline` after
 commit for its ID. No push or merge is authorized or performed.
 
-## Completed in this increment
+### Completed in this increment
 
 Read AGENTS.md, the complete handoff, GAME_DESIGN.md, ARCHITECTURE.md, this progress
 record and all three skills before editing. Changed only these seven existing files:
@@ -42,7 +155,7 @@ AGENTS.md; docs/GAME_DESIGN.md; docs/ARCHITECTURE.md; docs/PROGRESS.md; and the
 - Aligned all skills and project rules with those boundaries and the current
   docs-only scope. Added no new document, dependency, code, service or asset.
 
-## Verification in this increment
+### Verification in this increment
 
 - `git status -sb`, `git log -1 --oneline`: clean starting tree at expected e3eb47e;
   checked out `docs/reconcile-handoff-v1` before edits.
@@ -64,7 +177,7 @@ AGENTS.md; docs/GAME_DESIGN.md; docs/ARCHITECTURE.md; docs/PROGRESS.md; and the
   performance measurement was executed in this documentation increment. The runtime
   acceptance scenarios are requirements for later work, not passing tests today.
 
-## Historical evidence and limitations
+### Historical evidence and limitations
 
 The original M0 foundation increment added rules, design/architecture/progress,
 three portable skills and four directory markers, retaining the six original files.
@@ -90,7 +203,7 @@ verified asset in a later task. Agent auto-discovery/integration is untested; sk
 are portable files read explicitly. Human-like dialogue, 22–25-agent/map performance
 and free public internet hosting remain unproven.
 
-## Unresolved technical details
+### Unresolved technical details
 
 Approved gameplay should not be reopened as missing design. Handoff §17 leaves
 prototype choices: HP/damage/reach/hit zones/aim reaction/medkit values; regen delay
@@ -106,7 +219,7 @@ camera/history handling must preserve the approved privacy and resource invarian
 Use configurable provisional values during later authorized prototypes. No paid
 service, new major mechanic or unapproved cost is implied by these open details.
 
-## Exact next implementation step
+### Exact next implementation step
 
 Under a subsequent scoped implementation task, perform handoff §19 stage 2:
 verify the selected Godot engine against feature 4.7 and create one isolated small

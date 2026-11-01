@@ -1,0 +1,23 @@
+class_name CharacterMotor
+extends CharacterBody3D
+## Shared world-space movement commands; no keyboard, camera, or AI dependencies.
+
+@export_range(0.1, 20.0) var move_speed: float = 4.0
+@export_range(0.1, 50.0) var gravity: float = 18.0
+var _move_intent: Vector3 = Vector3.ZERO
+
+
+func set_move_intent(direction: Vector3) -> void:
+	_move_intent = Vector3(direction.x, 0.0, direction.z).limit_length(1.0)
+
+
+func _physics_process(delta: float) -> void:
+	velocity.x = _move_intent.x * move_speed
+	velocity.z = _move_intent.z * move_speed
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0.0
+	move_and_slide()
+	if _move_intent.length_squared() > 0.001:
+		$Visual.rotation.y = atan2(-_move_intent.x, -_move_intent.z)

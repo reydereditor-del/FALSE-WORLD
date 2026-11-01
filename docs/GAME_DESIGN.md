@@ -3,9 +3,9 @@
 Status: approved gameplay specification, not implemented gameplay.
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) is authoritative and overrides
 older proposals. This document reconciles its rules in English; technical choices
-and balance remain provisional unless explicitly fixed below. The current task
-changes documentation only. No gameplay, scenes, scripts, UI, networking, or assets
-are implemented by it.
+and balance remain provisional unless explicitly fixed below. The reconciliation
+increment implemented no gameplay. The later M1 local traversal/interaction slice is
+documented in [M1_PROTOTYPE.md](M1_PROTOTYPE.md); full gameplay below remains planned.
 
 ## Concept, participants, and identity (handoff §§1–3)
 
@@ -237,8 +237,9 @@ Distant-agent optimization must preserve travel time, information, and item stat
 
 ## Delivery stages and acceptance (handoff §§18–19)
 
-This sequence replaces the earlier M0–M5 roadmap. All implementation requires a
-subsequent scoped task. Stage numbers below refer to handoff §19.
+This sequence replaces the earlier M0–M5 roadmap. M1 implements only the local
+stage-2 slice; later implementation requires a subsequent scoped task. Stage numbers
+below refer to handoff §19.
 
 | Stage | Scope | Required evidence when implemented |
 | --- | --- | --- |
@@ -259,7 +260,9 @@ regen never revives and damage resets delay equally for AI; self-defense/small-h
 third-party score privacy; spectator/disconnect/log/chat privacy; last-seen AI
 without live GPS; equal mob danger/warnings/leash/return; deadline ties and single
 finalization; host loss/reconnect/permanent death/full loot; laptop FPS/RAM/navigation/
-AI-update measurements. This task runs none of those runtime scenarios.
+AI-update measurements. The reconciliation ran none of those runtime scenarios.
+M1 tests cover only the local movement/camera/interaction subset; see PROGRESS.md
+for actual outcomes.
 
 ## Provisional details, constraints, and exclusions (handoff §§2,17)
 

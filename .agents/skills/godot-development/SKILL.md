@@ -9,9 +9,10 @@ description: Safely develop FALSE WORLD in the existing Godot 4.x project using 
    `docs/ARCHITECTURE.md`, and `docs/PROGRESS.md` completely before edits. The handoff
    v1.0 controls approved gameplay over older proposals. Inspect Git status and
    existing configuration; state the authorized scope and handoff §19 stage.
-2. Documentation reconciliation permits docs/rules/skill edits only. Preserve the
-   handoff and Godot configuration; do not create scenes, scripts, UI, networking,
-   assets, runtime stubs, or dependencies. Approved mechanics do not authorize code.
+2. During documentation reconciliation, edit docs/rules/skills only and preserve
+   the handoff/configuration. During an explicitly authorized implementation task,
+   change only its scoped systems/settings. Approved design alone does not authorize
+   code or later milestones. Do not create unrequested runtime stubs or dependencies.
 3. Before later implementation, verify the actual editor version against the
    project's 4.7 declaration. Report mismatch; do not automatically recreate,
    downgrade, change renderer or rewrite settings. Historical checks are not fresh

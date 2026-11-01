@@ -1,0 +1,209 @@
+[gd_scene load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://scripts/character/character_motor.gd" id="1_motor"]
+[ext_resource type="Script" path="res://scripts/character/follow_camera.gd" id="2_camera"]
+[ext_resource type="Script" path="res://scripts/character/local_controller.gd" id="3_input"]
+[ext_resource type="Script" path="res://scripts/interaction/character_interactor.gd" id="4_interactor"]
+[ext_resource type="Script" path="res://scripts/interaction/work_target.gd" id="5_target"]
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.16, 0.19, 0.23, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.65
+reflected_light_source = 1
+
+[sub_resource type="StandardMaterial3D" id="GroundMaterial"]
+albedo_color = Color(0.35, 0.39, 0.41, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="ObstacleMaterial"]
+albedo_color = Color(0.54, 0.56, 0.58, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="CharacterMaterial"]
+albedo_color = Color(0.2, 0.48, 0.68, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="LeverMaterial"]
+albedo_color = Color(0.9, 0.62, 0.16, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="GroundMesh"]
+material = SubResource("GroundMaterial")
+size = Vector3(24, 0.5, 24)
+
+[sub_resource type="BoxShape3D" id="GroundShape"]
+size = Vector3(24, 0.5, 24)
+
+[sub_resource type="BoxMesh" id="ObstacleMesh"]
+material = SubResource("ObstacleMaterial")
+size = Vector3(3, 2, 2)
+
+[sub_resource type="BoxShape3D" id="ObstacleShape"]
+size = Vector3(3, 2, 2)
+
+[sub_resource type="CapsuleMesh" id="CharacterMesh"]
+material = SubResource("CharacterMaterial")
+radius = 0.35
+height = 1.8
+radial_segments = 12
+rings = 4
+
+[sub_resource type="CapsuleShape3D" id="CharacterShape"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="BoxMesh" id="PedestalMesh"]
+material = SubResource("ObstacleMaterial")
+size = Vector3(0.6, 2, 0.6)
+
+[sub_resource type="BoxShape3D" id="PedestalShape"]
+size = Vector3(0.6, 2, 0.6)
+
+[sub_resource type="BoxMesh" id="HandleMesh"]
+material = SubResource("LeverMaterial")
+size = Vector3(0.14, 0.8, 0.14)
+
+[sub_resource type="BoxMesh" id="NoseMesh"]
+material = SubResource("LeverMaterial")
+size = Vector3(0.18, 0.18, 0.3)
+
+[sub_resource type="BoxMesh" id="WallMesh"]
+material = SubResource("ObstacleMaterial")
+size = Vector3(24, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="WallShape"]
+size = Vector3(24, 2, 0.5)
+
+[node name="M1Graybox" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -30, 0)
+light_energy = 1.0
+shadow_enabled = false
+
+[node name="Ground" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.25, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("GroundMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("GroundShape")
+
+[node name="Obstacle" type="StaticBody3D" parent="."]
+position = Vector3(0, 1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Obstacle"]
+mesh = SubResource("ObstacleMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle"]
+shape = SubResource("ObstacleShape")
+
+[node name="Lever" type="StaticBody3D" parent="."]
+position = Vector3(-3, 1, 0)
+script = ExtResource("5_target")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lever"]
+mesh = SubResource("PedestalMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever"]
+shape = SubResource("PedestalShape")
+
+[node name="LeverPivot" type="Node3D" parent="Lever"]
+position = Vector3(0, 1, 0)
+
+[node name="Handle" type="MeshInstance3D" parent="Lever/LeverPivot"]
+position = Vector3(0, 0.4, 0)
+mesh = SubResource("HandleMesh")
+
+[node name="Character" type="CharacterBody3D" parent="."]
+position = Vector3(0, 0.1, 5)
+script = ExtResource("1_motor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character"]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("CharacterShape")
+
+[node name="Visual" type="Node3D" parent="Character"]
+
+[node name="Body" type="MeshInstance3D" parent="Character/Visual"]
+position = Vector3(0, 0.9, 0)
+mesh = SubResource("CharacterMesh")
+
+[node name="FacingMarker" type="MeshInstance3D" parent="Character/Visual"]
+position = Vector3(0, 1.2, -0.35)
+mesh = SubResource("NoseMesh")
+
+[node name="CameraRig" type="Node3D" parent="Character"]
+position = Vector3(0, 1.5, 0)
+script = ExtResource("2_camera")
+
+[node name="Pitch" type="Node3D" parent="Character/CameraRig"]
+rotation_degrees = Vector3(-18, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Character/CameraRig/Pitch"]
+spring_length = 4.0
+margin = 0.2
+collision_mask = 1
+
+[node name="Camera3D" type="Camera3D" parent="Character/CameraRig/Pitch/SpringArm3D"]
+current = true
+near = 0.1
+far = 80.0
+fov = 70.0
+
+[node name="Interactor" type="Node" parent="Character" node_paths=PackedStringArray("target")]
+script = ExtResource("4_interactor")
+target = NodePath("../../Lever")
+
+[node name="LocalController" type="Node" parent="Character" node_paths=PackedStringArray("motor", "camera_rig", "interactor")]
+script = ExtResource("3_input")
+motor = NodePath("..")
+camera_rig = NodePath("../CameraRig")
+interactor = NodePath("../Interactor")
+
+[node name="NorthWall" type="StaticBody3D" parent="."]
+position = Vector3(0, 1, -11.75)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="NorthWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall"]
+shape = SubResource("WallShape")
+
+[node name="SouthWall" type="StaticBody3D" parent="."]
+position = Vector3(0, 1, 11.75)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="SouthWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall"]
+shape = SubResource("WallShape")
+
+[node name="WestWall" type="StaticBody3D" parent="."]
+position = Vector3(-11.75, 1, 0)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="WestWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall"]
+shape = SubResource("WallShape")
+
+[node name="EastWall" type="StaticBody3D" parent="."]
+position = Vector3(11.75, 1, 0)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="EastWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall"]
+shape = SubResource("WallShape")

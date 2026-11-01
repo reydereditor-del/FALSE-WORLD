@@ -6,8 +6,8 @@
   `docs/ARCHITECTURE.md`, and `docs/PROGRESS.md` before working, plus relevant skills.
   The finalized handoff v1.0 overrides conflicting earlier gameplay proposals.
   Follow the user's current authorized scope; approved design is not permission
-  to implement every system. This reconciliation task changes documentation only;
-  no gameplay, scenes, scripts, UI, networking, assets, or runtime stubs.
+  to implement every system. Documentation-only restrictions apply to reconciliation
+  tasks; later explicitly authorized implementation is limited to its stated scope.
 - Keep confirmed mechanics separate from provisional balance/technical choices.
   Do not reopen approved rules or silently add major mechanics. Future runtime
   implementation requires a subsequent scoped task; follow the handoff's stages.
