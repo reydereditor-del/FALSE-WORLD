@@ -5,7 +5,9 @@ Updated: 2026-11-02 (Asia/Tashkent).
 ## Current status — M1 local graybox
 
 M1 runtime implementation is complete as a local technical slice, corresponding to
-handoff §19 stage 2. Automated checks pass; graphical acceptance is still pending.
+handoff §19 stage 2. Automated checks passed in the implementation increment.
+The user has now reported a Windows/Godot 4.7.2 manual pass for the cases listed
+below; remaining manual cases and performance measurements are still unverified.
 There is no multiplayer, AI, combat, HP, inventory, mission/extraction, or gameplay
 UI. The full game remains planned. Approved handoff v1.0 rules remain unchanged.
 
@@ -78,13 +80,53 @@ explicit binary, not the older default system executable.
 - `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
   Only intended M1 source/scene/test/configuration/docs files included.
 
+## User-reported M1 manual verification
+
+Recorded: 2026-11-02 (Asia/Tashkent), on branch `docs/m1-manual-verification`,
+based on clean checkout `9230c71`. Source: the user's report of testing M1 on their
+Windows laptop with Godot 4.7.2. These are user-reported observations, not tests
+rerun or independently observed by the agent. The exact tested build SHA, session
+duration, laptop specifications, resolution and driver were not supplied.
+
+Confirmed by the user in the observed session:
+
+- The 3D scene launches and renders.
+- WASD movement works.
+- Mouse-controlled camera rotation works in all directions.
+- The character cannot pass through the central solid obstacle.
+- Holding E moves the interaction lever.
+- Releasing E stops interaction and retains partial progress.
+- Holding E again resumes progress from the previous position.
+- Godot showed **0 errors and 0 warnings** in that observed session.
+
+The report does not establish completion/single-completion behavior, out-of-range
+or blocked interaction rejection, cancellation by moving away, Escape/focus loss,
+click-to-recapture, dedicated diagonal-speed/ground/perimeter checks, camera clipping
+near walls or comfort over extended play. Those remain pending manual verification;
+prior automated coverage remains distinct. No FPS, frame-time, GPU, RAM or other
+performance measurement, Windows export, or full-game result was reported.
+
+This update changes only `docs/PROGRESS.md`; no gameplay, scene, configuration or
+M2 work is included. Documentation verification performed for this update:
+
+- Python standard-library checks: PASS for UTF-8/newline/trailing whitespace,
+  local Markdown links, required project paths, three skill metadata headers and
+  original empty directory markers; checked the recorded confirmations against
+  the user's report and retained explicit untested/performance limits.
+- `git diff --name-only` and byte comparisons against HEAD: PASS; only
+  `docs/PROGRESS.md` changed, with every other tracked file unchanged and no new
+  untracked files. Handoff, Godot configuration, scripts and scenes are preserved.
+- `git diff --check`, `git diff --cached --check` and staged diff review: PASS.
+  No engine invocation, gameplay test or benchmark was run in this docs-only update.
+
 ## M1 limitations and provisional details
 
-No graphical display or Xvfb is installed in this environment. Physical keyboard/
-mouse input, cursor recapture/focus behavior on a real desktop, camera comfort and
-persistent clipping, lever readability and the complete manual scenario remain
-unverified. No Windows export, Intel-iGPU FPS/frame times/RAM or laptop benchmarks
-were run. Headless physics and synthetic input do not establish those results.
+The agent implementation environment had no graphical display or Xvfb. The later
+user report above supplies Windows scene rendering, basic movement/camera, central
+obstacle collision and lever start/cancel/resume evidence. Remaining manual cases
+listed above are unverified. No Windows export, Intel-iGPU FPS/frame times/RAM or
+laptop benchmarks were reported. Neither the observed rendering nor the earlier
+headless physics/synthetic input establishes target-hardware performance.
 
 Tuning is provisional: speed 4, gravity 18, work duration 3 seconds, range 2.2 units,
 mouse sensitivity 0.003, pitch -65°…20°, spring length 4; values are configurable.
@@ -96,12 +138,14 @@ All remaining full-game technical questions in the historical record remain open
 
 ## Exact next step
 
-Complete the graphical **M1 acceptance pass** in `docs/M1_PROTOTYPE.md` using
-Godot 4.7.2: walk/diagonal/ground/obstacle checks, mouse orbit near walls, E start/
-cancel/resume/completion and blocked/out-of-range rejection, Escape/focus loss and
-click-to-recapture. Record actual visual/input outcomes, debugger errors and target
-hardware evidence, fixing any M1 defects within that scope. Do not claim M1 manual
-acceptance before this pass or begin M2 in this increment.
+Complete the remaining graphical **M1 acceptance checks** in `docs/M1_PROTOTYPE.md`
+using Godot 4.7.2: dedicated diagonal/ground/perimeter checks, camera clipping near
+walls, lever completion/single completion, blocked/out-of-range interaction and
+walking-away cancellation, Escape/focus loss and click-to-recapture. Record actual
+outcomes and any debugger errors; measure performance separately before claiming
+FPS/GPU/RAM results. Fix only demonstrated M1 defects in an authorized code task.
+The confirmed user-reported cases above do not need to be described as untested.
+Do not begin M2 in this documentation update.
 
 Only after that validation and a new scoped task, follow the approved next handoff
 stage (1 human + 3 AI perception/memory/Director/local-dialogue proof); full survival
