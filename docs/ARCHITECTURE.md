@@ -362,3 +362,38 @@ changing speed, collider, gravity or M1 controls. Default exploration behavior r
 covered by its unchanged regression suite. Counts establish operation bounds, not
 measured CPU/GPU cost or human-like behavior; graphical acceptance and profiling are
 still required before scaling beyond three agents.
+
+
+## Stage 3B.2 developer observation diagnostics
+
+The existing 3B.1 scene adds one removable CanvasLayer with scripts/debug modules.
+It is off by default and permits F3 only in an editor-feature debug binary, never
+an exported game binary. No project input/settings, map/navmesh, population, camera,
+movement, interaction, decisions or report-routing changes are introduced. Cost is
+0 UZS, with no dependency, external asset or paid service.
+
+AIDebugState is a read-only adapter over one ObservationController's existing
+execution flags, private memory and selected evidence. LocalMemory.inspect provides
+copied fresh facts without expiry/mutation; the AI's existing remember/snapshot/
+expire behavior is unchanged. The adapter does not hold observation history or
+perform new sensing, decisions or path queries. It emits only own ID/state/goal,
+legitimate direct observation/source/age, selected frozen evidence/source/age, and
+existing stall/retry status. No actor registry, human transform or hidden role,
+health, inventory, intentions or global truth is read. Latest-sample labeling uses
+the existing controller's scheduled decision tick, not a new visibility test.
+
+AIDebugOverlay creates a native text panel and 0.1 s timer only on explicit F3
+activation. Three bounded adapter reads per timer tick update it; no per-frame
+polling, markers, mouse capture or gameplay pause is added. Hiding clears/destroys
+the UI/timer and stops reads. Only the developer key listener remains. The build
+gate is tested as feature combinations, not an actual Windows exported artifact;
+this is developer diagnostics, not a security sandbox against editor introspection.
+Removing its scene child/resource removes the module from production composition.
+
+A waiting executor can retain an inactive goal; diagnostics label it accordingly.
+Selected evidence is independent of latest direct memory and remains frozen through
+travel. Expired evidence positions are omitted, while the retained inactive goal
+may still show an old coordinate. Blocked/Recovering labels describe existing
+counters; they are not new AI states or a separate collision/recovery algorithm.
+See STAGE3B1_PROTOTYPE.md for exact interpretation and Windows acceptance scenarios.
+Headless state/visibility/count checks do not prove graphical readability or cost.
