@@ -2,7 +2,125 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — Stage 3A.1 authored exploration
+## Current status — Stage 3B.1 observation decisions
+
+The same 100×100 m local graybox now runs a small explore/observe/investigate/resume
+layer for exactly three agents. It can respond to actual local or properly delivered
+observations and physically visit a frozen last-seen point, then resume authored
+exploration. This remains a technical subset of handoff §19 stage 3, not a completed
+deception proof or evidence of human-like AI. No dialogue, full Director, combat,
+inventory, mobs, objectives/extraction, multiplayer, new UI, asset, dependency,
+runtime LLM or paid service was added. Cost remains 0 UZS.
+
+Inspected clean checkout `f8cf18c`, read project authority/rules/skills and prototype
+docs, fetched main merge `7ecf0c6`, and created dedicated branch
+`feat/stage3b1-observation-decisions` from it. The prior Stage 3A.1 commit and all M1
+verification history are preserved. This task authorizes automatic branch push and
+remote-HEAD verification, never a merge into main.
+
+## Completed Stage 3B.1 work
+
+- Added a small value-only decision module accepting copied private memory facts,
+  own position, seed/tick and execution feedback. No live actor, registry, sensor
+  candidates, authoritative human position or hidden-state input enters it.
+- Added explicit explore, bounded observation pause, old-location investigation,
+  and resume states. Evidence stays frozen throughout a response; updates cannot
+  silently redirect the agent behind walls. Continued direct sight ends observation
+  without pursuit. Arrival, stale evidence, unreachable paths, blocked travel and
+  timeout return to exploration through a short pause.
+- Added global/subject/location cooldowns, newer-evidence plus displacement gates,
+  bounded suppression history, minimum dwell and duplicate-call frequency guards.
+  Seeded variation affects timing. Known teammates are filtered to avoid mutual
+  investigation loops; no visual role-classification system was added.
+- Added an adapter wired to exactly its own existing sensor memory. Perception,
+  memory validation/expiry and selective delayed report channel are byte-unchanged.
+  Reports retain original age/position; no automatic sharing or strategic assignment.
+- Extracted path-start/arrival hooks in the existing exploration executor so the
+  new adapter reuses path validity, steering, physical blocking/retries and arrival
+  rules. Existing motor, camera, input and interaction scripts are unchanged.
+- Added a tiny scene inheriting the unchanged Stage 3A.1 map/navmesh, changed only
+  project startup to it, and retained original exploration/M1 scenes for direct run.
+  Added focused tests and [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md); updated
+  architecture, design status and older run guides. All timing/range tuning remains
+  provisional; no physics/speed/collision or approved gameplay change.
+
+## Stage 3B.1 checks actually performed
+
+Used explicit `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` with
+`XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
+`XDG_CONFIG_HOME=/workspace/.config`. Version check confirmed
+`4.7.2.stable.official.ed1daf0bf`. An initial version-only probe without these paths
+emitted a Fontconfig cache warning; the subsequent configured probe was clean.
+`GODOT` below means that explicit binary, not the default system executable.
+
+- `$GODOT --headless --path . --editor --import`: PASS, exit 0, clean final output
+  (`/tmp/stage3b1-import-final.log`), with permitted local editor socket access.
+- `$GODOT --headless --path . --check-only --script res://PATH`: PASS for all five
+  changed/new GDScript files: exploration executor, observation decisions/controller,
+  Stage 3B.1 composition and its regression suite. Exact invocations/results were
+  recorded by `/tmp/check_stage3b1_engine.py`; five parser logs are under
+  `/tmp/stage3b1-parser-*.log`.
+- `$GODOT --headless --path . --script res://tests/stage3b1/test_observation_decisions.gd`:
+  PASS, **45 checks, 0 failures**, exit 0 (`/tmp/stage3b1-tests-expanded.log`). The
+  initial 39-check suite passed; six additional cases also passed. Coverage includes
+  observation-triggered transitions, held dwell, frozen evidence, actual LOS loss,
+  original last-seen travel, continued-sight suppression, exact expiry/future rejection,
+  global/subject/location cooldowns, repeat suppression, seeded duration variation,
+  selective delayed delivery, stale receipt, private memory wiring, bounded counted
+  work/frequency, actual arrival/resume, off-mesh failure and physical-block recovery.
+- All four unchanged suites rerun using the same `--headless --path . --script`:
+  `res://tests/stage3a1/test_exploration.gd` **25/0**;
+  `res://tests/stage3a/test_foundation.gd` **39/0**;
+  `res://tests/m1/test_graybox.gd` **31/0**;
+  `res://tests/m1/test_camera_clearance.gd` **15/0**.
+  All exit 0 without errors/warnings (`/tmp/stage3b1-exploration.log`,
+  `/tmp/stage3b1-foundation.log`, `/tmp/stage3b1-m1.log`, `/tmp/stage3b1-camera.log`).
+  Final suite total: **155 passed, 0 failed**. No existing test was weakened/edited.
+- `$GODOT --headless --path . --fixed-fps 60 --quit-after 1800`: PASS, exit 0, clean
+  new default scene startup (`/tmp/stage3b1-startup.log`). This is 30 simulated seconds,
+  not an FPS/CPU benchmark. Explicit standalone M1 scene startup with `--quit-after 120`
+  also passed (`/tmp/stage3b1-m1-startup.log`).
+
+- `python /tmp/validate_false_world_stage3b1.py`: PASS, exact intended scope
+  (8 modified + 10 new files), 57 previous tracked files byte-preserved against
+  pre-edit SHA-256 hashes, startup-only configuration change, unchanged existing
+  path-follower/abandonment bodies, local resource/Markdown links, skill metadata,
+  unique UID pairs, empty directory markers, text formatting, completed engine
+  logs and preserved prior commit ancestry. `git diff --check` also passed.
+
+## Current limitations and exact next step
+
+No graphical test, Windows export or measured CPU/FPS/frame-time/RAM result was run.
+Operation counts prove bounded work, not target-laptop scaling. The existing reported
+M1 manual passes remain historical evidence; new behavior/expanded-map occlusion is
+not graphically accepted. Primitive capsules have no locomotion animation and no
+claim of natural/human-like movement follows from headless checks.
+
+There is no coordination strategy: a nearby recipient may independently investigate
+an appropriately delivered report, and no all-agent assignment/deconfliction exists.
+Only eight candidate facts and eight suppression records are used by a decision;
+larger populations need relevance/eviction reassessment. Current sight means a direct
+fact from that scheduled sensing tick. Frozen evidence can expire before travel ends;
+there is intentionally no live pursuit or mid-trip retargeting. Static navigation,
+body congestion and lack of dynamic RVO remain existing limits. All tuning needs
+actual play observation/profile evidence before population or map expansion.
+
+**Next exact step:** on Windows/Godot 4.7.2, run F5; enter an agent's forward view,
+then move behind a solid building corner. Observe the short pause, possible visit
+to the old point and return to exploration; confirm it does not follow your hidden
+movement. Stay visible/stationary to check repeated-sighting suppression, then
+repeat from a genuinely new location and watch independent agent timing. Temporarily
+block a route; recheck WASD, camera framing/occlusion, E cancel/resume/completion,
+Escape/click and debugger output. Record actual findings; measure FPS/frame times/
+RAM separately. Fix demonstrated defects before another separately scoped feature
+increment; no dialogue or Director strategy is begun here.
+
+## Historical Stage 3A.1 and earlier records
+
+The following preserves earlier increments and their then-current next steps.
+The current startup/decision layer and graphical validation step are recorded above.
+
+### Current status — Stage 3A.1 authored exploration
 
 The default local prototype now has a 100×100 m authored primitive environment,
 sixteen meaningful destinations and three independently seeded exploration agents.
@@ -22,7 +140,7 @@ magnification was resolved. Remaining camera occlusion is not claimed solved.
 No graphical session or FPS/frame-time/GPU/RAM measurement was performed here.
 The expanded environment and new movement require a new graphical acceptance pass.
 
-## Completed Stage 3A.1 work
+### Completed Stage 3A.1 work
 
 - Authored a separate inherited scene with three roofless building shells, wide
   openings, intersecting lanes, courtyard, open corners and rubble using boxes and
@@ -48,7 +166,7 @@ The expanded environment and new movement require a new graphical acceptance pas
   [STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md). Updated architecture/design status
   and both older prototype run guides. All new tuning values remain provisional.
 
-## Checks actually performed for Stage 3A.1
+### Checks actually performed for Stage 3A.1
 
 All engine commands used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`
 with `XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
@@ -93,7 +211,7 @@ with `XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`
   scene resources and retained Markdown link checks. Final validator and
   `git diff --check` passed.
 
-## Unresolved details and exact next step
+### Unresolved details and exact next step
 
 Natural appearance, stop/turn smoothness, corner jitter and usability cannot be
 accepted from path/angle assertions alone. The capsules have no locomotion animation.
@@ -111,7 +229,7 @@ Record actual results and measure FPS/frame times/RAM separately. Fix only obser
 movement defects before a separately authorized next feature increment; do not
 start dialogue, Director strategy, M2 or other gameplay.
 
-## Historical Stage 3A record
+### Historical Stage 3A record
 
 The following records describe the preceding increment; current startup and optional
 motor facing changes are documented above and in the prototype guides.
