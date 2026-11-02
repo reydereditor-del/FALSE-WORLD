@@ -1,6 +1,29 @@
 # FALSE WORLD — progress
 
-Updated: 2026-11-02 (Asia/Tashkent).
+Updated: 2026-11-03 (Asia/Tashkent).
+
+## Latest increment — Stage 4 objective audit (2026-11-03)
+
+Audited published `f07bdc4` against handoff §§4–6 and the authorized single-component
+prototype. See [STAGE4_OBJECTIVE_AUDIT.md](STAGE4_OBJECTIVE_AUDIT.md). Reproduced the
+reported sequence: a player staying at the cabinet is outside the pickup yard, so
+countdown expiry gives an empty arrival and permits another call with retained module.
+WAITING rejects reset/replay; successful local extraction is terminal even after its
+banner expires. No confirmed replay bug was found; gameplay remains unchanged.
+
+Focused Godot 4.7.2 tests: existing rules **27/0**, actual-scene integration **36/0**,
+new actual-target replay audit **10/0**; **73 passed, zero failures**, complete outputs,
+nonzero failure gates/finite limits and no script/engine errors. New tests exercise
+pending-call spam, empty retry, spatial success and post-success spam/banner expiry.
+No broader suites, new Windows graphics/input or performance checks were run here.
+
+The prototype does not require both battery and radio and does not implement full
+extraction/removal/spectator/multi-human match lifecycle. This is recorded as incomplete
+final-hand-off compliance, retaining the explicitly authorized simplification; no
+unrequested systems are added during audit. Handoff, source, assets, settings and old
+tests are preserved. Next: the documented manual empty-arrival/success/replay checks;
+future full station/extraction implementation requires its own scope. Branch
+`audit/stage4-objective-loop`, commit/push authorized; no merge into main.
 
 ## Current status — Stage 4 signal-device objective subset
 

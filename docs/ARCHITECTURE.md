@@ -603,3 +603,14 @@ authentication; authority/session validation belongs to a later multiplayer task
 No combat/death, loot, full inventory, other route, score or full-game result system
 is implied. Windows physical-input/visual/performance acceptance remains pending;
 software-OpenGL fallback screenshots are documentation, not Forward Plus/iGPU proof.
+
+## Stage 4 objective audit (2026-11-03)
+
+[STAGE4_OBJECTIVE_AUDIT.md](STAGE4_OBJECTIVE_AUDIT.md) confirms the implementation is
+a partial prototype: one service module, WAITING → READY on empty arrival, terminal
+SUCCESS after yard eligibility. Final handoff extraction grants an individual win,
+not necessarily whole-match completion; the prototype folds its local extraction and
+result into SUCCESS without production actor removal/spectating or match lifecycle.
+No replay defect was reproduced; 73 focused checks passed. Only an additional audit
+regression test/docs are added, with no gameplay/asset/setting changes. Final battery
+plus radio and other extraction requirements remain unimplemented, not waived.
