@@ -1,6 +1,302 @@
 # FALSE WORLD — progress
 
-Updated: 2026-11-02 (Asia/Tashkent).
+Updated: 2026-11-03 (Asia/Tashkent).
+
+## Latest increment — Stage 4 objective audit (2026-11-03)
+
+Audited published `f07bdc4` against handoff §§4–6 and the authorized single-component
+prototype. See [STAGE4_OBJECTIVE_AUDIT.md](STAGE4_OBJECTIVE_AUDIT.md). Reproduced the
+reported sequence: a player staying at the cabinet is outside the pickup yard, so
+countdown expiry gives an empty arrival and permits another call with retained module.
+WAITING rejects reset/replay; successful local extraction is terminal even after its
+banner expires. No confirmed replay bug was found; gameplay remains unchanged.
+
+Focused Godot 4.7.2 tests: existing rules **27/0**, actual-scene integration **36/0**,
+new actual-target replay audit **10/0**; **73 passed, zero failures**, complete outputs,
+nonzero failure gates/finite limits and no script/engine errors. New tests exercise
+pending-call spam, empty retry, spatial success and post-success spam/banner expiry.
+No broader suites, new Windows graphics/input or performance checks were run here.
+
+The prototype does not require both battery and radio and does not implement full
+extraction/removal/spectator/multi-human match lifecycle. This is recorded as incomplete
+final-hand-off compliance, retaining the explicitly authorized simplification; no
+unrequested systems are added during audit. Handoff, source, assets, settings and old
+tests are preserved. Next: the documented manual empty-arrival/success/replay checks;
+future full station/extraction implementation requires its own scope. Branch
+`audit/stage4-objective-loop`, commit/push authorized; no merge into main.
+
+## Current status — Stage 4 signal-device objective subset
+
+Dedicated `feat/stage4-signal-loop`, based on preserved visual-slice commit
+`9f29738a2d13d0deb2854585c18556e641e5d684`. Fetched main remains
+`7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`; prior map/visual work is retained as
+branch ancestry, not reset to older main. User authorizes commit/push only, no merge.
+F5 now starts `scenes/stage4/signal_loop.tscn`; all older scenes remain explicit fallbacks.
+
+Implemented a real local flow in/near the preserved visual benchmark: find one labeled
+service module on the storehouse workbench → collect with E → carry to cabinet → hold
+E for four seconds of accumulated work → sent call → five-second wait → one temporary
+prototype success if in the marked yard at arrival. Release, focus loss, Escape,
+out-of-range/blocked reach cancel work while retaining progress and the carried part.
+Installation occurs only at completion. An empty arrival gives no success and allows
+another timed call with the module retained. R reloads one fresh local run without
+duplicate items/actors. A single local feedback panel and in-world signs explain it.
+
+The current request explicitly simplifies this subset to one test component. Final
+station battery + radio installation, the independent mountain route and other
+handoff rules are unchanged; mountain rescue is not implemented. This is not full
+handoff Stage 4 completion or the finished game. No combat, HP/death, inventory
+framework/drop/loot, multiplayer, mobs, score, spectator or full extraction meta.
+No transport/actor removal is claimed: success is explicitly a local prototype result.
+
+### Fresh Stage 4 checks
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/run_stage4_checks.py --godot GODOT --output /tmp/false-world-stage4-acceptance`:
+
+- Import/version and all five new objective/tool parser checks passed; actual Stage 4
+  startup completes without missing resources or script/engine errors.
+- Pure state/ownership/clock rules: **27 checks, zero failures**. Duplicate/concurrent/
+  invalid acquisition, wrong-worker requests, component conservation, no instant or
+  yard-only success, sent-call persistence, invalid deltas, empty/repeat arrivals,
+  installed-part retention, one terminal success and temporary banner lifetime.
+- Actual Stage 4 scene integration: **36 checks, zero failures**. Real original
+  motor/interactor/WorkTarget adapters; clear navigation at all ten sites; all three
+  AI moving; actual cabinet-area vision → Observe → frozen last-seen Investigate;
+  missing-module rejection; entry→module→cabinet→yard continuous physical walking;
+  pickup/activation interruption, added solid LOS blocker, release, focus loss and
+  walking away with E held; retained progress/ownership; exactly one installation/
+  pending call; AI presence not blocking arrival; feedback without actor roster;
+  real R scene reload and clean actor/component counts; actual empty-arrival retry.
+- All previous visual/map/gameplay checks: **306 passed**, including unchanged seven
+  original suites (223), map checks (58) and visual slice checks (25). Combined with
+  Stage 4: **369 ordinary checks, zero failures**.
+- Unchanged Stage 3D harness, seed **431**, repeat **2**: **16/16 scenarios**, **98
+  assertions**, **6,886 audited ticks**, all eight semantic repeat hashes match.
+  Completion/success JSON and exit/error logs are checked, not just process exit.
+- Explicit visual benchmark, graybox, M1/Stage 3C and Stage 4 startup checks passed.
+  All test subprocesses and integration loops have finite limits. The reproduced
+  Jolt job-pool warning remains separately recorded in old/new runs; unknown warnings
+  or any engine/script error fail. No physics or old assertion changes to hide it.
+- Stage 4-only local navmesh rebaked: **267 polygons**, same 90×90 m bounds/agent
+  tuning, all ten old sites reachable. Source visual navmesh and geometry are preserved.
+- A new composition vector inference error was fixed before final checks. The initial
+  straight-line yard test hit the existing solid station sign; its walk now follows
+  the clear side, retaining the benchmark and real arrival assertions, without teleport.
+
+### Preservation, visual evidence and limits
+
+Original handoff/game design, every old scene/navigation resource, complete visual
+asset/benchmark tree, shared motor/camera/input/interactions, all AI modules,
+old tests and scenario harness remain byte-preserved. New interaction adapters extend
+WorkTarget rather than replacing it. Project settings change only startup. New small
+module/panel/yard pieces are original, reuse existing materials and have provenance
+in [ATTRIBUTION.md](../assets/ATTRIBUTION.md). Cost 0 UZS; no new dependency or asset pack.
+
+Three actual runtime screenshots under `docs/evidence/stage4/` show search, waiting
+and temporary success with the preserved visual area and minimal feedback. The capture
+used real interaction interfaces with test setup poses; it is not a human playtest.
+Vulkan surface initialization remains unavailable in the cloud; Godot automatically
+fell back to software OpenGL/Mesa llvmpipe on the temporary display. The images were
+inspected, but are not a clean Forward Plus/D3D12/Windows pass or FPS/RAM evidence.
+Headless checks likewise do not verify visual quality, camera feel or performance.
+
+AI involvement is limited to existing legitimate perception/memory/report decisions
+about visible player activity. No objective flags, item possession, call timers or
+unsensed world state are injected; agents do not autonomously pick up parts, sabotage
+or fight. Existing strategy and sensing budgets/population remain unchanged. This is
+not full objective AI, human-like deception or four-human networking proof.
+
+[STAGE4_SIGNAL_PROTOTYPE.md](STAGE4_SIGNAL_PROTOTYPE.md) records exact controls,
+coordinates, success/retry/reset flow, test coverage, known omissions and Windows
+commands/checklist. **Next:** Windows playability/timing/feedback validation of this
+one-route subset, then scoped work on final station components/survival systems.
+The independent mountain route and other approved full-game systems remain future
+work; no broader milestone is claimed complete. Earlier progress below is history.
+
+## Historical visual slice and earlier records
+
+## Current status — visual vertical slice V1
+
+On dedicated `feat/visual-vertical-slice-v1`, based on the preserved map-foundation
+commit `3a162038163f084c2ffcb0ee996110212c8d101a`. Fetched main remained
+`7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`; the visual branch retains the unmerged
+map work rather than discarding it. User explicitly authorized commit/push, not merge.
+
+F5 now launches a separate inherited showcase around the storehouse entry: 32×32 m
+of real PBR surfaces, concrete weathering/cracks, rusted steel frames/corrugated roof,
+conduits, vent, paint/stencil, colliding clutter, fragments, weeds and neutral overcast
+lighting/distance fog. Real CC0 Lantern and BoomBox GLBs use their original 2K maps.
+Concrete/gravel/steel are original authored 1K PBR maps, not downloaded photo scans.
+A CC-BY-4.0 Cesium Man derivative supplies the same skinned humanoid/walk to human
+and all three AI; its original branded image/materials are removed. Original workwear
+colors and breathing Idle are added. This is a lightweight stylized fallback and a
+first material/detail slice, not final realistic characters or a complete environment.
+
+[VISUAL_VERTICAL_SLICE_V1.md](VISUAL_VERTICAL_SLICE_V1.md) gives launch/controls,
+asset/build paths, limits, preview pairs and Windows acceptance. Exact original
+sources/authors/licenses, modifications and retained texts are in
+[ASSET_LICENSES.md](ASSET_LICENSES.md), [ATTRIBUTION.md](../assets/ATTRIBUTION.md) and
+`assets/licenses/`; `assets/visual/manifest.json` records file hashes. No purchase,
+account, paid service, new engine/plugin or gameplay mechanic. Cost remains 0 UZS.
+
+### Fresh visual-slice checks
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/visual/run_checks.py --godot GODOT --output /tmp/false-world-visual-acceptance`:
+
+- Godot import and all five new runtime/tool GDScript parser checks passed. Material
+  paths/imports and GLB scene references resolve; verified asset SHA-256s, full license
+  presence, real worker skin/animation/color data and no embedded source logo images.
+- New actual-scene integration **25 checks, zero failures**: unchanged body/capsule/
+  motor and references, four real 19-bone rigs, actual breathing/leg bone-pose changes,
+  playing Idle/Walk selected from real velocity, loaded 1K albedo/normal/roughness,
+  real GLB props, all AI moving during 1,200 ticks, all ten sites reachable, actual
+  no-jump walking through both doors/around a corner, effective drum collider, real
+  lever cancel/progress, 36 new-art camera clearance/framing poses, F3 off/default.
+- All unchanged map/gameplay suites passed: 40 map + 18 map AI + all seven earlier
+  suites (223) = **281 checks**. Including new tests: **306 checks, zero failures**.
+- Unchanged Stage 3D, seed 431/repeat 2: **16/16 scenarios**, 98 explicit assertions,
+  6,886 audited ticks and all eight semantic repeat hashes matching. Fresh completion
+  and success reports checked; old tests/harness were not loosened or edited.
+- Explicit showcase and graybox fallback startups passed; the old runner also starts
+  current F5 and explicit old Stage 3C/M1. All subprocesses have finite timeouts.
+  No script/engine errors in headless acceptance. The known Jolt job-pool warning
+  remains possible in both old/new scenes and is recorded separately; other warnings
+  and all errors still fail. No physics changes to hide that engine limitation.
+- Separate local navigation rebaked to **267 polygons** for new workbench, three drums
+  and lantern-post colliders. Agent bounds/settings are retained, sites remain reachable;
+  all original scenes/navigation, motor/camera/input/interactions, AI/knowledge modules,
+  tests/harness and handoff are byte-preserved. Project change is startup path only.
+- Rendered comparison inspection found initially ignored worker vertex colors and
+  overly bright/noisy surfaces. Explicit material color use and surface tuning fixed
+  them. New capsule test initially used exact equality on stored float32 dimensions;
+  corrected to approximate numeric comparison without changing the physical dimensions.
+
+### Actual preview evidence and limits
+
+Matched actual 1280×720 before/after entry, player and interior images are saved under
+`docs/evidence/visual_v1/`. `.gdignore` keeps them out of Godot asset resources. They
+are renders of the real scene, not scenery/texture substitutes. Inspected actual
+materials, prop support/scale, common workwear, roof/door detail and camera view.
+
+The cloud default Forward Plus could not initialize `VK_KHR_surface`; Godot then
+fell back automatically to OpenGL 3 / Mesa llvmpipe on the temporary Xorg display.
+Preview initialization has Vulkan errors and fallback/V-sync warnings, separate
+from passing headless runtime checks. These are software-OpenGL visual sanity images,
+not a clean Forward Plus/D3D12/Windows pass or target-GPU performance evidence.
+Physical-input camera comfort, final character realism/foot locking, materials and
+soft shadows on the actual driver, exports and laptop FPS/frame time/RAM are unverified.
+
+Poly Haven API CONNECT returned 403; Quaternius was unreachable. No access/license
+for those packs was invented. Sponza was rejected after checking its engine-specific
+license; an unverified Mixamo Soldier candidate and abstract Rigged Figure were not
+imported. Verified Khronos assets and original PBR/geometry completed what was possible;
+photo-based materials/coherent high-detail industrial/vegetation packs remain preferred
+future quality upgrades. The rest of the kilometre map is still sparse graybox.
+
+Art subtree budget: **124 nodes, 106 meshes, ~20,377 triangles**, 201 small foliage
+instances in two MultiMeshes plus six larger clumps, one unshadowed fill light; four
+skinned rigs additional. Counts are not measured FPS/RAM. No whole-map visual replacement,
+AI strategy/extra population, combat, HP, objectives, rescue, inventory, mobs, chat,
+networking or full Director. The original working lever and role-neutral common visuals
+are retained; decorative radio/stencil do not imply functional mission controls.
+
+**Next:** run the documented Windows visual/performance checklist on this branch,
+record driver/hardware/results, then make measured art/animation adjustments. Station
+gameplay is a later scoped task. The present slice does not claim a finished high-quality
+indie environment or an AAA-quality target; it delivers an inspectable textured/detail
+upgrade with real legal assets and functioning shared animation.
+
+## Historical map foundation and earlier records
+
+## Current status — map-first world-layout foundation
+
+Implemented the explicitly authorized early 1,000×1,000 m layout on dedicated branch
+`feat/map-foundation`, based on fetched main `7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`.
+F5 now opens the separate map scene. The player can walk road loops, station quarter,
+forest paths and old works, and ascend/descend two gentle summit approaches with the
+unchanged motor/camera/input. The map is sparse original layout art, not finished
+1 km² environment detail. [MAP_FOUNDATION.md](MAP_FOUNDATION.md) records the proposal,
+coordinates, budgets, commands, distances, test coverage and Windows checklist.
+
+The three real existing Stage 3C AI use ten local sites and a separate 90×90 m navmesh
+(244 polygons) near the station; their behavior/perception/memory/coordination modules
+are unchanged. They do not wander the whole kilometre. Shared capsules remain test
+representations. Camera far plane increases only in this new composition. The signed
+M1 lever still works; summit/station landmarks do not implement calls/extraction or
+victory. Four safe-start and four future drop markers are editor candidates only.
+No combat, HP, mobs, inventory/loot, objectives, proximity chat, spectators, scoring,
+networking, extra population, full Director, runtime LLM or character retargeting.
+
+### Fresh map verification
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/run_map_checks.py --godot GODOT --output /tmp/false-world-map-final`:
+
+- Import/version/resource checks passed; F5 map and explicit old Stage 3C/M1 starts
+  each completed 1,800 frames. Final scene references and new script parser checks
+  are verified by import and execution; original fixtures were not stretched.
+- Map integration: **40 checks, zero failures**, 750 route-support/static-clearance
+  samples, 25 distributed ground samples, eight grounded candidates, four bounds,
+  ten actual continuous walks, two summit approaches both up/down, normal 4 m/s motor,
+  building entrance/corner, forest path, terrain seam, 192 new-map camera orbit poses
+  with near-plane enclosure/self clearance/whole-body framing, and real lever work.
+- New-map AI integration: **18 checks, zero failures**; 1,200 independently witnessed
+  autonomous ticks, all ten navigation sites, each actual agent moving locally,
+  private provenance/delayed selective receipt/expiry, new wall LOS, frozen last-seen
+  after hidden motion, <=2 retries then abandonment at a real physical obstruction,
+  unchanged bounded sensing and off/default editor diagnostics.
+- All seven unchanged suites passed: M1 graybox **31**, camera **15**, Stage 3A **39**,
+  3A.1 **25**, 3B.1 **45**, 3B.2 **33**, 3C **35**; **223 checks / zero failures**.
+  Together with the new suites: **281 checks**, no failed/skipped required assertions.
+- Unchanged Stage 3D harness, seed **431**, repeat **2**: **16/16 cases**, **98 explicit
+  assertions**, **6,886 audited ticks**, all eight repeated semantic hashes match.
+  Fresh completion/success JSON is checked, not just process exit. No engine/script
+  errors. The combined runner invokes the guide's supported direct GDScript path;
+  old Python launcher/harness and all old tests remain byte-preserved.
+- Known engine limitation: Jolt's fixed-job-pool warning also occurs in unchanged old
+  fixtures. CPU-affinity limits and paced headless runs did not reliably eliminate it.
+  Matching official engine source waits/reclaims jobs when the pool fills; the trigger
+  remains unresolved. The exact warning stays in logs and `engine_warnings` in the
+  acceptance record, separate from assertions/errors. Unknown warnings and any errors
+  still fail. No physics override, increased engine limit or weakened assertion.
+- Fixed demonstrated road/building and sign obstructions, explicit node-reference
+  rebinding and shared-instance ownership/shutdown leaks. Corrected the new relay
+  test's registration setup, not production relay logic. Final runs verify repairs.
+- Tracked-file hashes verify preserved handoff, game design, all prior scenes/navmeshes,
+  character/AI/debug modules, tests and harness. Only project startup setting changes;
+  engine declaration, renderer, Jolt, D3D12, input and unrelated settings are retained.
+  Intended diff/links/UID/resource checks and whitespace validation are part of delivery.
+
+### Map limits and next scoped work
+
+[Asset provenance](../assets/ATTRIBUTION.md): no web-search tool; three original asset
+pages returned 403. No third-party model/texture/font/addon could be verified/imported;
+all new layout pieces/materials are original. Cost is 0 UZS. Static saved content:
+750 nodes, 214 mesh instances, 200 static bodies, 12,914 visual triangles, 66 trees,
+four shells, one unshadowed light. Counts are budgets, not performance evidence.
+
+A temporary Xorg display produced software-OpenGL fallback images of the initial
+player, station and footprint, inspected only for basic layout/resources. Vulkan
+surface initialization failed before the engine automatically fell back to llvmpipe;
+a real audio device was also unavailable. No project renderer was changed, and this
+is not a passing Forward Plus/D3D12/Windows graphical test. Manual routes, camera
+comfort, final materials/character animation, Windows exports and target-laptop
+FPS/frame-time/RAM remain unverified. Automated samples do not prove every point or
+camera configuration in the full footprint, and measured simulated walks are not
+wall-clock human playtests. See the exact Windows commands/manual route checklist.
+
+The supplied brief reports Windows Stage 3D 16/16 from the user; that report is
+separate from the fresh Linux runs above. Prior progress below is retained as history;
+its former next steps and F5 scene statements are superseded by this map-first task.
+
+**Next task:** common human/AI visual model and locomotion with shared physical
+capabilities, followed by station gameplay on this tested layout. Both require their
+own scope; neither the unsent Stage 4 objective prompt nor the full game is shipped.
+This task authorizes commit and branch push only; main must not be merged or changed.
+
+## Historical Stage 3D and earlier delivery records
 
 ## Current status — Stage 3D deterministic AI scenarios and tool evaluation
 

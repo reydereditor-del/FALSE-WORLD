@@ -1,0 +1,188 @@
+{
+  "date": "2026-11-02 (Asia/Tashkent)",
+  "base_commit": "3a162038163f084c2ffcb0ee996110212c8d101a",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "visual_acceptance": {
+    "complete": true,
+    "success": true,
+    "checks": [
+      {
+        "check": "gameplay-regressions",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "parse-visual_slice",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "parse-worker_presentation",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "parse-bake_navigation",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "parse-build_showcase",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "parse-capture_preview",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "showcase-integration",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "showcase-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "graybox-fallback-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "licensed-assets-and-unbranded-worker",
+        "passed": true
+      }
+    ],
+    "new_assertions": 25,
+    "legacy_map_assertions": 281,
+    "legacy_scenarios": 16
+  },
+  "gameplay_acceptance": {
+    "complete": true,
+    "success": true,
+    "results": [
+      {
+        "check": "version",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "import",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "map-walk",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "map-ai",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "m1-camera",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "m1-graybox",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "stage3a",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3a1",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3b1",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3b2",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3c",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "walk-report",
+        "passed": true
+      },
+      {
+        "check": "stage3d",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "scenario-report",
+        "passed": true
+      },
+      {
+        "check": "map-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3c-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "m1-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      }
+    ]
+  },
+  "preview_renderer": "OpenGL 3 / Mesa llvmpipe automatic fallback; Vulkan surface initialization failed",
+  "preview_forward_plus_verified": false
+}

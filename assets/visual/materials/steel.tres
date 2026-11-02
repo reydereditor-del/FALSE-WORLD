@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/visual/materials/steel/albedo.jpg" id="1_tqsvc"]
+[ext_resource type="Texture2D" path="res://assets/visual/materials/steel/metallic.png" id="2_f3w2e"]
+[ext_resource type="Texture2D" path="res://assets/visual/materials/steel/normal.png" id="3_02lof"]
+[ext_resource type="Texture2D" path="res://assets/visual/materials/steel/roughness.png" id="4_nhuir"]
+
+[resource]
+albedo_texture = ExtResource("1_tqsvc")
+metallic = 1.0
+metallic_texture = ExtResource("2_f3w2e")
+roughness_texture = ExtResource("4_nhuir")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("3_02lof")
+uv1_scale = Vector3(0.75, 0.75, 0.75)
+uv1_triplanar = true
+uv1_world_triplanar = true

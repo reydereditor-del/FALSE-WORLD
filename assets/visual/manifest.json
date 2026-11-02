@@ -1,0 +1,113 @@
+{
+  "source_repository": "KhronosGroup/glTF-Sample-Assets",
+  "source_commit": "8f492390ddc7a2ae221a1369ef560589cf8c70fb",
+  "retrieved": "2026-11-02",
+  "license_ledger": "docs/ASSET_LICENSES.md",
+  "files": [
+    {
+      "path": "assets/visual/materials/concrete/albedo.jpg",
+      "bytes": 69868,
+      "sha256": "21aeb7d83eef8182034b122b7ea44e456a475fc3cafda1b82cd74d7df76c0e54"
+    },
+    {
+      "path": "assets/visual/materials/concrete/normal.png",
+      "bytes": 1889141,
+      "sha256": "dc4e583598b40fa5cbe8805c65124796f65dcd1da6d8677e4264cd4aeceabd18"
+    },
+    {
+      "path": "assets/visual/materials/concrete/roughness.png",
+      "bytes": 258138,
+      "sha256": "d4e5b7d4637954edcaab924047ca93f3c0c23fa9286f956e8bc47ee5363ccb48"
+    },
+    {
+      "path": "assets/visual/materials/gravel/albedo.jpg",
+      "bytes": 138507,
+      "sha256": "6777a69c21880386d38bb4687056e971dfed9b371a2b2cc8c4209a7a7989a89e"
+    },
+    {
+      "path": "assets/visual/materials/gravel/normal.png",
+      "bytes": 2844532,
+      "sha256": "8e64a1f0bb93dc23c9df579d511f4024a8c47cb9bb9d626ea9805b03114ee9b6"
+    },
+    {
+      "path": "assets/visual/materials/gravel/roughness.png",
+      "bytes": 690121,
+      "sha256": "0e93d55564ae970925b410bf4a6d22ec3a484196a68821a0d5772da01733fa25"
+    },
+    {
+      "path": "assets/visual/materials/steel/albedo.jpg",
+      "bytes": 171484,
+      "sha256": "2411e6c5725def088c945475cce4bc98fdcb6a10e2138e5b7233b0d62df03ace"
+    },
+    {
+      "path": "assets/visual/materials/steel/metallic.png",
+      "bytes": 326087,
+      "sha256": "f6e1a427cbb0dad979fc6e57039c87ae7bb019b379630fa75a1e129eb0fa320d"
+    },
+    {
+      "path": "assets/visual/materials/steel/normal.png",
+      "bytes": 2741552,
+      "sha256": "987f7a388a405512fd7073a5b2974d1f0aad14d60960f1b11c777c3459bd0d09"
+    },
+    {
+      "path": "assets/visual/materials/steel/roughness.png",
+      "bytes": 303388,
+      "sha256": "d6e060dd900bbfa55bc460a5a1a695e1404889631ac0b1e0be55da25e394f4ca"
+    },
+    {
+      "path": "assets/visual/models/BoomBox.glb",
+      "bytes": 10614184,
+      "sha256": "f8b918445ebdd006768232205a62f5182d2208ca57f84c6ccc084943c0bc8f15"
+    },
+    {
+      "path": "assets/visual/models/BoomBox_0.png",
+      "bytes": 3285844,
+      "sha256": "099816a7afc5f6690494313ac8039806fd6d5b84179126a808b2678aaab3563a"
+    },
+    {
+      "path": "assets/visual/models/BoomBox_1.png",
+      "bytes": 4471451,
+      "sha256": "496704a4836ff364dc4441f41651edb25178498926c859933e33df42d6361412"
+    },
+    {
+      "path": "assets/visual/models/BoomBox_2.png",
+      "bytes": 2514469,
+      "sha256": "c9a7904e7f25246ac47f86c337cfd4ec8e103fff83e07d3af472e5c620ec6f27"
+    },
+    {
+      "path": "assets/visual/models/BoomBox_3.png",
+      "bytes": 132833,
+      "sha256": "e9970da7010591b73070151fe5039a158413499e38300d14106e367472c03b5b"
+    },
+    {
+      "path": "assets/visual/models/Lantern.glb",
+      "bytes": 9564264,
+      "sha256": "a79458c4b02d695187a952f23a63b8bf278e7bc3d316a3c2a314f2d6974181f1"
+    },
+    {
+      "path": "assets/visual/models/Lantern_0.png",
+      "bytes": 4461532,
+      "sha256": "a2d6aa660f0b9ce46b3863e955248454e73be96063218b799af9f750e0f7be71"
+    },
+    {
+      "path": "assets/visual/models/Lantern_1.png",
+      "bytes": 2078597,
+      "sha256": "01b8105756fd86f13e66602f85ee03e7e5daf22a8531f32bef8bbe678cf38cf6"
+    },
+    {
+      "path": "assets/visual/models/Lantern_2.png",
+      "bytes": 2619883,
+      "sha256": "3318a4d3bef8be53c192d87b7401145493774126c54a22e50e1269f9476065fa"
+    },
+    {
+      "path": "assets/visual/models/Lantern_3.png",
+      "bytes": 169335,
+      "sha256": "eafa6390501d537f5bbcf92c64ad1c39d2493aef4508e9cc9d537771efe8bad7"
+    },
+    {
+      "path": "assets/visual/models/worker.glb",
+      "bytes": 274576,
+      "sha256": "cb29c9423c4205bbfc5d391b5215b95b4b242618ca1523114fbe67bc92e314ae"
+    }
+  ]
+}

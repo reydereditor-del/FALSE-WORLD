@@ -479,3 +479,138 @@ and demonstrated authoring benefit. No fake addon demonstration scene is added w
 installation is excluded. Pin versions and preserve MIT, separately licensed art and
 OFL font notices if any future adoption occurs; source sizes/licenses/links are in
 [AI_TESTING_AND_TOOL_EVALUATION.md](AI_TESTING_AND_TOOL_EVALUATION.md). Cost: 0 UZS.
+
+## Map-first foundation (current F5 composition)
+
+The map-first task explicitly authorizes an early 1,000×1,000 m walkable footprint
+before further AI refinement. This changes the layout schedule, not the approved
+full-game mechanics/population goals. `scenes/world/map_foundation.tscn` now starts
+with F5; historical startup statements above and in older prototype guides describe
+their increments. All old scenes/navigation and production character/AI/debug modules
+are byte-preserved; use their explicit scene paths for regression runs.
+
+`MapLayout` holds provisional authored terrain heights, roads, start/drop candidates.
+`tools/build_map_foundation.gd` saves editable geometry, with no runtime generator or
+world-wide scan. One continuous 5,000-triangle collider supports the actual footprint;
+gentle slopes and ground-level building openings respect the unchanged no-jump motor.
+The two summit approaches and station approaches are physically tested. Terrain and
+road material variation, roofless shells, pines, custom signs and landmarks are
+original bounded layout art; see [MAP_FOUNDATION.md](MAP_FOUNDATION.md) and
+[asset provenance](../assets/ATTRIBUTION.md). No external package could be verified
+in the bounded access pass, so none was imported. Cost remains 0 UZS.
+
+The translated LocalArea directly reuses the Stage 3C composition and its three real
+agents, private memory, LOS sensors, delayed selective relay, decisions, coordination,
+exploration and shared collision motor. Ten static sites and a separate 90×90 m
+station navmesh (244 polygons) bound their coverage. Navigation uses world coordinates
+with the region's local transform compensating for the parent translation. The human
+can walk outside it. No large-map perception, omniscient objective state or new AI
+strategy is added. Existing F3 diagnostics remain off/default and editor-debug-only.
+
+The human uses the shared character instance plus the existing M1 input/camera/
+interactor and lever; the authoring tool rebinds exported node references explicitly
+and preserves shared-instance ownership. Only the new human camera's far plane grows
+to 1400 m for distant terrain; motor equations, rig, controls and old fixtures retain
+their configuration. Summit/station spaces and editor markers do not implement rescue,
+spawn balancing or loot. No dummy objectives or victory triggers exist.
+
+Saved static content: 750 nodes, 214 mesh instances, 200 static bodies, 12,914 visual
+triangles, 66 pines, four shells, one unshadowed directional light; three existing AI
+add their small runtime trees. Counts are budgets, not target-laptop measurements.
+Headless tests cover finite real walks, sampled ground/clearance, 192 map-specific
+camera poses and 1,200 witnessed AI ticks; old regression fixtures remain unchanged.
+The acceptance runner retains the exact reproduced Jolt fixed-job-pool warning as
+an engine limitation (including old scenes), rejects errors/unknown warnings, checks
+completion reports and does not alter physics to hide it. Software OpenGL fallback
+images gave only a layout sanity check; Forward Plus/D3D12 and Windows performance
+remain unverified. Next: common human/AI visual model and locomotion, then station
+gameplay on the tested map, each under a subsequent scoped task.
+
+## Visual vertical slice V1 (current F5)
+
+`scenes/visual/visual_vertical_slice.tscn` inherits the unchanged full map and adds one
+32×32 m static art composition around the storehouse/entry. Old map, character, camera,
+interaction, AI, tests and nav resources remain byte-preserved. Only project startup
+points at the new scene; renderer/engine/Jolt/D3D12/input settings are unchanged.
+Existing shell surfaces get actual original 1K PBR textures; roof/conduit/vent/paint/
+debris/weeds are bounded original details. Two verified-license CC0 GLBs retain their
+2K materials; an attributed CC-BY humanoid derivative retains rig/walk while removing
+the branded image and using original workwear colors. Full notices/manifest are in
+[ASSET_LICENSES.md](ASSET_LICENSES.md). No paid service/purchase; cost remains 0 UZS.
+
+`StationArt` applies a presentation-only component identically to one human/three
+AI. Hidden original body/facing meshes remain valid focus/reference nodes; the same
+CharacterBody3D/capsule/motor/controller still owns physics. WorkerPresentation reads
+actual velocity for Idle/Walk, with original breathing Idle and imported walk clip;
+it receives no hidden role/mission information and sends no commands. Four bounded
+animation updates replace no perception/memory/exploration/coordination system.
+
+Five art colliders require a separate 267-polygon 90×90 m station navmesh. All ten
+sites remain reachable; old navigation is retained as fallback. Visual floors add no
+collision steps. Overcast sky, 65 m directional shadows and one unshadowed warm fill
+are scene resources; no volumetric effects, global per-frame scan or population growth.
+Art subtree: 124 nodes, 106 mesh instances, ~20,377 triangles including foliage,
+201 small MultiMesh clumps plus six larger clumps, one fill light; four rigs additional.
+Budgets are content counts, not Intel-iGPU performance evidence.
+
+[VISUAL_VERTICAL_SLICE_V1.md](VISUAL_VERTICAL_SLICE_V1.md) records source rights,
+commands, real rendered before/after evidence and quality limits. The virtual display
+could render only after automatic software-OpenGL fallback (Vulkan surface unavailable),
+so Forward Plus/D3D12, visual comfort and laptop FPS/RAM remain unverified. Headless
+new-scene checks exercise real bones/velocity/walking/collision/camera/navigation;
+all old gameplay/map tests and scenario harness remain unchanged and are rerun.
+
+## Stage 4 signal objective subset (current F5)
+
+`scenes/stage4/signal_loop.tscn` inherits the preserved visual benchmark and adds one
+service module, a real cabinet control and a marked pickup yard. The task explicitly
+requests one prototype component; the final battery-plus-radio station requirement
+and independent mountain route remain authoritative and unchanged in the handoff and
+game design. This is not completion of full handoff Stage 4's survival systems.
+
+`SignalObjective` is a value-only state/owner/injected-clock object, with no Nodes,
+input, AI registry, roles or inventory framework. SEARCH/CARRYING represent the one
+component; completed activation installs it, sends one call and enters WAITING.
+At arrival, the local player's yard membership gives one SUCCESS, otherwise READY
+allows another call with installation retained. Success has a six-second banner;
+no transport/spectator/full-match meta is fabricated. Prototype timings remain tuning.
+
+Two narrow WorkTarget subclasses reuse its physical reach/LOS, single-worker lock,
+retained work/cancel and actual lever progress. Ownership changes only on completed
+pickup; installation/sent-call state changes only on completed legitimate work.
+The composition switches the unchanged CharacterInteractor among three authored
+reachable targets before local input, advances the clock, samples the yard and
+refreshes one minimal local feedback panel at 10 Hz. No movement/camera/input-module
+rewrite, global target scan or event bus. R reloads the whole local prototype, not
+an in-world action affecting a persistent match. E/controls reuse existing input.
+
+All three real AI retain exploration, range/cone/LOS sensing, private memory, delayed
+selective reports and limited coordination unchanged. They may see the player at the
+cabinet and investigate the old witnessed point. No component/call state or unsensed
+human transform enters decisions. Autonomous item handling, sabotage and combat are
+not added. The new-scene test demonstrates an actual objective-area sighting and
+frozen last-seen investigation without changing strategy or sensing rules.
+
+A separate Stage 4-only 90×90 m local navmesh retains 267 polygons and all ten authored
+sites; the visual benchmark's own resources are unchanged. Original small supporting
+meshes reuse existing materials and have recorded provenance. The entire old visual
+asset tree, prior scenes/navigation, motor/camera/interactions, AI, tests/harness,
+handoff and game design are byte-preserved. Project settings change startup only.
+
+See [STAGE4_SIGNAL_PROTOTYPE.md](STAGE4_SIGNAL_PROTOTYPE.md) for scope/controls, actual
+walking/cancel/arrival/reset tests and limitations. Local owner IDs are not network
+authentication; authority/session validation belongs to a later multiplayer task.
+No combat/death, loot, full inventory, other route, score or full-game result system
+is implied. Windows physical-input/visual/performance acceptance remains pending;
+software-OpenGL fallback screenshots are documentation, not Forward Plus/iGPU proof.
+
+## Stage 4 objective audit (2026-11-03)
+
+[STAGE4_OBJECTIVE_AUDIT.md](STAGE4_OBJECTIVE_AUDIT.md) confirms the implementation is
+a partial prototype: one service module, WAITING → READY on empty arrival, terminal
+SUCCESS after yard eligibility. Final handoff extraction grants an individual win,
+not necessarily whole-match completion; the prototype folds its local extraction and
+result into SUCCESS without production actor removal/spectating or match lifecycle.
+No replay defect was reproduced; 73 focused checks passed. Only an additional audit
+regression test/docs are added, with no gameplay/asset/setting changes. Final battery
+plus radio and other extraction requirements remain unimplemented, not waived.
