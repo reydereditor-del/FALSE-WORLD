@@ -479,3 +479,49 @@ and demonstrated authoring benefit. No fake addon demonstration scene is added w
 installation is excluded. Pin versions and preserve MIT, separately licensed art and
 OFL font notices if any future adoption occurs; source sizes/licenses/links are in
 [AI_TESTING_AND_TOOL_EVALUATION.md](AI_TESTING_AND_TOOL_EVALUATION.md). Cost: 0 UZS.
+
+## Map-first foundation (current F5 composition)
+
+The map-first task explicitly authorizes an early 1,000×1,000 m walkable footprint
+before further AI refinement. This changes the layout schedule, not the approved
+full-game mechanics/population goals. `scenes/world/map_foundation.tscn` now starts
+with F5; historical startup statements above and in older prototype guides describe
+their increments. All old scenes/navigation and production character/AI/debug modules
+are byte-preserved; use their explicit scene paths for regression runs.
+
+`MapLayout` holds provisional authored terrain heights, roads, start/drop candidates.
+`tools/build_map_foundation.gd` saves editable geometry, with no runtime generator or
+world-wide scan. One continuous 5,000-triangle collider supports the actual footprint;
+gentle slopes and ground-level building openings respect the unchanged no-jump motor.
+The two summit approaches and station approaches are physically tested. Terrain and
+road material variation, roofless shells, pines, custom signs and landmarks are
+original bounded layout art; see [MAP_FOUNDATION.md](MAP_FOUNDATION.md) and
+[asset provenance](../assets/ATTRIBUTION.md). No external package could be verified
+in the bounded access pass, so none was imported. Cost remains 0 UZS.
+
+The translated LocalArea directly reuses the Stage 3C composition and its three real
+agents, private memory, LOS sensors, delayed selective relay, decisions, coordination,
+exploration and shared collision motor. Ten static sites and a separate 90×90 m
+station navmesh (244 polygons) bound their coverage. Navigation uses world coordinates
+with the region's local transform compensating for the parent translation. The human
+can walk outside it. No large-map perception, omniscient objective state or new AI
+strategy is added. Existing F3 diagnostics remain off/default and editor-debug-only.
+
+The human uses the shared character instance plus the existing M1 input/camera/
+interactor and lever; the authoring tool rebinds exported node references explicitly
+and preserves shared-instance ownership. Only the new human camera's far plane grows
+to 1400 m for distant terrain; motor equations, rig, controls and old fixtures retain
+their configuration. Summit/station spaces and editor markers do not implement rescue,
+spawn balancing or loot. No dummy objectives or victory triggers exist.
+
+Saved static content: 750 nodes, 214 mesh instances, 200 static bodies, 12,914 visual
+triangles, 66 pines, four shells, one unshadowed directional light; three existing AI
+add their small runtime trees. Counts are budgets, not target-laptop measurements.
+Headless tests cover finite real walks, sampled ground/clearance, 192 map-specific
+camera poses and 1,200 witnessed AI ticks; old regression fixtures remain unchanged.
+The acceptance runner retains the exact reproduced Jolt fixed-job-pool warning as
+an engine limitation (including old scenes), rejects errors/unknown warnings, checks
+completion reports and does not alter physics to hide it. Software OpenGL fallback
+images gave only a layout sanity check; Forward Plus/D3D12 and Windows performance
+remain unverified. Next: common human/AI visual model and locomotion, then station
+gameplay on the tested map, each under a subsequent scoped task.

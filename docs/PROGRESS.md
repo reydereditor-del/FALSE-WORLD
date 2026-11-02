@@ -2,6 +2,94 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
+## Current status — map-first world-layout foundation
+
+Implemented the explicitly authorized early 1,000×1,000 m layout on dedicated branch
+`feat/map-foundation`, based on fetched main `7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`.
+F5 now opens the separate map scene. The player can walk road loops, station quarter,
+forest paths and old works, and ascend/descend two gentle summit approaches with the
+unchanged motor/camera/input. The map is sparse original layout art, not finished
+1 km² environment detail. [MAP_FOUNDATION.md](MAP_FOUNDATION.md) records the proposal,
+coordinates, budgets, commands, distances, test coverage and Windows checklist.
+
+The three real existing Stage 3C AI use ten local sites and a separate 90×90 m navmesh
+(244 polygons) near the station; their behavior/perception/memory/coordination modules
+are unchanged. They do not wander the whole kilometre. Shared capsules remain test
+representations. Camera far plane increases only in this new composition. The signed
+M1 lever still works; summit/station landmarks do not implement calls/extraction or
+victory. Four safe-start and four future drop markers are editor candidates only.
+No combat, HP, mobs, inventory/loot, objectives, proximity chat, spectators, scoring,
+networking, extra population, full Director, runtime LLM or character retargeting.
+
+### Fresh map verification
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/run_map_checks.py --godot GODOT --output /tmp/false-world-map-final`:
+
+- Import/version/resource checks passed; F5 map and explicit old Stage 3C/M1 starts
+  each completed 1,800 frames. Final scene references and new script parser checks
+  are verified by import and execution; original fixtures were not stretched.
+- Map integration: **40 checks, zero failures**, 750 route-support/static-clearance
+  samples, 25 distributed ground samples, eight grounded candidates, four bounds,
+  ten actual continuous walks, two summit approaches both up/down, normal 4 m/s motor,
+  building entrance/corner, forest path, terrain seam, 192 new-map camera orbit poses
+  with near-plane enclosure/self clearance/whole-body framing, and real lever work.
+- New-map AI integration: **18 checks, zero failures**; 1,200 independently witnessed
+  autonomous ticks, all ten navigation sites, each actual agent moving locally,
+  private provenance/delayed selective receipt/expiry, new wall LOS, frozen last-seen
+  after hidden motion, <=2 retries then abandonment at a real physical obstruction,
+  unchanged bounded sensing and off/default editor diagnostics.
+- All seven unchanged suites passed: M1 graybox **31**, camera **15**, Stage 3A **39**,
+  3A.1 **25**, 3B.1 **45**, 3B.2 **33**, 3C **35**; **223 checks / zero failures**.
+  Together with the new suites: **281 checks**, no failed/skipped required assertions.
+- Unchanged Stage 3D harness, seed **431**, repeat **2**: **16/16 cases**, **98 explicit
+  assertions**, **6,886 audited ticks**, all eight repeated semantic hashes match.
+  Fresh completion/success JSON is checked, not just process exit. No engine/script
+  errors. The combined runner invokes the guide's supported direct GDScript path;
+  old Python launcher/harness and all old tests remain byte-preserved.
+- Known engine limitation: Jolt's fixed-job-pool warning also occurs in unchanged old
+  fixtures. CPU-affinity limits and paced headless runs did not reliably eliminate it.
+  Matching official engine source waits/reclaims jobs when the pool fills; the trigger
+  remains unresolved. The exact warning stays in logs and `engine_warnings` in the
+  acceptance record, separate from assertions/errors. Unknown warnings and any errors
+  still fail. No physics override, increased engine limit or weakened assertion.
+- Fixed demonstrated road/building and sign obstructions, explicit node-reference
+  rebinding and shared-instance ownership/shutdown leaks. Corrected the new relay
+  test's registration setup, not production relay logic. Final runs verify repairs.
+- Tracked-file hashes verify preserved handoff, game design, all prior scenes/navmeshes,
+  character/AI/debug modules, tests and harness. Only project startup setting changes;
+  engine declaration, renderer, Jolt, D3D12, input and unrelated settings are retained.
+  Intended diff/links/UID/resource checks and whitespace validation are part of delivery.
+
+### Map limits and next scoped work
+
+[Asset provenance](../assets/ATTRIBUTION.md): no web-search tool; three original asset
+pages returned 403. No third-party model/texture/font/addon could be verified/imported;
+all new layout pieces/materials are original. Cost is 0 UZS. Static saved content:
+750 nodes, 214 mesh instances, 200 static bodies, 12,914 visual triangles, 66 trees,
+four shells, one unshadowed light. Counts are budgets, not performance evidence.
+
+A temporary Xorg display produced software-OpenGL fallback images of the initial
+player, station and footprint, inspected only for basic layout/resources. Vulkan
+surface initialization failed before the engine automatically fell back to llvmpipe;
+a real audio device was also unavailable. No project renderer was changed, and this
+is not a passing Forward Plus/D3D12/Windows graphical test. Manual routes, camera
+comfort, final materials/character animation, Windows exports and target-laptop
+FPS/frame-time/RAM remain unverified. Automated samples do not prove every point or
+camera configuration in the full footprint, and measured simulated walks are not
+wall-clock human playtests. See the exact Windows commands/manual route checklist.
+
+The supplied brief reports Windows Stage 3D 16/16 from the user; that report is
+separate from the fresh Linux runs above. Prior progress below is retained as history;
+its former next steps and F5 scene statements are superseded by this map-first task.
+
+**Next task:** common human/AI visual model and locomotion with shared physical
+capabilities, followed by station gameplay on this tested layout. Both require their
+own scope; neither the unsent Stage 4 objective prompt nor the full game is shipped.
+This task authorizes commit and branch push only; main must not be merged or changed.
+
+## Historical Stage 3D and earlier delivery records
+
 ## Current status — Stage 3D deterministic AI scenarios and tool evaluation
 
 Completed an isolated Godot/GDScript eight-case scenario harness and an upstream

@@ -1,0 +1,415 @@
+{
+  "recorded_date": "2026-11-02 (Asia/Tashkent)",
+  "base_sha": "7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "command": "python3 tools/run_map_checks.py --godot GODOT --output /tmp/false-world-map-final",
+  "acceptance": {
+    "complete": true,
+    "success": true,
+    "results": [
+      {
+        "check": "version",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "import",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "map-walk",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "map-ai",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "m1-camera",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "m1-graybox",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "stage3a",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3a1",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3b1",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3b2",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3c",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "walk-report",
+        "passed": true
+      },
+      {
+        "check": "stage3d",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "scenario-report",
+        "passed": true
+      },
+      {
+        "check": "map-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": []
+      },
+      {
+        "check": "stage3c-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      },
+      {
+        "check": "m1-startup",
+        "exit": 0,
+        "passed": true,
+        "engine_warnings": [
+          "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+        ]
+      }
+    ]
+  },
+  "map_walks": {
+    "checks": 40,
+    "complete": true,
+    "failures": 0,
+    "frames": 44289,
+    "success": true,
+    "walks": [
+      {
+        "completed": true,
+        "metres_walked": 204.401663325727,
+        "physics_ticks": 3066,
+        "route": "StationWest",
+        "simulated_seconds": 51.1
+      },
+      {
+        "completed": true,
+        "metres_walked": 119.8173828125,
+        "physics_ticks": 1797,
+        "route": "StationEast",
+        "simulated_seconds": 29.95
+      },
+      {
+        "completed": true,
+        "metres_walked": 584.326538093388,
+        "physics_ticks": 8926,
+        "route": "SummitEast",
+        "simulated_seconds": 148.766666666667
+      },
+      {
+        "completed": true,
+        "metres_walked": 584.299280487001,
+        "physics_ticks": 8608,
+        "route": "SummitEastDescent",
+        "simulated_seconds": 143.466666666667
+      },
+      {
+        "completed": true,
+        "metres_walked": 579.656832128763,
+        "physics_ticks": 8857,
+        "route": "SummitSouth",
+        "simulated_seconds": 147.616666666667
+      },
+      {
+        "completed": true,
+        "metres_walked": 579.666822329164,
+        "physics_ticks": 8539,
+        "route": "SummitSouthDescent",
+        "simulated_seconds": 142.316666666667
+      },
+      {
+        "completed": true,
+        "metres_walked": 133.461138114333,
+        "physics_ticks": 2002,
+        "route": "ForestPath",
+        "simulated_seconds": 33.3666666666667
+      },
+      {
+        "completed": true,
+        "metres_walked": 22.7996520996094,
+        "physics_ticks": 342,
+        "route": "BuildingEntrance",
+        "simulated_seconds": 5.7
+      },
+      {
+        "completed": true,
+        "metres_walked": 37.4005856439471,
+        "physics_ticks": 561,
+        "route": "BuildingCorner",
+        "simulated_seconds": 9.35
+      },
+      {
+        "completed": true,
+        "metres_walked": 19.795166015625,
+        "physics_ticks": 297,
+        "route": "TerrainSeam",
+        "simulated_seconds": 4.95
+      }
+    ]
+  },
+  "scenarios": {
+    "complete": true,
+    "engine": "4.7.2-stable (official)",
+    "error": "",
+    "success": true
+  },
+  "scenario_results": [
+    {
+      "audited_frames": 135,
+      "checks": 6,
+      "failures": [],
+      "frames": 135,
+      "observations": 9,
+      "passed": true,
+      "run": 1,
+      "scenario": "visible",
+      "seed": 431,
+      "semantic_sha256": "7005a28a5044bb8ac6e93037aea8117913be5231b74a218192c3e58359362118",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 123,
+      "checks": 5,
+      "failures": [],
+      "frames": 123,
+      "observations": 0,
+      "passed": true,
+      "run": 1,
+      "scenario": "wall",
+      "seed": 431,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "state_changes": 0
+    },
+    {
+      "audited_frames": 195,
+      "checks": 9,
+      "failures": [],
+      "frames": 195,
+      "observations": 1,
+      "passed": true,
+      "run": 1,
+      "scenario": "lost_moving",
+      "seed": 431,
+      "semantic_sha256": "77698417e6a18b450fe4784fc10c52f3b5cfa462139cb75249c07296c6ca5cb7",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 55,
+      "checks": 6,
+      "failures": [],
+      "frames": 55,
+      "observations": 1,
+      "passed": true,
+      "run": 1,
+      "scenario": "delayed_report",
+      "seed": 431,
+      "semantic_sha256": "3fbdc26bf2ec7a9f6e54c2a587be8ff7d6c933a28622550ecc51cec5bf12cdf5",
+      "state_changes": 1
+    },
+    {
+      "audited_frames": 55,
+      "checks": 7,
+      "failures": [],
+      "frames": 55,
+      "observations": 1,
+      "passed": true,
+      "run": 1,
+      "scenario": "independent_reports",
+      "seed": 431,
+      "semantic_sha256": "66d667c6722cdcd3fa96561d186c984a7a5faeffb5857d6281fdb3b51a9dbe40",
+      "state_changes": 2
+    },
+    {
+      "audited_frames": 120,
+      "checks": 6,
+      "failures": [],
+      "frames": 120,
+      "observations": 1,
+      "passed": true,
+      "run": 1,
+      "scenario": "expires_travel",
+      "seed": 431,
+      "semantic_sha256": "ec6392546acbe2547514976ae6dce076fb4a0dc8f61330e19e588007af3de46d",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 240,
+      "checks": 5,
+      "failures": [],
+      "frames": 240,
+      "observations": 1,
+      "passed": true,
+      "run": 1,
+      "scenario": "blocked",
+      "seed": 431,
+      "semantic_sha256": "884da0c357a9ba3923b6fed8450d290ea07cea60f3f1b32f9df897ca43b8b490",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 2520,
+      "checks": 5,
+      "failures": [],
+      "frames": 2520,
+      "observations": 81,
+      "passed": true,
+      "run": 1,
+      "scenario": "repeated",
+      "seed": 431,
+      "semantic_sha256": "ffb39295f9e62e30ceb058f9672a4c19d6fc3b5681991c16a1ff3348eb74bdf5",
+      "state_changes": 4
+    },
+    {
+      "audited_frames": 135,
+      "checks": 6,
+      "failures": [],
+      "frames": 135,
+      "observations": 9,
+      "passed": true,
+      "run": 2,
+      "scenario": "visible",
+      "seed": 431,
+      "semantic_sha256": "7005a28a5044bb8ac6e93037aea8117913be5231b74a218192c3e58359362118",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 123,
+      "checks": 5,
+      "failures": [],
+      "frames": 123,
+      "observations": 0,
+      "passed": true,
+      "run": 2,
+      "scenario": "wall",
+      "seed": 431,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "state_changes": 0
+    },
+    {
+      "audited_frames": 195,
+      "checks": 9,
+      "failures": [],
+      "frames": 195,
+      "observations": 1,
+      "passed": true,
+      "run": 2,
+      "scenario": "lost_moving",
+      "seed": 431,
+      "semantic_sha256": "77698417e6a18b450fe4784fc10c52f3b5cfa462139cb75249c07296c6ca5cb7",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 55,
+      "checks": 6,
+      "failures": [],
+      "frames": 55,
+      "observations": 1,
+      "passed": true,
+      "run": 2,
+      "scenario": "delayed_report",
+      "seed": 431,
+      "semantic_sha256": "3fbdc26bf2ec7a9f6e54c2a587be8ff7d6c933a28622550ecc51cec5bf12cdf5",
+      "state_changes": 1
+    },
+    {
+      "audited_frames": 55,
+      "checks": 7,
+      "failures": [],
+      "frames": 55,
+      "observations": 1,
+      "passed": true,
+      "run": 2,
+      "scenario": "independent_reports",
+      "seed": 431,
+      "semantic_sha256": "66d667c6722cdcd3fa96561d186c984a7a5faeffb5857d6281fdb3b51a9dbe40",
+      "state_changes": 2
+    },
+    {
+      "audited_frames": 120,
+      "checks": 6,
+      "failures": [],
+      "frames": 120,
+      "observations": 1,
+      "passed": true,
+      "run": 2,
+      "scenario": "expires_travel",
+      "seed": 431,
+      "semantic_sha256": "ec6392546acbe2547514976ae6dce076fb4a0dc8f61330e19e588007af3de46d",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 240,
+      "checks": 5,
+      "failures": [],
+      "frames": 240,
+      "observations": 1,
+      "passed": true,
+      "run": 2,
+      "scenario": "blocked",
+      "seed": 431,
+      "semantic_sha256": "884da0c357a9ba3923b6fed8450d290ea07cea60f3f1b32f9df897ca43b8b490",
+      "state_changes": 3
+    },
+    {
+      "audited_frames": 2520,
+      "checks": 5,
+      "failures": [],
+      "frames": 2520,
+      "observations": 81,
+      "passed": true,
+      "run": 2,
+      "scenario": "repeated",
+      "seed": 431,
+      "semantic_sha256": "ffb39295f9e62e30ceb058f9672a4c19d6fc3b5681991c16a1ff3348eb74bdf5",
+      "state_changes": 4
+    }
+  ]
+}
