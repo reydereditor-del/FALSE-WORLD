@@ -43,27 +43,16 @@ func plan(now: int) -> void:
 				wait_until = now + 60
 				return
 			var target: Vector3 = choices.sites[index].position
-			var nearest := NavigationServer3D.map_get_closest_point(map, target)
-			path_queries += 1
-			var path := NavigationServer3D.map_get_path(map, motor.global_position, nearest, true)
-			if nearest.distance_to(target) > 0.75 or path.is_empty() or path[-1].distance_to(nearest) > 0.5:
+			if not try_destination(target):
 				choices.reject(index, now)
 				failed_destinations += 1
 				continue
-			_goal = nearest
-			navigator.target_position = _goal
-			waiting = false
-			_started = true
-			_stalled_ticks = 0
-			repath_attempts = 0
-			_last_position = motor.global_position
 			selections += 1
 			return
 		wait_until = now + 60
 		return
 	if motor.global_position.distance_to(_goal) < 0.7:
-		waiting = true
-		wait_until = now + choices.arrived(index)
+		_arrive(now)
 	elif navigator.is_navigation_finished():
 		_abandon(now)
 	elif motor.global_position.distance_to(_last_position) < 0.05:
@@ -79,6 +68,30 @@ func plan(now: int) -> void:
 	else:
 		_stalled_ticks = 0
 	_last_position = motor.global_position
+
+
+func try_destination(target: Vector3) -> bool:
+	var map := navigator.get_navigation_map()
+	if NavigationServer3D.map_get_iteration_id(map) == 0:
+		return false
+	var nearest := NavigationServer3D.map_get_closest_point(map, target)
+	path_queries += 1
+	var path := NavigationServer3D.map_get_path(map, motor.global_position, nearest, true)
+	if nearest.distance_to(target) > 0.75 or path.is_empty() or path[-1].distance_to(nearest) > 0.5:
+		return false
+	_goal = nearest
+	navigator.target_position = _goal
+	waiting = false
+	_started = true
+	_stalled_ticks = 0
+	repath_attempts = 0
+	_last_position = motor.global_position
+	return true
+
+
+func _arrive(now: int) -> void:
+	waiting = true
+	wait_until = now + choices.arrived(index)
 
 
 func _abandon(now: int) -> void:

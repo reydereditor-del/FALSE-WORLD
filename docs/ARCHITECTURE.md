@@ -2,7 +2,8 @@
 
 Status: planned full-game boundaries; M1 local movement/camera/interaction is
 implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A local AI
-foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md); later systems
+foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md). Current local
+observation decisions are in [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md); later systems
 and the complete deception proof remain planned.
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) controls approved gameplay;
 [GAME_DESIGN.md](GAME_DESIGN.md) reconciles it. Technical choices below are proposals
@@ -325,3 +326,39 @@ checks and the existing per-tick path follower. Dynamic crowd avoidance is not a
 See STAGE3A1_PROTOTYPE.md for authored access routes, tuning, rebake commands and
 manual acceptance. Automated path/angle bounds are not proof of natural-looking
 movement or GPU performance; expanded-map occlusion and usability remain unverified.
+
+
+## Stage 3B.1 observation decision boundary
+
+The new startup scene inherits Stage 3A.1 without geometry/navigation resource,
+spawn or population changes. Earlier standalone scenes remain available. Only the
+startup setting changes in project.godot; renderer, controls and physics are preserved.
+No asset, dependency, service or expenditure (0 UZS) is introduced.
+
+ObservationDecisions is a value-only explore/observe/investigate/resume state machine.
+ObservationController owns its private LocalMemory reference, copies snapshots on a
+bounded phase, and supplies only its own position/tick and execution feedback. The
+pure rule object receives no Node, sensor candidates, actor registry or human lookup.
+The composition wires each controller to exactly its own sensor memory and known
+teammate IDs. Existing perception, memory validation/expiry and delayed selective
+report provenance remain unchanged. No Director strategies or dialogue are added.
+
+The rule selects fresh nearby non-teammate observations by recency/distance, freezes
+one record, pauses, and can visit its old point after losing sight. Current direct
+vision is identified only by that sensing phase's timestamp/source. Continuing sight
+ends the pause without pursuit. Newer facts cannot redirect active travel or extend
+its deadline. Expiry, arrival, unreachable paths or finite abandonment lead through
+resume to ordinary authored exploration; a remembered point is never live GPS.
+
+An eight-record private suppression history prevents newer timestamps at the same
+place from producing loops. Per-subject/location and global cooldowns plus minimum
+dwells prevent state chatter. Suppression records never supply actionable expired
+facts. Candidate scanning, decision frequency and path queries are bounded; settings
+remain provisional. Seeded variation changes reaction/pause timing only.
+
+The existing exploration executor exposes path-start/arrival hooks so investigation
+reuses validation, steering, turn limits and bounded physical-block recovery without
+changing speed, collider, gravity or M1 controls. Default exploration behavior remains
+covered by its unchanged regression suite. Counts establish operation bounds, not
+measured CPU/GPU cost or human-like behavior; graphical acceptance and profiling are
+still required before scaling beyond three agents.

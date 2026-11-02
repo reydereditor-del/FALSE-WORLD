@@ -7,11 +7,13 @@ No dialogue, combat, inventory, extraction, mobs, multiplayer, new UI or depende
 
 ## Run and controls
 
-Use Godot **4.7.2**. F5 starts `scenes/prototype/stage3a1_exploration.tscn`.
+Use Godot **4.7.2**. F5 now starts observation-driven Stage 3B.1; see
+[STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md). F6 on
+`scenes/prototype/stage3a1_exploration.tscn` retains the exploration-only demo.
 Original M1 and Stage 3A scenes remain available directly/F6 for regression checks.
 
 ```sh
-godot --path .
+godot --path . res://scenes/prototype/stage3a1_exploration.tscn
 godot --path . res://scenes/prototype/stage3a_local.tscn
 godot --path . res://scenes/prototype/m1_graybox.tscn
 ```
