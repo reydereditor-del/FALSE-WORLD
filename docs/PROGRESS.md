@@ -2,7 +2,134 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — Stage 3C limited coordination foundation
+## Current status — Stage 3D deterministic AI scenarios and tool evaluation
+
+Completed an isolated Godot/GDScript eight-case scenario harness and an upstream
+LimboAI/GUT evaluation. Runtime remains the existing Stage 3C 1-human/3-AI foundation;
+no production script, decision tuning, scene, navmesh, control, camera, interaction,
+project setting or old test was changed. No full Director, dialogue, new character,
+map expansion, multiplayer, combat, inventory, mobs, extraction or paid service.
+No addon installed; no native binary/third-party asset imported. Cost remains 0 UZS.
+Handoff-approved rules and provisional balance remain unchanged.
+
+Inspected clean `30f6adc`/Stage 3C history, fetched main merge `d9c2da8` (same tree),
+read required rules/skills, handoff, design, architecture/progress and all AI prototype
+guides, then branched `test/stage3d-ai-scenarios` from that main commit. Prior M1 and
+verification history is retained. The task authorizes commit/automatic branch push
+and remote-HEAD verification, never merge into main.
+
+## Completed Stage 3D work
+
+- Added `tests/scenarios/{run_ai_scenarios,scenario_fixture,scenario_cases}.gd` with
+  Godot-generated UID sidecars. Uses real Stage 3C scene, physical rays/collision,
+  native navigation and shared movement, existing private memory/delayed channels,
+  coordination and state machine. Fixed initial poses/seeds/clock, explicit assertions,
+  finite waits/timeouts, bounded work and independent per-tick evidence provenance
+  audits replace visual guessing for these exercised behavior invariants.
+- Added compact PASS/FAIL output, JSON event/evidence/state/destination/reason traces,
+  semantic repeat hashes and error exits. Optional standard-library Python launcher
+  saves logs, rejects missing/incomplete reports/engine errors and enforces an external
+  process deadline; direct Godot usage remains supported without Python.
+- Added [AI_TESTING_AND_TOOL_EVALUATION.md](AI_TESTING_AND_TOOL_EVALUATION.md): exact
+  run/Windows commands, controlled cases/test-only settings/topology, negative controls,
+  assertions/results/limits, official navigation/debug guidance, pinned tool support,
+  license/third-party obligations, package/source size evidence and adoption decision.
+  Updated architecture with isolated test boundaries and the tool rationale.
+- Keep existing runtime AI. LimboAI v1.8.1 publishes exact Godot 4.7.2 module builds,
+  plus 4.6+ GDExtension support, but native/custom-editor/export coupling does not yet
+  justify replacing four tested states. GUT v9.7.1 targets 4.7.x and is a lower-cost
+  future test-only trial for fixtures/assertions/JUnit. Neither was installed/run or
+  exported here. No nonfunctional demonstration scene is added without its addon.
+
+## Stage 3D checks actually performed
+
+Engine: `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`;
+`--headless --version` returned `4.7.2.stable.official.ed1daf0bf`. XDG cache/data/config
+used `/workspace/.cache`, `/workspace/.local/share`, `/workspace/.config`.
+GODOT below means this explicit binary, with permitted local editor socket access.
+
+- `$GODOT --headless --path . --editor --import`: exit 0. All three new GDScripts
+  parsed with `--headless --path . --check-only --script res://PATH`: exit 0.
+- `python tools/run_ai_scenarios.py --godot GODOT --output /tmp/false-world-stage3d-final`:
+  exit 0, **16/16 cases, 98 explicit assertions, 6,886 audited ticks** (eight cases
+  twice, seed 431); **all eight semantic hashes matched across repeats**. Actual
+  visibility, solid-wall rejection, hidden movement/frozen old goal, delayed receipt,
+  independent report recipients, expiry during real travel, finite physical blocker
+  recovery and repeat suppression all passed. No unexpected failed/skipped case.
+  Per-phase path/decision/assessment and queue/memory bounds are audited, not CPU timed.
+- Same launcher with `--seed 432 --repeat 1 --output /tmp/false-world-stage3d-seed432`:
+  exit 0, **8/8 cases, 49 assertions, 3,413 audited ticks**, no unexpected failures.
+- Expected negative control `--scenario lost_moving --repeat 1 --audit-probe`:
+  exit **1**, rejected deliberately forged fixture-only hidden-position evidence with
+  `UNSEEN_FACT: no actual observation for K72:F11:21`. `--timeout 0.001` returned
+  **124**, recorded `PROCESS TIMEOUT`; `--scenario unknown --repeat 1` returned **2**,
+  invalid selector and missing completion rejected. These are successful failure-path
+  checks, not passing gameplay scenarios. No runtime decision was altered to pass.
+- All seven unchanged suites rerun with `$GODOT --headless --path . --script res://PATH`:
+  `tests/stage3c/test_coordination.gd` **35/0**;
+  `tests/stage3b2/test_ai_debug.gd` **33/0**;
+  `tests/stage3b1/test_observation_decisions.gd` **45/0**;
+  `tests/stage3a1/test_exploration.gd` **25/0**;
+  `tests/stage3a/test_foundation.gd` **39/0**;
+  `tests/m1/test_graybox.gd` **31/0**;
+  `tests/m1/test_camera_clearance.gd` **15/0**. **223 checks, 0 failures**, all exit 0.
+  Logs `/tmp/stage3d-{coordination,debug,observation,exploration,foundation,m1,camera}.log`.
+- Default startup `--headless --path . --fixed-fps 60 --quit-after 1800`: exit 0,
+  one initial Jolt job-capacity warning while other validation was running; isolated
+  repeat exit 0 with no warning/error (`/tmp/stage3d-startup-isolated.log`). Its cause
+  is not established; this is not evidence of target-laptop performance. Standalone
+  M1 startup with `--quit-after 120 res://scenes/prototype/m1_graybox.tscn`: exit 0,
+  no error/warning. Existing startup-only logic is unmodified.
+- During development, an incorrect harness guard expecting engine-consumed
+  `--fixed-fps` in `OS.get_cmdline_args()` exited 2; corrected only the test runner.
+  Final invocations still supply fixed-fps. No ordinary final scenario failed.
+- Reviewed official Godot 4.7 documentation source at `9adca4c`, LimboAI v1.8.1 at
+  `e45e60e`, GUT v9.7.1 at `aeb5d4f`, upstream release assets and source archive/font
+  license metadata. Website/API proxy 403s were handled using official GitHub source
+  and release HTML; no policy bypass. Published compatibility is clearly separated
+  from unperformed local addon/Windows/export validation. No dependency installed.
+
+- Standard-library repository validation: exact intended scope (**2 modified + 8 new
+  files**), **87 other tracked files byte-preserved** against pre-edit SHA-256 hashes,
+  including all runtime/scenes/settings, handoff, rules/skills and old tests. Local
+  Markdown links, formatting, skill metadata, script UID pairs/uniqueness, optional
+  launcher syntax, no runtime reference to the harness, report totals/repeat hashes
+  and retained `6803e0b` ancestry all passed. `git diff --check` passed.
+
+Scenario summaries/full traces are in `/tmp/false-world-stage3d-{final,seed432,negative}/`;
+engine/parser/import and failure-control logs are `/tmp/stage3d-*.log`. Artifacts are
+cloud-session temporary files, not committed results or shipped gameplay telemetry.
+
+## Stage 3D limitations and exact next step
+
+The fanout fixture uses two existing one-recipient channels, not a production broadcast.
+Expiry/stall durations are shortened only in isolated fixtures; repeated-sighting
+stress uses actual rays/planning with a stationary body. Real travel, solid collision,
+detours and unreachable rejection are covered elsewhere. Work counters do not measure
+all native navigation CPU work. Repeat hashes establish semantic repeatability here,
+not cross-platform deterministic physics or a general proof against every future leak.
+
+No new Windows/graphical session, addon execution/export, FPS/frame-time/RAM or target
+hardware benchmark was performed. Existing reported M1 passes remain user evidence;
+remaining camera occlusion and unmeasured performance remain open. The earlier Windows
+Stage 3B.1 last-seen travel report was inconclusive; Stage 3D now asserts that path in
+controlled headless integration, without claiming graphical acceptance or human-like
+behavior. The complete deception system and full Director remain unfinished.
+
+**Exact next step:** on Windows/Godot 4.7.2, import and run the eight-case harness with
+`--scenario=all --repeat=2 --seed=431` using the command in the new testing guide.
+Save console output/exit code and `summary.json`; require all 16 cases, no engine
+errors and matching repeats on that machine. Inspect Linux/Windows trace differences
+before changing code/assertions. Then do a short unchanged Stage 3C/F3 and M1 graphical
+sanity pass; measure laptop performance separately. Tool installation/migration and
+any gameplay expansion require a later scoped task; no next gameplay milestone starts.
+
+## Historical Stage 3C delivery record
+
+The following preserves earlier completion/checks and then-current next steps.
+The Stage 3D status/next step above supersedes them.
+
+### Stage 3C limited coordination foundation
 
 The same 1-human/3-AI, 100×100 m prototype now optionally assesses delayed reports
 for relevance and affordable area responses. A recipient can preserve exploration,
@@ -103,7 +230,7 @@ Commands used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` w
   resources, UID pairs/uniqueness, skill metadata, empty markers, text formatting,
   clean final engine logs and retained prior history. `git diff --check` also passed.
 
-## Current limitations and exact next step
+## Stage 3C limitations and then-current next step
 
 No agent-run graphical session, Windows export or measured FPS/frame-time/RAM/CPU
 result was performed. Bounded operation counts and headless physics do not establish
