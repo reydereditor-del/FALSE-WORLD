@@ -5,7 +5,8 @@ implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A local A
 foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md). Current local
 observation decisions are in [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md), with
 limited local report coordination in [STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md); later systems
-and the complete deception proof remain planned.
+and the complete deception proof remain planned. Stage 3D adds isolated integration
+scenarios and a tooling review in [AI_TESTING_AND_TOOL_EVALUATION.md](AI_TESTING_AND_TOOL_EVALUATION.md).
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) controls approved gameplay;
 [GAME_DESIGN.md](GAME_DESIGN.md) reconciles it. Technical choices below are proposals
 unless required by that handoff. Implement only the current explicitly scoped task.
@@ -438,3 +439,43 @@ existing off/default gate and zero hidden refresh work remain unchanged. The mod
 uses three seeded profiles; future population/relevance/geometry and performance
 need reevaluation. Full Director dispatch, strategic deception and other gameplay
 remain future scoped work. See STAGE3C_PROTOTYPE.md for exact tuning and acceptance.
+
+
+## Stage 3D isolated scenario testing and tool adoption decision
+
+`tests/scenarios/` depends on the existing Stage 3C composition, actual physics/LOS,
+NavigationServer, shared motor, memory/channel, coordination and decision executor.
+There is no reverse dependency from runtime code/scenes/configuration. No production
+code, AI tuning, map/navmesh, input or renderer changes are required. The optional
+`tools/run_ai_scenarios.py` uses already available Python standard-library facilities
+for a process deadline/log/completion gate; the primary runner is Godot/GDScript.
+No addon, native binary, external asset, paid service or runtime dependency is added.
+
+The privileged fixture controls time/seed/poses and owns an independent witnessed
+observation ledger. It alone may read fixture truth. Agents still receive only actual
+sensor facts and delayed channel delivery. Per-tick audits trace private memory and
+committed goals back to original legitimate observations and enforce delay/expiry,
+projection, queue/memory and per-phase work bounds. Read-only diagnostic classification
+explains completed state changes without altering the decision implementation.
+Detailed traces are developer artifacts, not audience-safe gameplay/replication data.
+
+Each scenario starts a fresh world, waits for navigation synchronization and runs
+with finite frame/wall/event/trace budgets. Repeats compare logical event/evidence/
+committed-goal hashes, not bit-identical native physics. The two-recipient case wires
+two existing one-recipient channels inside its fixture only; production remains the
+selective ring. Short expiry/stall settings are test-local; repeated-sight suppression
+isolates planning with a stationary body. Other cases exercise physical travel and
+collision; existing suites retain off-navmesh/detour coverage. See the testing guide
+for commands, exact fixtures, negative controls and remaining validation limits.
+
+Evaluated upstream LimboAI 1.8.1 and GUT 9.7.1 without installation. LimboAI publishes
+Godot 4.7.2 module editors/templates and claims 4.6+ GDExtension support, but introduces
+native/custom-engine packaging and information-boundary migration cost. GUT 9.7.1
+explicitly targets 4.7.x and is a lighter pure-GDScript test-only candidate. Neither
+addon was locally run/exported; published support is not verified integration.
+Keep the four-state runtime and current tests. A later scoped GUT trial can evaluate
+reporting/fixture value; LimboAI adoption needs a separate Windows/export smoke trial
+and demonstrated authoring benefit. No fake addon demonstration scene is added when
+installation is excluded. Pin versions and preserve MIT, separately licensed art and
+OFL font notices if any future adoption occurs; source sizes/licenses/links are in
+[AI_TESTING_AND_TOOL_EVALUATION.md](AI_TESTING_AND_TOOL_EVALUATION.md). Cost: 0 UZS.
