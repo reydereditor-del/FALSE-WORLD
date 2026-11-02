@@ -36,3 +36,25 @@ selected because no candidate's rights or files could be verified within the foc
 pass. It is layout art, not finished environment art or an internet-wide best selection.
 A later asset task must verify original download pages, exact licenses and obligations
 and add the ledger and retained license text **before** importing any third-party art.
+
+## Visual vertical slice V1 (subsequent task)
+
+Recorded before import on 2026-11-02. Model-specific verified assets:
+Microsoft/sbtron's Lantern and Microsoft's Boom Box, CC0-1.0, downloaded from
+KhronosGroup/glTF-Sample-Assets pinned commit
+`8f492390ddc7a2ae221a1369ef560589cf8c70fb`, each `Models/NAME/glTF-Binary/NAME.glb`.
+Files: `assets/visual/models/{Lantern,BoomBox}.glb`; static decorative props, scale
+and placement only, no fabricated device functionality. Original author/license/
+source records, changes and secure hashes are in
+[docs/ASSET_LICENSES.md](../docs/ASSET_LICENSES.md); full notices in `assets/licenses/`.
+CC0 requires no attribution, retained voluntarily. No paid service or asset purchase.
+Original PBR maps and architecture/detail meshes are project work, recorded there.
+Character candidates remain temporary until their rights/style/import are evaluated.
+
+Selected character derivative, recorded before export/import: `worker.glb` derives
+from Cesium Man by Cesium (2017), CC-BY-4.0, same pinned Khronos source. Full original
+branded image/materials are discarded; new original workwear vertex colors replace
+them. Geometry/skeleton/source walk are retained. Source URL/hash, modifications,
+attribution obligations and original notices: [ASSET_LICENSES.md](../docs/ASSET_LICENSES.md).
+The original temporary GLB is not included in the repository. No trademark rights
+or endorsement are claimed; no Cesium logo texture is shipped.

@@ -525,3 +525,37 @@ completion reports and does not alter physics to hide it. Software OpenGL fallba
 images gave only a layout sanity check; Forward Plus/D3D12 and Windows performance
 remain unverified. Next: common human/AI visual model and locomotion, then station
 gameplay on the tested map, each under a subsequent scoped task.
+
+## Visual vertical slice V1 (current F5)
+
+`scenes/visual/visual_vertical_slice.tscn` inherits the unchanged full map and adds one
+32×32 m static art composition around the storehouse/entry. Old map, character, camera,
+interaction, AI, tests and nav resources remain byte-preserved. Only project startup
+points at the new scene; renderer/engine/Jolt/D3D12/input settings are unchanged.
+Existing shell surfaces get actual original 1K PBR textures; roof/conduit/vent/paint/
+debris/weeds are bounded original details. Two verified-license CC0 GLBs retain their
+2K materials; an attributed CC-BY humanoid derivative retains rig/walk while removing
+the branded image and using original workwear colors. Full notices/manifest are in
+[ASSET_LICENSES.md](ASSET_LICENSES.md). No paid service/purchase; cost remains 0 UZS.
+
+`StationArt` applies a presentation-only component identically to one human/three
+AI. Hidden original body/facing meshes remain valid focus/reference nodes; the same
+CharacterBody3D/capsule/motor/controller still owns physics. WorkerPresentation reads
+actual velocity for Idle/Walk, with original breathing Idle and imported walk clip;
+it receives no hidden role/mission information and sends no commands. Four bounded
+animation updates replace no perception/memory/exploration/coordination system.
+
+Five art colliders require a separate 267-polygon 90×90 m station navmesh. All ten
+sites remain reachable; old navigation is retained as fallback. Visual floors add no
+collision steps. Overcast sky, 65 m directional shadows and one unshadowed warm fill
+are scene resources; no volumetric effects, global per-frame scan or population growth.
+Art subtree: 124 nodes, 106 mesh instances, ~20,377 triangles including foliage,
+201 small MultiMesh clumps plus six larger clumps, one fill light; four rigs additional.
+Budgets are content counts, not Intel-iGPU performance evidence.
+
+[VISUAL_VERTICAL_SLICE_V1.md](VISUAL_VERTICAL_SLICE_V1.md) records source rights,
+commands, real rendered before/after evidence and quality limits. The virtual display
+could render only after automatic software-OpenGL fallback (Vulkan surface unavailable),
+so Forward Plus/D3D12, visual comfort and laptop FPS/RAM remain unverified. Headless
+new-scene checks exercise real bones/velocity/walking/collision/camera/navigation;
+all old gameplay/map tests and scenario harness remain unchanged and are rerun.

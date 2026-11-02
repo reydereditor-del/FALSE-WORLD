@@ -2,6 +2,100 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
+## Current status — visual vertical slice V1
+
+On dedicated `feat/visual-vertical-slice-v1`, based on the preserved map-foundation
+commit `3a162038163f084c2ffcb0ee996110212c8d101a`. Fetched main remained
+`7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`; the visual branch retains the unmerged
+map work rather than discarding it. User explicitly authorized commit/push, not merge.
+
+F5 now launches a separate inherited showcase around the storehouse entry: 32×32 m
+of real PBR surfaces, concrete weathering/cracks, rusted steel frames/corrugated roof,
+conduits, vent, paint/stencil, colliding clutter, fragments, weeds and neutral overcast
+lighting/distance fog. Real CC0 Lantern and BoomBox GLBs use their original 2K maps.
+Concrete/gravel/steel are original authored 1K PBR maps, not downloaded photo scans.
+A CC-BY-4.0 Cesium Man derivative supplies the same skinned humanoid/walk to human
+and all three AI; its original branded image/materials are removed. Original workwear
+colors and breathing Idle are added. This is a lightweight stylized fallback and a
+first material/detail slice, not final realistic characters or a complete environment.
+
+[VISUAL_VERTICAL_SLICE_V1.md](VISUAL_VERTICAL_SLICE_V1.md) gives launch/controls,
+asset/build paths, limits, preview pairs and Windows acceptance. Exact original
+sources/authors/licenses, modifications and retained texts are in
+[ASSET_LICENSES.md](ASSET_LICENSES.md), [ATTRIBUTION.md](../assets/ATTRIBUTION.md) and
+`assets/licenses/`; `assets/visual/manifest.json` records file hashes. No purchase,
+account, paid service, new engine/plugin or gameplay mechanic. Cost remains 0 UZS.
+
+### Fresh visual-slice checks
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/visual/run_checks.py --godot GODOT --output /tmp/false-world-visual-acceptance`:
+
+- Godot import and all five new runtime/tool GDScript parser checks passed. Material
+  paths/imports and GLB scene references resolve; verified asset SHA-256s, full license
+  presence, real worker skin/animation/color data and no embedded source logo images.
+- New actual-scene integration **25 checks, zero failures**: unchanged body/capsule/
+  motor and references, four real 19-bone rigs, actual breathing/leg bone-pose changes,
+  playing Idle/Walk selected from real velocity, loaded 1K albedo/normal/roughness,
+  real GLB props, all AI moving during 1,200 ticks, all ten sites reachable, actual
+  no-jump walking through both doors/around a corner, effective drum collider, real
+  lever cancel/progress, 36 new-art camera clearance/framing poses, F3 off/default.
+- All unchanged map/gameplay suites passed: 40 map + 18 map AI + all seven earlier
+  suites (223) = **281 checks**. Including new tests: **306 checks, zero failures**.
+- Unchanged Stage 3D, seed 431/repeat 2: **16/16 scenarios**, 98 explicit assertions,
+  6,886 audited ticks and all eight semantic repeat hashes matching. Fresh completion
+  and success reports checked; old tests/harness were not loosened or edited.
+- Explicit showcase and graybox fallback startups passed; the old runner also starts
+  current F5 and explicit old Stage 3C/M1. All subprocesses have finite timeouts.
+  No script/engine errors in headless acceptance. The known Jolt job-pool warning
+  remains possible in both old/new scenes and is recorded separately; other warnings
+  and all errors still fail. No physics changes to hide that engine limitation.
+- Separate local navigation rebaked to **267 polygons** for new workbench, three drums
+  and lantern-post colliders. Agent bounds/settings are retained, sites remain reachable;
+  all original scenes/navigation, motor/camera/input/interactions, AI/knowledge modules,
+  tests/harness and handoff are byte-preserved. Project change is startup path only.
+- Rendered comparison inspection found initially ignored worker vertex colors and
+  overly bright/noisy surfaces. Explicit material color use and surface tuning fixed
+  them. New capsule test initially used exact equality on stored float32 dimensions;
+  corrected to approximate numeric comparison without changing the physical dimensions.
+
+### Actual preview evidence and limits
+
+Matched actual 1280×720 before/after entry, player and interior images are saved under
+`docs/evidence/visual_v1/`. `.gdignore` keeps them out of Godot asset resources. They
+are renders of the real scene, not scenery/texture substitutes. Inspected actual
+materials, prop support/scale, common workwear, roof/door detail and camera view.
+
+The cloud default Forward Plus could not initialize `VK_KHR_surface`; Godot then
+fell back automatically to OpenGL 3 / Mesa llvmpipe on the temporary Xorg display.
+Preview initialization has Vulkan errors and fallback/V-sync warnings, separate
+from passing headless runtime checks. These are software-OpenGL visual sanity images,
+not a clean Forward Plus/D3D12/Windows pass or target-GPU performance evidence.
+Physical-input camera comfort, final character realism/foot locking, materials and
+soft shadows on the actual driver, exports and laptop FPS/frame time/RAM are unverified.
+
+Poly Haven API CONNECT returned 403; Quaternius was unreachable. No access/license
+for those packs was invented. Sponza was rejected after checking its engine-specific
+license; an unverified Mixamo Soldier candidate and abstract Rigged Figure were not
+imported. Verified Khronos assets and original PBR/geometry completed what was possible;
+photo-based materials/coherent high-detail industrial/vegetation packs remain preferred
+future quality upgrades. The rest of the kilometre map is still sparse graybox.
+
+Art subtree budget: **124 nodes, 106 meshes, ~20,377 triangles**, 201 small foliage
+instances in two MultiMeshes plus six larger clumps, one unshadowed fill light; four
+skinned rigs additional. Counts are not measured FPS/RAM. No whole-map visual replacement,
+AI strategy/extra population, combat, HP, objectives, rescue, inventory, mobs, chat,
+networking or full Director. The original working lever and role-neutral common visuals
+are retained; decorative radio/stencil do not imply functional mission controls.
+
+**Next:** run the documented Windows visual/performance checklist on this branch,
+record driver/hardware/results, then make measured art/animation adjustments. Station
+gameplay is a later scoped task. The present slice does not claim a finished high-quality
+indie environment or an AAA-quality target; it delivers an inspectable textured/detail
+upgrade with real legal assets and functioning shared animation.
+
+## Historical map foundation and earlier records
+
 ## Current status — map-first world-layout foundation
 
 Implemented the explicitly authorized early 1,000×1,000 m layout on dedicated branch

@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/map_foundation.tscn" id="1_base"]
+[ext_resource type="PackedScene" path="res://scenes/visual/station_art.tscn" id="2_art"]
+[ext_resource type="Material" path="res://assets/visual/materials/concrete.tres" id="3_concrete"]
+[ext_resource type="Material" path="res://assets/visual/materials/steel.tres" id="4_steel"]
+[ext_resource type="Environment" path="res://assets/visual/overcast.tres" id="5_environment"]
+[ext_resource type="NavigationMesh" path="res://scenes/visual/station_visual_navigation.tres" id="6_nav"]
+
+[node name="VisualVerticalSlice" instance=ExtResource("1_base")]
+
+[node name="Environment" parent="."]
+environment = ExtResource("5_environment")
+
+[node name="Sun" parent="."]
+rotation_degrees = Vector3(-48, -35, 0)
+light_color = Color(0.86, 0.90, 0.92, 1)
+light_energy = 0.65
+light_angular_distance = 8.0
+shadow_enabled = true
+directional_shadow_max_distance = 65.0
+
+[node name="Mesh" parent="StationQuarter/Storehouse/West"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/East"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/DoorSide-7_0-1"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/DoorSide-7_01"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/Lintel-7_0"]
+material_override = ExtResource("4_steel")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/DoorSide7_0-1"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/DoorSide7_01"]
+material_override = ExtResource("3_concrete")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/Lintel7_0"]
+material_override = ExtResource("4_steel")
+
+[node name="Mesh" parent="StationQuarter/Storehouse/BrokenRoof"]
+material_override = ExtResource("4_steel")
+
+[node name="NavigationRegion3D" parent="LocalArea"]
+navigation_mesh = ExtResource("6_nav")
+
+[node name="StationArt" parent="." instance=ExtResource("2_art")]
