@@ -8,13 +8,14 @@ inventory, objectives, mobs, extraction, networking, runtime AI service or new U
 
 ## Run
 
-Use Godot **4.7.2 standard / GDScript**. F5 now starts
-`scenes/prototype/stage3a_local.tscn`; F6 on that scene runs the same foundation.
+Use Godot **4.7.2 standard / GDScript**. F5 now starts Stage 3A.1 exploration; see
+[STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md). F6 on
+`scenes/prototype/stage3a_local.tscn` runs the retained original foundation.
 The original `scenes/prototype/m1_graybox.tscn` remains standalone for F6/M1 checks.
 From repository root:
 
 ```sh
-godot --path .
+godot --path . res://scenes/prototype/stage3a_local.tscn
 # Original local M1 slice:
 godot --path . res://scenes/prototype/m1_graybox.tscn
 ```
@@ -33,7 +34,8 @@ match/identity UI.
 
 - `scenes/character/shared_character.tscn` contains the exact M1 mesh, materials,
   capsule collision and existing `CharacterMotor`. M1 and all AI instance it.
-  Motor/camera/input/interaction scripts are unchanged.
+  Physics, camera, input and interaction behavior is preserved. Stage 3A.1 adds an
+  optional visual turn rate to the shared motor; zero keeps the legacy behavior.
 - `waypoint_controller.gd` supplies world-space intent to that motor, following a
   built-in NavigationAgent3D path. A seeded starting index and cyclic waypoint order
   provide repeatable decisions. Static world geometry is known to navigation;

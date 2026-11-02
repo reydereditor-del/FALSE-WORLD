@@ -1,0 +1,613 @@
+[gd_scene load_steps=68 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/prototype/stage3a_local.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scripts/ai/stage3a1_local.gd" id="2_setup"]
+[ext_resource type="NavigationMesh" path="res://scenes/prototype/stage3a1_navigation.tres" id="3_nav"]
+
+[sub_resource type="StandardMaterial3D" id="GroundMat"]
+albedo_color = Color(0.29, 0.34, 0.31, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="WallMat"]
+albedo_color = Color(0.49, 0.49, 0.46, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="PathMat"]
+albedo_color = Color(0.42, 0.4, 0.34, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="RubbleMat"]
+albedo_color = Color(0.37, 0.38, 0.39, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="LargeGroundMesh"]
+material = SubResource("GroundMat")
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="BoxShape3D" id="LargeGroundShape"]
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="BoxMesh" id="BoundaryMesh"]
+material = SubResource("WallMat")
+size = Vector3(100, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoundaryShape"]
+size = Vector3(100, 2, 0.5)
+
+[sub_resource type="BoxMesh" id="DepotNorthAMesh"]
+material = SubResource("WallMat")
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="DepotNorthAShape"]
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="DepotNorthBMesh"]
+material = SubResource("WallMat")
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="DepotNorthBShape"]
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="DepotSouthAMesh"]
+material = SubResource("WallMat")
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="DepotSouthAShape"]
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="DepotSouthBMesh"]
+material = SubResource("WallMat")
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="DepotSouthBShape"]
+size = Vector3(6, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="DepotWestMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 14)
+
+[sub_resource type="BoxShape3D" id="DepotWestShape"]
+size = Vector3(0.8, 3, 14)
+
+[sub_resource type="BoxMesh" id="DepotEastAMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 5)
+
+[sub_resource type="BoxShape3D" id="DepotEastAShape"]
+size = Vector3(0.8, 3, 5)
+
+[sub_resource type="BoxMesh" id="DepotEastBMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 5)
+
+[sub_resource type="BoxShape3D" id="DepotEastBShape"]
+size = Vector3(0.8, 3, 5)
+
+[sub_resource type="BoxMesh" id="ShopNorthAMesh"]
+material = SubResource("WallMat")
+size = Vector3(6.5, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="ShopNorthAShape"]
+size = Vector3(6.5, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="ShopNorthBMesh"]
+material = SubResource("WallMat")
+size = Vector3(6.5, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="ShopNorthBShape"]
+size = Vector3(6.5, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="ShopSouthMesh"]
+material = SubResource("WallMat")
+size = Vector3(18, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="ShopSouthShape"]
+size = Vector3(18, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="ShopWestAMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxShape3D" id="ShopWestAShape"]
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxMesh" id="ShopWestBMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxShape3D" id="ShopWestBShape"]
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxMesh" id="ShopEastMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 16)
+
+[sub_resource type="BoxShape3D" id="ShopEastShape"]
+size = Vector3(0.8, 3, 16)
+
+[sub_resource type="BoxMesh" id="RuinsNorthMesh"]
+material = SubResource("WallMat")
+size = Vector3(14, 3, 0.8)
+
+[sub_resource type="BoxShape3D" id="RuinsNorthShape"]
+size = Vector3(14, 3, 0.8)
+
+[sub_resource type="BoxMesh" id="RuinsWestAMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 4)
+
+[sub_resource type="BoxShape3D" id="RuinsWestAShape"]
+size = Vector3(0.8, 3, 4)
+
+[sub_resource type="BoxMesh" id="RuinsWestBMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 4)
+
+[sub_resource type="BoxShape3D" id="RuinsWestBShape"]
+size = Vector3(0.8, 3, 4)
+
+[sub_resource type="BoxMesh" id="RuinsSouthFragmentMesh"]
+material = SubResource("WallMat")
+size = Vector3(6, 2, 0.8)
+
+[sub_resource type="BoxShape3D" id="RuinsSouthFragmentShape"]
+size = Vector3(6, 2, 0.8)
+
+[sub_resource type="BoxMesh" id="RuinsEastFragmentMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxShape3D" id="RuinsEastFragmentShape"]
+size = Vector3(0.8, 3, 6)
+
+[sub_resource type="BoxMesh" id="CourtWestMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 1.4, 12)
+
+[sub_resource type="BoxShape3D" id="CourtWestShape"]
+size = Vector3(0.8, 1.4, 12)
+
+[sub_resource type="BoxMesh" id="CourtSouthMesh"]
+material = SubResource("WallMat")
+size = Vector3(12, 1.4, 0.8)
+
+[sub_resource type="BoxShape3D" id="CourtSouthShape"]
+size = Vector3(12, 1.4, 0.8)
+
+[sub_resource type="BoxMesh" id="CourtFragmentMesh"]
+material = SubResource("WallMat")
+size = Vector3(0.8, 1.4, 6)
+
+[sub_resource type="BoxShape3D" id="CourtFragmentShape"]
+size = Vector3(0.8, 1.4, 6)
+
+[sub_resource type="BoxMesh" id="RubbleAMesh"]
+material = SubResource("RubbleMat")
+size = Vector3(2, 1.2, 3)
+
+[sub_resource type="BoxShape3D" id="RubbleAShape"]
+size = Vector3(2, 1.2, 3)
+
+[sub_resource type="BoxMesh" id="RubbleBMesh"]
+material = SubResource("RubbleMat")
+size = Vector3(3, 1.3, 2)
+
+[sub_resource type="BoxShape3D" id="RubbleBShape"]
+size = Vector3(3, 1.3, 2)
+
+[sub_resource type="BoxMesh" id="RubbleCMesh"]
+material = SubResource("RubbleMat")
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxShape3D" id="RubbleCShape"]
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxMesh" id="RubbleDMesh"]
+material = SubResource("RubbleMat")
+size = Vector3(3, 1, 2)
+
+[sub_resource type="BoxShape3D" id="RubbleDShape"]
+size = Vector3(3, 1, 2)
+
+[sub_resource type="BoxMesh" id="MainLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(4, 0.02, 92)
+
+[sub_resource type="BoxMesh" id="CrossLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(92, 0.02, 4)
+
+[sub_resource type="BoxMesh" id="NorthLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(72, 0.02, 4)
+
+[sub_resource type="BoxMesh" id="SouthLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(72, 0.02, 4)
+
+[sub_resource type="BoxMesh" id="WestLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(4, 0.02, 60)
+
+[sub_resource type="BoxMesh" id="EastLaneMesh"]
+material = SubResource("PathMat")
+size = Vector3(4, 0.02, 60)
+
+[node name="Stage3A1Exploration" instance=ExtResource("1_base")]
+script = ExtResource("2_setup")
+
+[node name="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("3_nav")
+
+[node name="NorthWall" parent="."]
+position = Vector3(0, 1, -49.75)
+
+[node name="Mesh" parent="NorthWall"]
+mesh = SubResource("BoundaryMesh")
+
+[node name="CollisionShape3D" parent="NorthWall"]
+shape = SubResource("BoundaryShape")
+
+[node name="SouthWall" parent="."]
+position = Vector3(0, 1, 49.75)
+
+[node name="Mesh" parent="SouthWall"]
+mesh = SubResource("BoundaryMesh")
+
+[node name="CollisionShape3D" parent="SouthWall"]
+shape = SubResource("BoundaryShape")
+
+[node name="WestWall" parent="."]
+position = Vector3(-49.75, 1, 0)
+
+[node name="Mesh" parent="WestWall"]
+mesh = SubResource("BoundaryMesh")
+
+[node name="CollisionShape3D" parent="WestWall"]
+shape = SubResource("BoundaryShape")
+
+[node name="EastWall" parent="."]
+position = Vector3(49.75, 1, 0)
+
+[node name="Mesh" parent="EastWall"]
+mesh = SubResource("BoundaryMesh")
+
+[node name="CollisionShape3D" parent="EastWall"]
+shape = SubResource("BoundaryShape")
+
+[node name="Mesh" parent="Ground"]
+mesh = SubResource("LargeGroundMesh")
+
+[node name="CollisionShape3D" parent="Ground"]
+shape = SubResource("LargeGroundShape")
+
+[node name="DepotNorthA" type="StaticBody3D" parent="."]
+position = Vector3(-27, 1.5, -25)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotNorthA"]
+mesh = SubResource("DepotNorthAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotNorthA"]
+shape = SubResource("DepotNorthAShape")
+
+[node name="DepotNorthB" type="StaticBody3D" parent="."]
+position = Vector3(-17, 1.5, -25)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotNorthB"]
+mesh = SubResource("DepotNorthBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotNorthB"]
+shape = SubResource("DepotNorthBShape")
+
+[node name="DepotSouthA" type="StaticBody3D" parent="."]
+position = Vector3(-27, 1.5, -11)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotSouthA"]
+mesh = SubResource("DepotSouthAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotSouthA"]
+shape = SubResource("DepotSouthAShape")
+
+[node name="DepotSouthB" type="StaticBody3D" parent="."]
+position = Vector3(-17, 1.5, -11)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotSouthB"]
+mesh = SubResource("DepotSouthBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotSouthB"]
+shape = SubResource("DepotSouthBShape")
+
+[node name="DepotWest" type="StaticBody3D" parent="."]
+position = Vector3(-30, 1.5, -18)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotWest"]
+mesh = SubResource("DepotWestMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotWest"]
+shape = SubResource("DepotWestShape")
+
+[node name="DepotEastA" type="StaticBody3D" parent="."]
+position = Vector3(-14, 1.5, -22.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotEastA"]
+mesh = SubResource("DepotEastAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotEastA"]
+shape = SubResource("DepotEastAShape")
+
+[node name="DepotEastB" type="StaticBody3D" parent="."]
+position = Vector3(-14, 1.5, -13.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="DepotEastB"]
+mesh = SubResource("DepotEastBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="DepotEastB"]
+shape = SubResource("DepotEastBShape")
+
+[node name="ShopNorthA" type="StaticBody3D" parent="."]
+position = Vector3(16.25, 1.5, 6)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopNorthA"]
+mesh = SubResource("ShopNorthAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopNorthA"]
+shape = SubResource("ShopNorthAShape")
+
+[node name="ShopNorthB" type="StaticBody3D" parent="."]
+position = Vector3(27.75, 1.5, 6)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopNorthB"]
+mesh = SubResource("ShopNorthBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopNorthB"]
+shape = SubResource("ShopNorthBShape")
+
+[node name="ShopSouth" type="StaticBody3D" parent="."]
+position = Vector3(22, 1.5, 22)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopSouth"]
+mesh = SubResource("ShopSouthMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopSouth"]
+shape = SubResource("ShopSouthShape")
+
+[node name="ShopWestA" type="StaticBody3D" parent="."]
+position = Vector3(13, 1.5, 9)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopWestA"]
+mesh = SubResource("ShopWestAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopWestA"]
+shape = SubResource("ShopWestAShape")
+
+[node name="ShopWestB" type="StaticBody3D" parent="."]
+position = Vector3(13, 1.5, 19)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopWestB"]
+mesh = SubResource("ShopWestBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopWestB"]
+shape = SubResource("ShopWestBShape")
+
+[node name="ShopEast" type="StaticBody3D" parent="."]
+position = Vector3(31, 1.5, 14)
+
+[node name="Mesh" type="MeshInstance3D" parent="ShopEast"]
+mesh = SubResource("ShopEastMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ShopEast"]
+shape = SubResource("ShopEastShape")
+
+[node name="RuinsNorth" type="StaticBody3D" parent="."]
+position = Vector3(16, 1.5, -32)
+
+[node name="Mesh" type="MeshInstance3D" parent="RuinsNorth"]
+mesh = SubResource("RuinsNorthMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RuinsNorth"]
+shape = SubResource("RuinsNorthShape")
+
+[node name="RuinsWestA" type="StaticBody3D" parent="."]
+position = Vector3(9, 1.5, -30)
+
+[node name="Mesh" type="MeshInstance3D" parent="RuinsWestA"]
+mesh = SubResource("RuinsWestAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RuinsWestA"]
+shape = SubResource("RuinsWestAShape")
+
+[node name="RuinsWestB" type="StaticBody3D" parent="."]
+position = Vector3(9, 1.5, -22)
+
+[node name="Mesh" type="MeshInstance3D" parent="RuinsWestB"]
+mesh = SubResource("RuinsWestBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RuinsWestB"]
+shape = SubResource("RuinsWestBShape")
+
+[node name="RuinsSouthFragment" type="StaticBody3D" parent="."]
+position = Vector3(20, 1, -20)
+
+[node name="Mesh" type="MeshInstance3D" parent="RuinsSouthFragment"]
+mesh = SubResource("RuinsSouthFragmentMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RuinsSouthFragment"]
+shape = SubResource("RuinsSouthFragmentShape")
+
+[node name="RuinsEastFragment" type="StaticBody3D" parent="."]
+position = Vector3(23, 1.5, -29)
+
+[node name="Mesh" type="MeshInstance3D" parent="RuinsEastFragment"]
+mesh = SubResource("RuinsEastFragmentMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RuinsEastFragment"]
+shape = SubResource("RuinsEastFragmentShape")
+
+[node name="CourtWest" type="StaticBody3D" parent="."]
+position = Vector3(-26, 0.7, 22)
+
+[node name="Mesh" type="MeshInstance3D" parent="CourtWest"]
+mesh = SubResource("CourtWestMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="CourtWest"]
+shape = SubResource("CourtWestShape")
+
+[node name="CourtSouth" type="StaticBody3D" parent="."]
+position = Vector3(-20, 0.7, 28)
+
+[node name="Mesh" type="MeshInstance3D" parent="CourtSouth"]
+mesh = SubResource("CourtSouthMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="CourtSouth"]
+shape = SubResource("CourtSouthShape")
+
+[node name="CourtFragment" type="StaticBody3D" parent="."]
+position = Vector3(-14, 0.7, 25)
+
+[node name="Mesh" type="MeshInstance3D" parent="CourtFragment"]
+mesh = SubResource("CourtFragmentMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="CourtFragment"]
+shape = SubResource("CourtFragmentShape")
+
+[node name="RubbleA" type="StaticBody3D" parent="."]
+position = Vector3(8, 0.6, 8)
+
+[node name="Mesh" type="MeshInstance3D" parent="RubbleA"]
+mesh = SubResource("RubbleAMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RubbleA"]
+shape = SubResource("RubbleAShape")
+
+[node name="RubbleB" type="StaticBody3D" parent="."]
+position = Vector3(-8, 0.65, -6)
+
+[node name="Mesh" type="MeshInstance3D" parent="RubbleB"]
+mesh = SubResource("RubbleBMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RubbleB"]
+shape = SubResource("RubbleBShape")
+
+[node name="RubbleC" type="StaticBody3D" parent="."]
+position = Vector3(30, 1, -10)
+
+[node name="Mesh" type="MeshInstance3D" parent="RubbleC"]
+mesh = SubResource("RubbleCMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RubbleC"]
+shape = SubResource("RubbleCShape")
+
+[node name="RubbleD" type="StaticBody3D" parent="."]
+position = Vector3(-35, 0.5, 8)
+
+[node name="Mesh" type="MeshInstance3D" parent="RubbleD"]
+mesh = SubResource("RubbleDMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="RubbleD"]
+shape = SubResource("RubbleDShape")
+
+[node name="MainLane" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.012, 0)
+mesh = SubResource("MainLaneMesh")
+
+[node name="CrossLane" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.014, 0)
+mesh = SubResource("CrossLaneMesh")
+
+[node name="NorthLane" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.012, -27)
+mesh = SubResource("NorthLaneMesh")
+
+[node name="SouthLane" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.012, 30)
+mesh = SubResource("SouthLaneMesh")
+
+[node name="WestLane" type="MeshInstance3D" parent="."]
+position = Vector3(-33, 0.012, 0)
+mesh = SubResource("WestLaneMesh")
+
+[node name="EastLane" type="MeshInstance3D" parent="."]
+position = Vector3(35, 0.012, 0)
+mesh = SubResource("EastLaneMesh")
+
+[node name="Destinations" type="Node3D" parent="."]
+
+[node name="EntryPlaza" type="Marker3D" parent="Destinations"]
+position = Vector3(0, 0, 8)
+metadata/area = &"entry"
+metadata/kind = &"transit"
+
+[node name="DepotFloor" type="Marker3D" parent="Destinations"]
+position = Vector3(-22, 0, -18)
+metadata/area = &"depot"
+metadata/kind = &"investigate"
+
+[node name="DepotDoor" type="Marker3D" parent="Destinations"]
+position = Vector3(-22, 0, -8)
+metadata/area = &"depot"
+metadata/kind = &"transit"
+
+[node name="WestJunction" type="Marker3D" parent="Destinations"]
+position = Vector3(-32, 0, -3)
+metadata/area = &"west"
+metadata/kind = &"transit"
+
+[node name="CourtCorner" type="Marker3D" parent="Destinations"]
+position = Vector3(-20, 0, 23)
+metadata/area = &"court"
+metadata/kind = &"observe"
+
+[node name="SouthJunction" type="Marker3D" parent="Destinations"]
+position = Vector3(0, 0, 30)
+metadata/area = &"south"
+metadata/kind = &"transit"
+
+[node name="WorkshopFloor" type="Marker3D" parent="Destinations"]
+position = Vector3(22, 0, 14)
+metadata/area = &"workshop"
+metadata/kind = &"investigate"
+
+[node name="WorkshopApproach" type="Marker3D" parent="Destinations"]
+position = Vector3(10, 0, 14)
+metadata/area = &"workshop"
+metadata/kind = &"transit"
+
+[node name="EastOpen" type="Marker3D" parent="Destinations"]
+position = Vector3(36, 0, 0)
+metadata/area = &"east"
+metadata/kind = &"observe"
+
+[node name="RuinsFloor" type="Marker3D" parent="Destinations"]
+position = Vector3(16, 0, -26)
+metadata/area = &"ruins"
+metadata/kind = &"investigate"
+
+[node name="RuinsApproach" type="Marker3D" parent="Destinations"]
+position = Vector3(16, 0, -16)
+metadata/area = &"ruins"
+metadata/kind = &"transit"
+
+[node name="NorthJunction" type="Marker3D" parent="Destinations"]
+position = Vector3(0, 0, -28)
+metadata/area = &"north"
+metadata/kind = &"observe"
+
+[node name="SouthWestOpen" type="Marker3D" parent="Destinations"]
+position = Vector3(-34, 0, 32)
+metadata/area = &"southwest"
+metadata/kind = &"observe"
+
+[node name="SouthEastOpen" type="Marker3D" parent="Destinations"]
+position = Vector3(34, 0, 32)
+metadata/area = &"southeast"
+metadata/kind = &"transit"
+
+[node name="FarNorthWest" type="Marker3D" parent="Destinations"]
+position = Vector3(-35, 0, -35)
+metadata/area = &"northwest"
+metadata/kind = &"observe"
+
+[node name="FarNorthEast" type="Marker3D" parent="Destinations"]
+position = Vector3(35, 0, -35)
+metadata/area = &"northeast"
+metadata/kind = &"investigate"

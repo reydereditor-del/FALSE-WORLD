@@ -2,7 +2,121 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — Stage 3A local AI foundation
+## Current status — Stage 3A.1 authored exploration
+
+The default local prototype now has a 100×100 m authored primitive environment,
+sixteen meaningful destinations and three independently seeded exploration agents.
+They travel, briefly observe and change areas using private visit history, rather
+than repeating a rectangle. This remains the movement/knowledge foundation of
+handoff §19 stage 3; dialogue, deception and later gameplay are not implemented.
+No new UI, external asset, dependency, service or expenditure was added (0 UZS).
+
+Inspected clean `feat/stage3a-local-ai` at `a355c50`, fetched main merge `df36c80`,
+and created dedicated `feat/stage3a1-exploration` from that main commit. Previous M1
+and verification history is preserved. The user authorizes this branch's push;
+main must not be merged or overwritten.
+
+The existing user-reported Windows/Godot 4.7.2 M1 checks remain recorded below:
+movement, collision, interaction and camera controls passed, and the extreme camera
+magnification was resolved. Remaining camera occlusion is not claimed solved.
+No graphical session or FPS/frame-time/GPU/RAM measurement was performed here.
+The expanded environment and new movement require a new graphical acceptance pass.
+
+## Completed Stage 3A.1 work
+
+- Authored a separate inherited scene with three roofless building shells, wide
+  openings, intersecting lanes, courtyard, open corners and rubble using boxes and
+  shared materials. Sixteen static destination markers identify transit,
+  investigation and observation places; these labels create no new interaction.
+- Baked a separate 214-polygon static navigation resource using Godot's existing
+  collider parsing/Recast APIs, with the previous radius/height/climb settings.
+  M1 and original Stage 3A scenes/navmesh remain byte-preserved and directly runnable.
+  Only the project's startup-scene setting changed.
+- Added a bounded static-site selector using novelty, area change, distance,
+  private visit history and seeded variation. Agents vary departure, destination
+  and dwell timing. No human transform, actor registry or perception memory is
+  passed to destination selection. LOS, separate memories and the delayed selective
+  observed-fact interface remain unchanged.
+- Added replaceable travel/wait control with candidate path validation, arrival
+  slowdown, bounded intent blending, finite stall retries and failed-site cooldowns.
+  No teleport, wall bypass, extra movement speed, crowd simulation or dynamic RVO.
+  Base composition exposes starts/route/controller creation with old defaults intact.
+- Added an opt-in visual turn-rate limit to the shared motor, default zero for
+  original human/M1/legacy behavior. New AI turn at a configurable bounded rate;
+  speed, gravity, capsule and movement/collision equations remain unchanged.
+- Added focused regression coverage, Godot-only rebake tooling and
+  [STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md). Updated architecture/design status
+  and both older prototype run guides. All new tuning values remain provisional.
+
+## Checks actually performed for Stage 3A.1
+
+All engine commands used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`
+with `XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
+`XDG_CONFIG_HOME=/workspace/.config`. `--headless --version` confirmed
+`4.7.2.stable.official.ed1daf0bf`. `GODOT` below denotes this explicit binary.
+
+- `$GODOT --headless --path /workspace/FALSE-WORLD --script
+  res://tools/bake_stage3a1_navigation.gd`: PASS, 214 polygons, save status 0, exit 0.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --editor --import`: final PASS,
+  exit 0, no errors/warnings (`/tmp/stage3a1-import.log`). Initial sandbox import
+  reported denied local editor sockets; rerunning with sandbox escalation succeeded.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --check-only --script PATH`:
+  PASS for seven changed/new scripts: character motor, Stage 3A composition,
+  Stage 3A.1 composition, exploration selector/controller, rebake tool and test.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --script
+  res://tests/stage3a1/test_exploration.gd`: PASS, **25 checks, 0 failures**,
+  exit 0 (`/tmp/stage3a1-tests.log`). Covers reachable destinations, bounded navmesh,
+  reproducible varied choices/dwells, staggered departures, distinct initial goals,
+  physical obstacle detour, shared speed/no teleport, limited yaw, bounded path
+  backtracking, stationary arrival wait, unreachable rejection, bounded queries
+  and collision-blocked finite recovery. An initial 23-check run had one fixture
+  failure: it checked arrival before the controller threshold and advanced its
+  injected clock past the wait. Corrected the fixture's threshold/monotonic clock
+  and added backtracking/stationary checks; the final 25-check run passed.
+- Existing unchanged suites rerun: `res://tests/stage3a/test_foundation.gd`
+  **39/0**, `res://tests/m1/test_graybox.gd` **31/0**, and
+  `res://tests/m1/test_camera_clearance.gd` **15/0**, all exit 0 without errors/warnings
+  (`/tmp/stage3a1-legacy-ai.log`, `/tmp/stage3a1-m1.log`, `/tmp/stage3a1-camera.log`).
+  Total final automated assertions: **110 passed, 0 failed**.
+- `$GODOT --headless --path /workspace/FALSE-WORLD --fixed-fps 60 --quit-after 1800`:
+  PASS, exit 0, no errors/warnings (`/tmp/stage3a1-startup.log`). This runs 30
+  simulated seconds; it is not a real-time rendering/performance benchmark.
+
+- Standard-library repository validator `/tmp/validate_false_world_stage3a1.py`:
+  PASS, exact intended scope (8 modified + 13 new files), 44 other existing tracked
+  files byte-preserved against pre-edit SHA-256 hashes, configuration changed only
+  at startup scene, motor diff confined to opt-in visual facing, valid local
+  Markdown/resource paths, skill metadata, empty markers, unique script UIDs,
+  UTF-8/newlines/whitespace, final saved engine logs and prior commit ancestry.
+  A first validator run interpreted an existing documentation placeholder
+  `res://path.gd` as a real resource; narrowed resource existence checks to code/
+  scene resources and retained Markdown link checks. Final validator and
+  `git diff --check` passed.
+
+## Unresolved details and exact next step
+
+Natural appearance, stop/turn smoothness, corner jitter and usability cannot be
+accepted from path/angle assertions alone. The capsules have no locomotion animation.
+Dynamic blockers use physics plus retry/abandon rather than dynamic avoidance;
+this can still cause temporary congestion. Static geometry edits require rebaking.
+No 22–25-agent or full-map performance has been measured. Expanded-map camera
+occlusion, Intel-iGPU FPS/frame times and RAM remain unverified.
+
+**Next exact step:** in Windows Godot 4.7.2, run the Stage 3A.1 scene; walk through
+the depot/workshop/ruins openings and alternate exterior routes, watch all three AI
+across several destination visits/observation pauses, temporarily block a route,
+and check corner turns, stopping, collision recovery and independent timing.
+Recheck human movement, lever and camera framing/occlusion plus the debugger.
+Record actual results and measure FPS/frame times/RAM separately. Fix only observed
+movement defects before a separately authorized next feature increment; do not
+start dialogue, Director strategy, M2 or other gameplay.
+
+## Historical Stage 3A record
+
+The following records describe the preceding increment; current startup and optional
+motor facing changes are documented above and in the prototype guides.
+
+### Current status — Stage 3A local AI foundation
 
 Stage 3A adds one local human and exactly three local agents with shared character
 physics/model, built-in waypoint navigation, bounded LOS perception, separate memory
@@ -20,7 +134,7 @@ Inspected a clean checkout at `d5fc70b`, fetched main merge `811db0e`, and creat
 `feat/stage3a-local-ai` from it. Prior M1/verification commits are preserved. This
 user task explicitly authorizes the Stage 3A branch push; no merge into main.
 
-## Completed Stage 3A work
+### Completed Stage 3A work
 
 - Extracted preserved M1 mesh/material/capsule/motor composition to
   `scenes/character/shared_character.tscn`. M1 now instances it, retaining its exact
@@ -50,7 +164,7 @@ user task explicitly authorizes the Stage 3A branch push; no merge into main.
   architecture, M1 launch instructions and the AI skill's stale docs-only wording.
   No dependency, paid service, imported asset, gameplay UI or full map added.
 
-## Checks actually performed in this increment
+### Checks actually performed in this increment
 
 All Godot commands ran from `/workspace/FALSE-WORLD` using explicit
 `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` (version verified:
@@ -94,7 +208,7 @@ Here `GODOT` denotes that explicit binary, not the older default system executab
   No protected handoff, unrelated project setting, camera/movement/interaction code,
   existing tests or third-party asset changes.
 
-## Known limits and unresolved technical details
+### Known limits and unresolved technical details
 
 No agent-observed graphical Stage 3A session, target-laptop performance test, Windows
 export or real-human deception playtest was run. The prior user M1 confirmation
@@ -116,7 +230,7 @@ on the stage root. Tick-time logic/seeded choices are repeatable; bitwise physic
 navigation behavior across platforms is not guaranteed. No full 22–25-AI or 1×1 km
 capacity/performance claim follows from this small foundation.
 
-## Exact next step
+### Exact next step
 
 Run the Stage 3A graphical checklist in `docs/STAGE3A_PROTOTYPE.md` on Windows with
 Godot 4.7.2: observe three identical agents traversing the yard, test human blocking/
@@ -130,7 +244,7 @@ through the existing action interfaces. Dialogue/deception remains a separately
 scoped next part of the approved proof, not something implemented by Stage 3A.
 Do not proceed to the larger playable or other excluded systems in this increment.
 
-## Historical M1 record (before Stage 3A)
+### Historical M1 record (before Stage 3A)
 
 The following records earlier increments, including then-pending verification and
 then-planned next steps. The current Stage 3A status and latest user M1 confirmation
