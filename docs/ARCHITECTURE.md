@@ -3,7 +3,8 @@
 Status: planned full-game boundaries; M1 local movement/camera/interaction is
 implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A local AI
 foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md). Current local
-observation decisions are in [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md); later systems
+observation decisions are in [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md), with
+limited local report coordination in [STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md); later systems
 and the complete deception proof remain planned.
 [FALSE_WORLD_HANDOFF.md v1.0](FALSE_WORLD_HANDOFF.md) controls approved gameplay;
 [GAME_DESIGN.md](GAME_DESIGN.md) reconciles it. Technical choices below are proposals
@@ -397,3 +398,43 @@ may still show an old coordinate. Blocked/Recovering labels describe existing
 counters; they are not new AI states or a separate collision/recovery algorithm.
 See STAGE3B1_PROTOTYPE.md for exact interpretation and Windows acceptance scenarios.
 Headless state/visibility/count checks do not prove graphical readability or cost.
+
+
+## Stage 3C limited report coordination
+
+The default scene inherits Stage 3B.1 with a tiny composition subclass opting its
+three controllers into ReportCoordination. Original compositions retain the null
+policy and their legacy decisions. Map/navmesh, spawn/population, perception,
+private memory and selective relay are preserved. Only startup changes in project
+settings; human physics, controls, camera and interaction are unchanged. No new
+asset, dependency, service or expenditure (0 UZS) is introduced.
+
+ReportCoordination is a local value-only assessment module, not a Director. Inputs
+are an actually delivered private-memory snapshot, own position/speed, seed, tick
+and configured bounds. Age, distance and observation/travel time can reject a report
+while it is still retained in memory. A close recipient pauses nearby; another may
+check a seeded approach around the old area. Eligible direct evidence takes priority.
+The existing ring relay does not become an all-agent broadcast or assignment system.
+
+The decision state machine pins original report evidence and a separate approach
+intent through Observe/Investigate/Resume. New reports do not retarget active work,
+refresh its age/deadline or become current occupancy. Existing subject/location
+suppression applies across local and coordinated responses. There is no report
+rebroadcast, shared live target, peer-position access, role/intent leak or global
+strategy/lease. Multiple real observations may still prompt independent responses;
+this is not full crowd deconfliction or the completed deception proof.
+
+The shared exploration validator adds an optional path-length budget, default
+infinite for legacy callers. Report travel checks actual path length against original
+evidence lifetime/timeout at entry using the already required validation query.
+No extra path query or movement advantage is used. Invalid/unaffordable offsets
+fail once and reuse existing finite recovery/Resume/cooldown. Candidate assessments
+stay capped at eight per scheduled phase; committed work ignores fresh reassignments.
+
+F3 extends its read-only adapter with local coordination decision/reason, reporting
+ID, original age and uncertainty. It reads the current assessment/commit value only,
+never hidden human transforms, another agent's memory or pending report queue. The
+existing off/default gate and zero hidden refresh work remain unchanged. The module
+uses three seeded profiles; future population/relevance/geometry and performance
+need reevaluation. Full Director dispatch, strategic deception and other gameplay
+remain future scoped work. See STAGE3C_PROTOTYPE.md for exact tuning and acceptance.
