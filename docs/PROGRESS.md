@@ -2,7 +2,134 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — Stage 3B.1 observation decisions
+## Current status — Stage 3B.2 developer debugging/validation
+
+Stage 3B.2 adds an off-by-default F3 developer panel to the existing observation
+prototype, without changing AI decisions, movement, camera, controls, interaction,
+map, navmesh or population. It shows existing per-agent state/goal/knowledge source
+and age, plus existing navigation stall/retry flags. It is gated to an editor-feature
+debug binary; normal exported games cannot enable it. No dialogue, Director strategy,
+combat, multiplayer, inventory, extraction, mobs, extra agents or external dependency/
+paid service was added. Cost remains 0 UZS.
+
+User report (Windows/Godot 4.7.2, preceding Stage 3B.1 session): movement, observation
+behavior, navigation, controls and interactions appear functional. A last-seen
+investigation behind a building could not be conclusively distinguished from ordinary
+exploration. This is scoped user-reported evidence, not a confirmed wall-memory test,
+new panel acceptance, debugger clean-session claim or FPS/RAM measurement.
+
+Inspected clean checkout `e38b85f`, read authoritative handoff/rules/design/architecture/
+progress and relevant development/AI/testing skills and current prototype guide.
+Fetched main merge `621b7fb` and created dedicated
+`feat/stage3b2-ai-debug-validation`. Prior verification/implementation history remains
+preserved. This task authorizes automatic branch push and remote-HEAD verification,
+never merging into main.
+
+## Completed Stage 3B.2 work
+
+- Added a small removable read-only adapter and native text overlay under
+  `scripts/debug/`, wired through one CanvasLayer in the existing 3B.1 scene.
+  F3 toggles it; repeat keys are ignored. All three internal IDs, existing decision
+  state, navigation destination, direct observation/age, selected source/age/frozen
+  point, and Waiting/Moving/Blocked/Recovering status are shown.
+- Latest-sample vision and older last-seen memory are labeled separately. A delayed
+  report never becomes direct sight; selected evidence stays separate from the
+  latest direct observation. Expired usable points disappear, with selected source
+  briefly labeled expired during Resume. Retained inactive nav goals are labeled.
+- Added only a nonmutating `LocalMemory.inspect(now)` query. The existing snapshot
+  method performs expiry, so using it from a renderer could alter knowledge timing.
+  Inspection copies fresh legitimate facts without expiring, refreshing or editing
+  storage; no second debug observation history or separate AI logic is introduced.
+- The overlay reads only own controller/goal/counters, private memory and selected
+  evidence. No human/target transform, scene actor registry, sensor candidate, pending
+  report queue, hidden role, health, inventory or intention is read.
+- Showing creates a text panel and 0.1 s refresh timer, bounded to three agents.
+  Hiding clears/destroys panel/timer and stops all reads/rendering; no per-frame
+  polling runs. The developer key listener remains, with no mouse capture or pause.
+  No 3D markers were added. Project settings/InputMap are byte-preserved.
+- Added focused adapter/UI-lifecycle/behavior tests; updated architecture and the
+  existing Stage 3B.1 guide with exact display semantics, removal/build gate and
+  Windows reproduction steps. All AI tuning stays provisional and unchanged.
+
+## Stage 3B.2 checks actually performed
+
+Used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`, with
+`XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
+`XDG_CONFIG_HOME=/workspace/.config`. `--headless --version` confirmed
+`4.7.2.stable.official.ed1daf0bf`; GODOT below denotes this explicit binary.
+
+- `$GODOT --headless --path . --editor --import`: final PASS, exit 0, clean output
+  (`/tmp/stage3b2-import-final.log`), with permitted local editor socket access.
+  First import/test attempt hit a GDScript inference error on a dictionary-derived
+  boolean expression in the new adapter. Added an explicit bool annotation. The
+  first test ran partially with compile/call failures and was stopped; it was not
+  accepted as a completed passing run. Final import and suite below are clean.
+- `$GODOT --headless --path . --check-only --script res://PATH`: PASS for all four
+  changed/new scripts: local memory, debug adapter, overlay and focused suite.
+  `/tmp/check_stage3b2_engine.py` recorded commands/exit codes and four parser logs.
+- `$GODOT --headless --path . --script res://tests/stage3b2/test_ai_debug.gd`:
+  **33 checks, 0 failures**, exit 0, no errors/warnings (`/tmp/stage3b2-tests-final.log`).
+  Tests feature-gate combinations; copied/nonmutating exact-boundary memory views;
+  actual F3 dispatch, echo rejection, hidden zero-refresh and UI/timer removal;
+  all-agent IDs, visible-panel Escape/click pass-through, control-mode/pause preservation, real LOS loss behind an in-range
+  solid obstacle, direct versus historical labeling, delayed selective report source/
+  age, no read-induced decisions/path queries, frozen destination despite a newer
+  report, expiry/Resume/Explore display, absence of forbidden world/role fields,
+  actual physical stall/retry/abandonment and solid collision. Headless UI nodes/
+  text and synthetic key dispatch are not a graphical/pixel/comfort test.
+- All five unchanged existing suites rerun with the same `--headless --path . --script`:
+  `res://tests/stage3b1/test_observation_decisions.gd` **45/0**;
+  `res://tests/stage3a1/test_exploration.gd` **25/0**;
+  `res://tests/stage3a/test_foundation.gd` **39/0**;
+  `res://tests/m1/test_graybox.gd` **31/0**;
+  `res://tests/m1/test_camera_clearance.gd` **15/0**.
+  All exit 0, clean logs (`/tmp/stage3b2-{observation,exploration,foundation,m1,camera}.log`).
+  Final total: **188 passed, 0 failed**. No existing test was edited/weakened.
+- `$GODOT --headless --path . --fixed-fps 60 --quit-after 1800`: PASS, exit 0, clean
+  default scene startup (`/tmp/stage3b2-startup.log`), 30 simulated seconds rather
+  than a performance benchmark. Explicit standalone M1 startup with `--quit-after 120`
+  also passed (`/tmp/stage3b2-m1-startup.log`).
+
+- `python /tmp/validate_false_world_stage3b2.py`: PASS, exact intended scope
+  (5 modified + 6 new files), 70 other tracked files byte-preserved against pre-edit
+  SHA-256 hashes, existing memory methods unchanged, scene adds only debug resource/
+  child, valid local resource/Markdown links, skill metadata, unique UID pairs,
+  empty markers, UTF-8/whitespace, clean final engine logs and preserved prior
+  implementation/verification ancestry. `git diff --check` also passed.
+
+## Current limits and exact next step
+
+The panel is sampled at 10 Hz; brief transitions may be missed/late. Latest-sample
+labeling follows the existing sensing/decision phase, not a continuously verified
+LOS ray. Last direct can concern a different observed ID than selected evidence.
+Blocked/Recovering describe existing counters, not new AI states; recovery may stay
+labeled while a retried path moves. Inactive retained nav goals may outlive evidence,
+clearly labeled. No separate debug sensing, target tracking or behavior tuning occurs.
+
+Build-gate feature combinations are tested; no actual Windows exported artifact,
+new graphical session, rendered layout/readability, hardware keyboard feel, camera
+occlusion or CPU/FPS/frame-time/RAM measurement was performed. This is developer
+instrumentation, not a security sandbox against someone modifying an editor binary.
+The new panel remains graphically unverified. Existing static-navigation/congestion
+limits remain; no human-like AI or 22–25-agent performance claim follows.
+
+**Next exact step:** on Windows/Godot 4.7.2, run F5, confirm diagnostics absent, then
+press F3. Follow the same agent ID from Explore to Observe near a solid building
+corner, record its selected direct-vision point, and hide behind the wall during
+that pause. Verify last-seen age increases, Investigate uses the frozen point despite
+your hidden movement, then Resume/Explore occurs. Check delayed-report source/age
+on a recipient, stationary repeat suppression and blocked/recovering behavior.
+Toggle off/on and recheck WASD/camera, E cancel/resume/completion, Escape/click,
+panel readability and debugger output. Record actual states/coordinates/ages/commit;
+measure performance separately. Exact steps and legitimate no-investigation cases
+are in STAGE3B1_PROTOTYPE.md. Fix only demonstrated defects before further features.
+
+## Historical Stage 3B.1 and earlier records
+
+The following preserves prior increments, then-current limits and next steps.
+Current user evidence, diagnostics and acceptance instructions are recorded above.
+
+### Current status — Stage 3B.1 observation decisions
 
 The same 100×100 m local graybox now runs a small explore/observe/investigate/resume
 layer for exactly three agents. It can respond to actual local or properly delivered
@@ -18,7 +145,7 @@ docs, fetched main merge `7ecf0c6`, and created dedicated branch
 verification history are preserved. This task authorizes automatic branch push and
 remote-HEAD verification, never a merge into main.
 
-## Completed Stage 3B.1 work
+### Completed Stage 3B.1 work
 
 - Added a small value-only decision module accepting copied private memory facts,
   own position, seed/tick and execution feedback. No live actor, registry, sensor
@@ -44,7 +171,7 @@ remote-HEAD verification, never a merge into main.
   architecture, design status and older run guides. All timing/range tuning remains
   provisional; no physics/speed/collision or approved gameplay change.
 
-## Stage 3B.1 checks actually performed
+### Stage 3B.1 checks actually performed
 
 Used explicit `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` with
 `XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
@@ -88,7 +215,7 @@ emitted a Fontconfig cache warning; the subsequent configured probe was clean.
   unique UID pairs, empty directory markers, text formatting, completed engine
   logs and preserved prior commit ancestry. `git diff --check` also passed.
 
-## Current limitations and exact next step
+### Current limitations and exact next step
 
 No graphical test, Windows export or measured CPU/FPS/frame-time/RAM result was run.
 Operation counts prove bounded work, not target-laptop scaling. The existing reported
@@ -115,7 +242,7 @@ Escape/click and debugger output. Record actual findings; measure FPS/frame time
 RAM separately. Fix demonstrated defects before another separately scoped feature
 increment; no dialogue or Director strategy is begun here.
 
-## Historical Stage 3A.1 and earlier records
+### Historical Stage 3A.1 and earlier records
 
 The following preserves earlier increments and their then-current next steps.
 The current startup/decision layer and graphical validation step are recorded above.

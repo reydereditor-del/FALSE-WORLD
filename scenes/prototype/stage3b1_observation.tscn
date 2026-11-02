@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/prototype/stage3a1_exploration.tscn" id="1_base"]
 [ext_resource type="Script" path="res://scripts/ai/stage3b1_local.gd" id="2_setup"]
 
+[ext_resource type="Script" path="res://scripts/debug/ai_debug_overlay.gd" id="3_debug"]
+
 [node name="Stage3B1Observation" instance=ExtResource("1_base")]
 script = ExtResource("2_setup")
+
+[node name="AIDebugOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("3_debug")

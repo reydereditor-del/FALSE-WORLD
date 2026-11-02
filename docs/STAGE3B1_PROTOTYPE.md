@@ -3,7 +3,8 @@
 This increment adds a small decision layer to the same 100×100 m graybox and exactly
 three agents. It is still a local technical proof within handoff §19 stage 3.
 Dialogue, deception, Director strategy, combat, inventory, mobs, objectives,
-extraction, networking and new UI remain absent. It does not prove human-like AI.
+extraction, networking and gameplay UI remain absent. Stage 3B.2 adds only the
+developer diagnostics below; it does not prove human-like AI.
 
 ## Run
 
@@ -22,7 +23,8 @@ godot --path . res://scenes/prototype/m1_graybox.tscn
 
 See [STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md) for map access routes/rebaking,
 and [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md) for perception/report rules.
-No new presentation/debug panel or role labels are shown to players.
+Normal play shows no AI panel or role labels. F3 deliberately enables developer
+diagnostics only when running with the Godot editor debug binary (see below).
 
 ## States and evidence
 
@@ -87,10 +89,11 @@ follows from these operation limits; 22–25-agent support remains unestablished
 ## Automated validation
 
 Use the explicit 4.7.2 binary and writable XDG directories documented in the older
-prototype guides when working in the cloud. Run all five suites:
+prototype guides when working in the cloud. Run all six suites:
 
 ```sh
 godot --headless --path . --editor --import
+godot --headless --path . --script res://tests/stage3b2/test_ai_debug.gd
 godot --headless --path . --script res://tests/stage3b1/test_observation_decisions.gd
 godot --headless --path . --script res://tests/stage3a1/test_exploration.gd
 godot --headless --path . --script res://tests/stage3a/test_foundation.gd
@@ -106,18 +109,99 @@ latency, human-like appearance, rendered visibility or hardware performance.
 The test moves actors/creates blockers only in its isolated fixture; runtime agents
 use no teleport or movement advantage. See [PROGRESS.md](PROGRESS.md) for actual results.
 
-## Next graphical acceptance
+## Stage 3B.2 developer diagnostics
 
-On Windows/Godot 4.7.2, run F5 and confirm three agents explore the existing layout.
-Enter one agent's forward view, then move behind a solid building corner; watch it
-pause and possibly visit the old location, then resume exploring rather than track
-you behind walls. Stay visible and stationary to check that repeated sightings do
-not produce repeated pursuit or state chatter. Repeat after moving to a genuinely
-new location; agents should vary timing slightly. Other agents may react later to
-selective reports, but exact report age/source needs automated checks, not guesswork
-from movement. Walk into a path to test ordinary blocking/recovery.
+The user reports that Stage 3B.1 movement, observation behavior, navigation, controls
+and interactions appear functional on Windows/Godot 4.7.2. They could not conclusively
+distinguish a last-seen investigation from exploration behind a building. This is
+user-reported evidence, not a confirmed behind-wall investigation or performance pass.
 
-Recheck WASD/camera, E cancel/resume/completion and Escape/click, plus the debugger.
-Record turn/stop comfort, corner jitter and camera occlusion separately. No graphical
-session, naturalness acceptance, FPS/frame-time/RAM measurement or Windows export
-was performed by the agent. Measure target-laptop performance separately before scaling.
+Run F5 with Godot 4.7.2, then press **F3** to show/hide the developer panel. Keyboard
+repeat is ignored. It starts hidden and does not capture the mouse, pause the game,
+or change WASD, E, Escape or click controls. There are no 3D markers. Each of three
+blocks shows:
+
+- Own internal agent ID, actual Explore / Observe / Investigate / Resume state.
+- Actual navigation destination, or none before a path has started. A destination
+  can be retained while Waiting; it is labeled retained/inactive, not an active trip.
+- Latest available direct observation: observed subject ID, point and original age
+  in simulation seconds. It may concern a teammate rather than the selected subject.
+  “Latest sample” means direct vision in the most recent scheduled decision/sensing
+  phase, not continuous live tracking; “last-seen memory” means an older sample.
+- Selected evidence source (Direct vision / Delayed team report / None), original
+  age and frozen point. This is separate from the latest direct observation. A newer
+  report can replace a direct memory entry; an unexpired selected direct snapshot
+  remains available for diagnostics without creating a separate observation history.
+- Navigation status from existing executor flags: Waiting (no active travel),
+  Blocked (stall counter is nonzero), Recovering (route retry count is nonzero),
+  or Moving (active travel without those flags). These are sampled execution flags,
+  not a new collision detector. Recovering can persist while a retried route moves.
+
+Only already observed facts/private memory and the agent's own navigation/decision
+state are read. The panel reads no target transforms, actor registry, pending report
+queue, hidden role, health, inventory or intention. Expired direct/frozen evidence
+points are omitted; selected evidence can remain labeled expired briefly during
+Resume. A retained inactive nav goal can still show the old point, clearly labeled.
+The display refreshes at 10 Hz, so a brief transition may appear late or be missed.
+It does not alter AI timing, re-sense the world or issue path queries.
+
+F3 is available only when both the editor feature and debug-build feature are present.
+Exported debug/release game binaries lack the editor feature and cannot enable this
+panel. The gate is not an anti-tampering boundary for someone running/modifying the
+editor binary. Hiding destroys panel/timer nodes, clears text and stops all refresh
+work; only the developer key listener remains. No frame polling runs even while
+shown. Export gating has feature-combination tests; an actual Windows export has
+not been produced/tested here.
+
+The removable module is `scripts/debug/`; one CanvasLayer child/script resource in
+`stage3b1_observation.tscn` connects it. Removing that child/resource (and updating
+load_steps) removes the diagnostics from production composition. The small
+`LocalMemory.inspect(now)` query copies fresh facts without expiring or mutating
+storage; it exists because ordinary `snapshot()` performs expiry and must not be
+used to change knowledge timing from a renderer.
+
+## Windows graphical validation steps
+
+1. Import this branch with Godot 4.7.2 and run F5. Before F3, confirm there are no AI
+   diagnostics. Press F3 once: three ID blocks should appear; holding F3 must not
+   flicker. Recheck mouse orbit/WASD while shown. Toggle off: all text/background
+   should disappear, with controls continuing. Check the debugger.
+2. Find an agent near a building corner. While it is Explore, enter its forward view
+   within the existing 8 m sight range. Identify the ID block changing to Observe;
+   record Selected evidence = Direct vision and its frozen point. The Last direct
+   age should be near zero while actually sampled, and can update independently.
+3. Immediately walk behind a solid wall while that Observe pause is active. Stay
+   within plausible viewing distance so this tests wall occlusion, not only range.
+   The relevant Last direct point should stop updating and its age increase. A new
+   teammate sighting may replace the displayed latest direct fact; use the selected
+   evidence's frozen point/source to follow this response.
+4. Watch that same ID switch to Investigate. Its active nav destination should be
+   close to the recorded frozen point (navmesh projection may adjust it slightly).
+   Continue moving out of sight: the active goal and selected point must remain
+   fixed. Compare against Explore trips to authored places; state + selected source
+   establishes which trip you are watching. Arrival/timeout/expiry should lead to
+   Resume, then Explore; continuously visible stationary sightings should not loop.
+5. Watch other ID blocks for Delayed team report. They should never label received
+   reports as their own direct sight. Default report delay is at least 0.5 simulation
+   seconds; displayed age is measured from observation, not delivery. Natural timing
+   may not produce this case reliably; use automated provenance/delay tests for proof.
+6. Temporarily block an active route. Watch existing Blocked/Recovering flags and
+   bounded return to another state/route, without crossing solids. Short stalls and
+   deadlines can end before every label is visible; the physical regression tests
+   check the complete sequence with injected timing.
+7. Recheck E hold/release/cancel/resume/completion and Escape/click with F3 on/off.
+   Record branch commit, observed states/coordinates/ages, debugger messages and
+   any text clipping/readability issues at the laptop's window size/resolution.
+
+An Observe → Resume transition without Investigate is not automatically a failure:
+continued direct sight or expired evidence can legitimately end the response. Repeated
+attempts at the same point are suppressed; retry from a sufficiently different
+observed location after cooldown, or restart the scene for a fresh seeded session.
+Debugging never forces a response or bypasses those rules.
+
+The agent's headless tests cover adapter fields, actual F3 dispatch, visibility/timer
+lifecycle, read-only queries, wall LOS loss, source/age, frozen goals, expiry, state
+transitions and physical recovery. They do not establish pixel rendering, layout,
+keyboard feel, Windows export behavior, camera occlusion, natural-looking AI or
+FPS/frame times/RAM. The user report above is scoped to the preceding 3B.1 session;
+this new panel still needs graphical acceptance. Measure performance separately.

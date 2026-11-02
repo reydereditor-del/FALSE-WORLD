@@ -54,3 +54,13 @@ func snapshot(now: int) -> Dictionary:
 func contains_observation(fact: Dictionary) -> bool:
 	# Provenance validation must not expire or mutate memory using an incoming tick.
 	return _facts.get(fact.get("subject", &""), {}) == fact
+
+
+func inspect(now: int) -> Dictionary:
+	# Nonmutating diagnostic view: reading cannot expire, refresh or alter AI memory.
+	var result: Dictionary = {}
+	for subject in _facts:
+		var fact: Dictionary = _facts[subject]
+		if fact.tick <= now and now - fact.tick < freshness_ticks:
+			result[subject] = fact.duplicate(true)
+	return result
