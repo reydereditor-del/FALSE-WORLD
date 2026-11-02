@@ -2,6 +2,97 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
+## Current status — Stage 4 signal-device objective subset
+
+Dedicated `feat/stage4-signal-loop`, based on preserved visual-slice commit
+`9f29738a2d13d0deb2854585c18556e641e5d684`. Fetched main remains
+`7468ab8262d12f970a0a6d85d50fc2e8dc48e8d0`; prior map/visual work is retained as
+branch ancestry, not reset to older main. User authorizes commit/push only, no merge.
+F5 now starts `scenes/stage4/signal_loop.tscn`; all older scenes remain explicit fallbacks.
+
+Implemented a real local flow in/near the preserved visual benchmark: find one labeled
+service module on the storehouse workbench → collect with E → carry to cabinet → hold
+E for four seconds of accumulated work → sent call → five-second wait → one temporary
+prototype success if in the marked yard at arrival. Release, focus loss, Escape,
+out-of-range/blocked reach cancel work while retaining progress and the carried part.
+Installation occurs only at completion. An empty arrival gives no success and allows
+another timed call with the module retained. R reloads one fresh local run without
+duplicate items/actors. A single local feedback panel and in-world signs explain it.
+
+The current request explicitly simplifies this subset to one test component. Final
+station battery + radio installation, the independent mountain route and other
+handoff rules are unchanged; mountain rescue is not implemented. This is not full
+handoff Stage 4 completion or the finished game. No combat, HP/death, inventory
+framework/drop/loot, multiplayer, mobs, score, spectator or full extraction meta.
+No transport/actor removal is claimed: success is explicitly a local prototype result.
+
+### Fresh Stage 4 checks
+
+Godot `4.7.2.stable.official.ed1daf0bf`, explicit cloud binary and writable XDG paths.
+`python3 tools/run_stage4_checks.py --godot GODOT --output /tmp/false-world-stage4-acceptance`:
+
+- Import/version and all five new objective/tool parser checks passed; actual Stage 4
+  startup completes without missing resources or script/engine errors.
+- Pure state/ownership/clock rules: **27 checks, zero failures**. Duplicate/concurrent/
+  invalid acquisition, wrong-worker requests, component conservation, no instant or
+  yard-only success, sent-call persistence, invalid deltas, empty/repeat arrivals,
+  installed-part retention, one terminal success and temporary banner lifetime.
+- Actual Stage 4 scene integration: **36 checks, zero failures**. Real original
+  motor/interactor/WorkTarget adapters; clear navigation at all ten sites; all three
+  AI moving; actual cabinet-area vision → Observe → frozen last-seen Investigate;
+  missing-module rejection; entry→module→cabinet→yard continuous physical walking;
+  pickup/activation interruption, added solid LOS blocker, release, focus loss and
+  walking away with E held; retained progress/ownership; exactly one installation/
+  pending call; AI presence not blocking arrival; feedback without actor roster;
+  real R scene reload and clean actor/component counts; actual empty-arrival retry.
+- All previous visual/map/gameplay checks: **306 passed**, including unchanged seven
+  original suites (223), map checks (58) and visual slice checks (25). Combined with
+  Stage 4: **369 ordinary checks, zero failures**.
+- Unchanged Stage 3D harness, seed **431**, repeat **2**: **16/16 scenarios**, **98
+  assertions**, **6,886 audited ticks**, all eight semantic repeat hashes match.
+  Completion/success JSON and exit/error logs are checked, not just process exit.
+- Explicit visual benchmark, graybox, M1/Stage 3C and Stage 4 startup checks passed.
+  All test subprocesses and integration loops have finite limits. The reproduced
+  Jolt job-pool warning remains separately recorded in old/new runs; unknown warnings
+  or any engine/script error fail. No physics or old assertion changes to hide it.
+- Stage 4-only local navmesh rebaked: **267 polygons**, same 90×90 m bounds/agent
+  tuning, all ten old sites reachable. Source visual navmesh and geometry are preserved.
+- A new composition vector inference error was fixed before final checks. The initial
+  straight-line yard test hit the existing solid station sign; its walk now follows
+  the clear side, retaining the benchmark and real arrival assertions, without teleport.
+
+### Preservation, visual evidence and limits
+
+Original handoff/game design, every old scene/navigation resource, complete visual
+asset/benchmark tree, shared motor/camera/input/interactions, all AI modules,
+old tests and scenario harness remain byte-preserved. New interaction adapters extend
+WorkTarget rather than replacing it. Project settings change only startup. New small
+module/panel/yard pieces are original, reuse existing materials and have provenance
+in [ATTRIBUTION.md](../assets/ATTRIBUTION.md). Cost 0 UZS; no new dependency or asset pack.
+
+Three actual runtime screenshots under `docs/evidence/stage4/` show search, waiting
+and temporary success with the preserved visual area and minimal feedback. The capture
+used real interaction interfaces with test setup poses; it is not a human playtest.
+Vulkan surface initialization remains unavailable in the cloud; Godot automatically
+fell back to software OpenGL/Mesa llvmpipe on the temporary display. The images were
+inspected, but are not a clean Forward Plus/D3D12/Windows pass or FPS/RAM evidence.
+Headless checks likewise do not verify visual quality, camera feel or performance.
+
+AI involvement is limited to existing legitimate perception/memory/report decisions
+about visible player activity. No objective flags, item possession, call timers or
+unsensed world state are injected; agents do not autonomously pick up parts, sabotage
+or fight. Existing strategy and sensing budgets/population remain unchanged. This is
+not full objective AI, human-like deception or four-human networking proof.
+
+[STAGE4_SIGNAL_PROTOTYPE.md](STAGE4_SIGNAL_PROTOTYPE.md) records exact controls,
+coordinates, success/retry/reset flow, test coverage, known omissions and Windows
+commands/checklist. **Next:** Windows playability/timing/feedback validation of this
+one-route subset, then scoped work on final station components/survival systems.
+The independent mountain route and other approved full-game systems remain future
+work; no broader milestone is claimed complete. Earlier progress below is history.
+
+## Historical visual slice and earlier records
+
 ## Current status — visual vertical slice V1
 
 On dedicated `feat/visual-vertical-slice-v1`, based on the preserved map-foundation

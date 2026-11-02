@@ -58,3 +58,12 @@ them. Geometry/skeleton/source walk are retained. Source URL/hash, modifications
 attribution obligations and original notices: [ASSET_LICENSES.md](../docs/ASSET_LICENSES.md).
 The original temporary GLB is not included in the repository. No trademark rights
 or endorsement are claimed; no Cesium logo texture is shipped.
+
+## Stage 4 signal prototype (original supporting pieces)
+
+Created 2026-11-02 by FALSE WORLD project contributors in this Codex-assisted task:
+`scenes/stage4/signal_loop.tscn` adds an original small service-module/latch mesh,
+signal control panel/lever and yard markings/sign text. It reuses existing original
+steel material and creates no new downloaded art, texture, font or third-party
+license obligation. Existing visual-slice licensed assets remain unchanged with
+credits above and in `docs/ASSET_LICENSES.md`. No asset purchase or paid service.

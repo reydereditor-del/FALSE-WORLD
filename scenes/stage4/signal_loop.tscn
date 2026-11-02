@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/visual/visual_vertical_slice.tscn" id="1_base"]
+[ext_resource type="Script" path="res://scripts/objective/signal_loop.gd" id="2_loop"]
+[ext_resource type="Script" path="res://scripts/objective/component_pickup.gd" id="3_pickup"]
+[ext_resource type="Script" path="res://scripts/objective/signal_activation.gd" id="4_device"]
+[ext_resource type="Material" path="res://assets/visual/materials/steel.tres" id="5_steel"]
+[ext_resource type="NavigationMesh" path="res://scenes/stage4/station_navigation.tres" id="6_nav"]
+
+[sub_resource type="BoxMesh" id="ModuleMesh"]
+material = ExtResource("5_steel")
+size = Vector3(0.46, 0.4, 0.32)
+
+[sub_resource type="BoxShape3D" id="ModuleShape"]
+size = Vector3(0.46, 0.4, 0.32)
+
+[sub_resource type="BoxMesh" id="PanelMesh"]
+material = ExtResource("5_steel")
+size = Vector3(0.8, 0.5, 0.08)
+
+[sub_resource type="BoxShape3D" id="PanelShape"]
+size = Vector3(0.8, 0.5, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="IndicatorMaterial"]
+albedo_color = Color(0.74, 0.60, 0.31, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="HandleMesh"]
+material = SubResource("IndicatorMaterial")
+size = Vector3(0.04, 0.28, 0.04)
+
+[sub_resource type="BoxMesh" id="StripeMesh"]
+material = SubResource("IndicatorMaterial")
+size = Vector3(10, 0.02, 0.12)
+
+[sub_resource type="BoxShape3D" id="YardShape"]
+size = Vector3(10, 3, 10)
+
+[sub_resource type="BoxMesh" id="HandleSocket"]
+material = SubResource("IndicatorMaterial")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Stage4SignalLoop" instance=ExtResource("1_base")]
+
+[node name="NavigationRegion3D" parent="LocalArea"]
+navigation_mesh = ExtResource("6_nav")
+
+[node name="Text1" parent="Signs/Welcome"]
+text = "STAGE 4 SIGNAL TEST\nMODULE: SERVICE BUILDING\nE: interact | R: restart"
+
+[node name="Text-1" parent="Signs/Welcome"]
+text = "STAGE 4 SIGNAL TEST\nMODULE: SERVICE BUILDING\nE: interact | R: restart"
+
+[node name="Text1" parent="Signs/Station"]
+text = "SIGNAL TEST ROUTE\nSend call, then wait in yard\nLocal prototype only"
+
+[node name="Text-1" parent="Signs/Station"]
+text = "SIGNAL TEST ROUTE\nSend call, then wait in yard\nLocal prototype only"
+
+[node name="ObjectiveLoop" type="Node3D" parent="."]
+script = ExtResource("2_loop")
+
+[node name="Component" type="StaticBody3D" parent="ObjectiveLoop"]
+position = Vector3(194.3, 1.23, 118.1)
+script = ExtResource("3_pickup")
+duration_seconds = 0.25
+
+[node name="Mesh" type="MeshInstance3D" parent="ObjectiveLoop/Component"]
+mesh = SubResource("ModuleMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ObjectiveLoop/Component"]
+shape = SubResource("ModuleShape")
+
+[node name="LeverPivot" type="Node3D" parent="ObjectiveLoop/Component"]
+position = Vector3(0, 0.2, 0)
+
+[node name="Handle" type="MeshInstance3D" parent="ObjectiveLoop/Component/LeverPivot"]
+position = Vector3(0, 0.14, 0)
+mesh = SubResource("HandleMesh")
+
+[node name="Label" type="Label3D" parent="ObjectiveLoop/Component"]
+position = Vector3(0, 0.8, 0)
+text = "SERVICE MODULE\nHold E to collect"
+font_size = 28
+pixel_size = 0.003
+billboard = 1
+visibility_range_end = 18.0
+
+[node name="Device" type="StaticBody3D" parent="ObjectiveLoop"]
+position = Vector3(230, 1.15, 124.56)
+script = ExtResource("4_device")
+duration_seconds = 4.0
+
+[node name="Mesh" type="MeshInstance3D" parent="ObjectiveLoop/Device"]
+mesh = SubResource("PanelMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="ObjectiveLoop/Device"]
+shape = SubResource("PanelShape")
+
+[node name="LeverPivot" type="Node3D" parent="ObjectiveLoop/Device"]
+position = Vector3(0, 0, 0.08)
+
+[node name="Socket" type="MeshInstance3D" parent="ObjectiveLoop/Device/LeverPivot"]
+mesh = SubResource("HandleSocket")
+
+[node name="Handle" type="MeshInstance3D" parent="ObjectiveLoop/Device/LeverPivot"]
+position = Vector3(0, 0.14, 0)
+mesh = SubResource("HandleMesh")
+
+[node name="Label" type="Label3D" parent="ObjectiveLoop/Device"]
+position = Vector3(0, 1.0, 0)
+text = "SIGNAL DEVICE\nHold E to send call\nWait in marked yard"
+font_size = 28
+pixel_size = 0.004
+billboard = 1
+visibility_range_end = 24.0
+
+[node name="InstalledModule" type="MeshInstance3D" parent="ObjectiveLoop"]
+position = Vector3(230, 1.8, 124)
+mesh = SubResource("ModuleMesh")
+visible = false
+
+[node name="ExtractionYard" type="Area3D" parent="ObjectiveLoop"]
+position = Vector3(220, 1, 140)
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="Collision" type="CollisionShape3D" parent="ObjectiveLoop/ExtractionYard"]
+shape = SubResource("YardShape")
+
+[node name="North" type="MeshInstance3D" parent="ObjectiveLoop/ExtractionYard"]
+position = Vector3(0, -0.96, -5)
+mesh = SubResource("StripeMesh")
+
+[node name="South" type="MeshInstance3D" parent="ObjectiveLoop/ExtractionYard"]
+position = Vector3(0, -0.96, 5)
+mesh = SubResource("StripeMesh")
+
+[node name="West" type="MeshInstance3D" parent="ObjectiveLoop/ExtractionYard"]
+position = Vector3(-5, -0.96, 0)
+rotation_degrees = Vector3(0, 90, 0)
+mesh = SubResource("StripeMesh")
+
+[node name="East" type="MeshInstance3D" parent="ObjectiveLoop/ExtractionYard"]
+position = Vector3(5, -0.96, 0)
+rotation_degrees = Vector3(0, 90, 0)
+mesh = SubResource("StripeMesh")
+
+[node name="Label" type="Label3D" parent="ObjectiveLoop/ExtractionYard"]
+position = Vector3(0, 1.8, 0)
+text = "PICKUP YARD\nBe here at arrival"
+font_size = 32
+pixel_size = 0.004
+billboard = 1
+visibility_range_end = 24.0

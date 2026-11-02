@@ -559,3 +559,47 @@ could render only after automatic software-OpenGL fallback (Vulkan surface unava
 so Forward Plus/D3D12, visual comfort and laptop FPS/RAM remain unverified. Headless
 new-scene checks exercise real bones/velocity/walking/collision/camera/navigation;
 all old gameplay/map tests and scenario harness remain unchanged and are rerun.
+
+## Stage 4 signal objective subset (current F5)
+
+`scenes/stage4/signal_loop.tscn` inherits the preserved visual benchmark and adds one
+service module, a real cabinet control and a marked pickup yard. The task explicitly
+requests one prototype component; the final battery-plus-radio station requirement
+and independent mountain route remain authoritative and unchanged in the handoff and
+game design. This is not completion of full handoff Stage 4's survival systems.
+
+`SignalObjective` is a value-only state/owner/injected-clock object, with no Nodes,
+input, AI registry, roles or inventory framework. SEARCH/CARRYING represent the one
+component; completed activation installs it, sends one call and enters WAITING.
+At arrival, the local player's yard membership gives one SUCCESS, otherwise READY
+allows another call with installation retained. Success has a six-second banner;
+no transport/spectator/full-match meta is fabricated. Prototype timings remain tuning.
+
+Two narrow WorkTarget subclasses reuse its physical reach/LOS, single-worker lock,
+retained work/cancel and actual lever progress. Ownership changes only on completed
+pickup; installation/sent-call state changes only on completed legitimate work.
+The composition switches the unchanged CharacterInteractor among three authored
+reachable targets before local input, advances the clock, samples the yard and
+refreshes one minimal local feedback panel at 10 Hz. No movement/camera/input-module
+rewrite, global target scan or event bus. R reloads the whole local prototype, not
+an in-world action affecting a persistent match. E/controls reuse existing input.
+
+All three real AI retain exploration, range/cone/LOS sensing, private memory, delayed
+selective reports and limited coordination unchanged. They may see the player at the
+cabinet and investigate the old witnessed point. No component/call state or unsensed
+human transform enters decisions. Autonomous item handling, sabotage and combat are
+not added. The new-scene test demonstrates an actual objective-area sighting and
+frozen last-seen investigation without changing strategy or sensing rules.
+
+A separate Stage 4-only 90×90 m local navmesh retains 267 polygons and all ten authored
+sites; the visual benchmark's own resources are unchanged. Original small supporting
+meshes reuse existing materials and have recorded provenance. The entire old visual
+asset tree, prior scenes/navigation, motor/camera/interactions, AI, tests/harness,
+handoff and game design are byte-preserved. Project settings change startup only.
+
+See [STAGE4_SIGNAL_PROTOTYPE.md](STAGE4_SIGNAL_PROTOTYPE.md) for scope/controls, actual
+walking/cancel/arrival/reset tests and limitations. Local owner IDs are not network
+authentication; authority/session validation belongs to a later multiplayer task.
+No combat/death, loot, full inventory, other route, score or full-game result system
+is implied. Windows physical-input/visual/performance acceptance remains pending;
+software-OpenGL fallback screenshots are documentation, not Forward Plus/iGPU proof.
