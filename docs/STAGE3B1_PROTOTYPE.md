@@ -8,13 +8,15 @@ developer diagnostics below; it does not prove human-like AI.
 
 ## Run
 
-Use Godot **4.7.2 standard / GDScript**. F5 runs
-`scenes/prototype/stage3b1_observation.tscn`, which inherits the existing Stage 3A.1
+Use Godot **4.7.2 standard / GDScript**. F5 now runs limited Stage 3C coordination;
+see [STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md). F6 on
+`scenes/prototype/stage3b1_observation.tscn` retains this observation-only composition,
+which inherits the existing Stage 3A.1
 scene without geometry, resource, spawn or population changes. Controls remain
 WASD, mouse orbit, hold/release E, Escape and click-to-recapture.
 
 ```sh
-godot --path .
+godot --path . res://scenes/prototype/stage3b1_observation.tscn
 # Retained exploration-only demo:
 godot --path . res://scenes/prototype/stage3a1_exploration.tscn
 # Retained M1:
@@ -116,7 +118,7 @@ and interactions appear functional on Windows/Godot 4.7.2. They could not conclu
 distinguish a last-seen investigation from exploration behind a building. This is
 user-reported evidence, not a confirmed behind-wall investigation or performance pass.
 
-Run F5 with Godot 4.7.2, then press **F3** to show/hide the developer panel. Keyboard
+Run this scene with F6 (or current Stage 3C with F5), then press **F3** to show/hide the developer panel. Keyboard
 repeat is ignored. It starts hidden and does not capture the mouse, pause the game,
 or change WASD, E, Escape or click controls. There are no 3D markers. Each of three
 blocks shows:
@@ -162,7 +164,7 @@ used to change knowledge timing from a renderer.
 
 ## Windows graphical validation steps
 
-1. Import this branch with Godot 4.7.2 and run F5. Before F3, confirm there are no AI
+1. Import this branch with Godot 4.7.2 and run this scene with F6. Before F3, confirm there are no AI
    diagnostics. Press F3 once: three ID blocks should appear; holding F3 must not
    flicker. Recheck mouse orbit/WASD while shown. Toggle off: all text/background
    should disappear, with controls continuing. Check the debugger.

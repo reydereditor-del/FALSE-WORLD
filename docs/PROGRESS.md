@@ -2,7 +2,140 @@
 
 Updated: 2026-11-02 (Asia/Tashkent).
 
-## Current status — Stage 3B.2 developer debugging/validation
+## Current status — Stage 3C limited coordination foundation
+
+The same 1-human/3-AI, 100×100 m prototype now optionally assesses delayed reports
+for relevance and affordable area responses. A recipient can preserve exploration,
+pause nearby or check a seeded approach around an old reported location. Selected
+observation time/point/source stay frozen; no live hidden-human position is supplied.
+F3 explains the local decision and legitimate uncertain report source/age.
+
+This remains a small handoff §19 stage-3 foundation, not a completed deception
+system. No full Director, strategic dialogue, networking, combat, inventory, mobs,
+extraction, additional agents/map, runtime LLM/API, asset, dependency or paid service.
+Cost remains 0 UZS. Approved gameplay rules and provisional balance remain preserved.
+
+Inspected clean `7fb372b`, read the authoritative handoff, rules/skills and all current
+architecture/progress/prototype documents, fetched main merge `1a11e60`, and created
+`feat/stage3c-limited-coordination`. Previous implementation and M1 verification
+history is preserved. This task authorizes automatic branch push/remote verification,
+never merging into main.
+
+Prior Windows/Godot 4.7.2 Stage 3B.1 report remains scoped: movement, observation,
+navigation, controls and interactions appeared functional, but a last-seen trip
+behind a building was inconclusive. No new graphical Stage 3B.2/3C or performance
+pass is inferred from it. All new graphical acceptance below remains pending.
+
+## Completed Stage 3C work
+
+- Added a value-only local ReportCoordination policy accepting only delivered
+  private-memory facts, own position/speed, seed/tick and configured budgets. It
+  checks original age, range and time for pause/travel; a legitimate observation
+  is explicitly uncertain about current occupancy. No peer state/position, world
+  registry, hidden human transform, inventory or intention enters the policy.
+- Added nearby pause versus reported-area approach responses, or continued normal
+  exploration for old/distant/unaffordable/handled evidence. Eligible direct local
+  evidence takes precedence. A separate frozen approach intent does not replace
+  the reported point/source/tick in selected evidence.
+- Consecutive seeds select three approach sectors and additional response delays.
+  The original one-recipient delayed ring remains unchanged; no broadcast, relay
+  chain, assignment/acknowledgement system or shared live target is introduced.
+  This is limited information-based coordination, not strategic team planning.
+- Reused Explore/Observe/Investigate/Resume, private memory, actual LOS, cooldowns,
+  eight-record repeat suppression, staggered phases and finite physical recovery.
+  New facts cannot switch a committed goal or extend its original lifetime/deadline.
+- Added optional true path-length validation to the existing path-start query,
+  using remaining evidence time/timeout at normal motor speed. Legacy callers keep
+  the infinite default. No second path query, offset-search loop, teleport or
+  movement advantage; unreachable/long-detour targets fail and resume exploration.
+- Added a tiny inherited Stage 3C scene/composition and startup setting, preserving
+  all authored geometry/navmesh and previous standalone scenes. Original observation
+  compositions retain a null coordination policy and their previous behavior.
+- Extended read-only F3 diagnostics with coordination decision/reason, actual
+  reporting ID, original age and an explicit uncertain-last-seen label. The existing
+  developer gate, hidden zero-refresh behavior, controls and overlay lifecycle are
+  unchanged. Added tests and [STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md); updated
+  technical/design status and older run instructions. All tuning is provisional.
+
+## Stage 3C checks actually performed
+
+Commands used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64` with
+`XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
+`XDG_CONFIG_HOME=/workspace/.config`. `--headless --version` confirmed
+`4.7.2.stable.official.ed1daf0bf`; GODOT below means this explicit binary.
+
+- `$GODOT --headless --path . --editor --import`: PASS, exit 0, clean output
+  (`/tmp/stage3c-import.log`), with permitted editor local socket access. Initial
+  import also passed; no parser/behavior failure was encountered in this increment.
+- `$GODOT --headless --path . --check-only --script res://PATH`: PASS for seven
+  changed/new scripts: exploration/observation controllers, observation decisions,
+  report coordination, Stage 3C composition, debug adapter and coordination suite.
+  Commands/exit codes recorded by `/tmp/check_stage3c_engine.py`; parser logs under
+  `/tmp/stage3c-parser-*.log`.
+- `$GODOT --headless --path . --script res://tests/stage3c/test_coordination.gd`:
+  **35 checks, 0 failures**, exit 0, clean output (`/tmp/stage3c-coordination.log`).
+  Initial 35-check run also passed. Covers actual sensor/relay delay/provenance,
+  independent memories and selective receipt, fresh/old/future/distant/ETA assessment,
+  nearby pause, direct priority, seeded approaches/timing, stationary-loop suppression,
+  expiry, capped assessments/cadence, genuine newer reports not retargeting the old
+  goal, uncertainty in F3 data, physical approach arrival at shared speed/ground rules,
+  true detour budgeting, unreachable offset and finite blocked-route recovery.
+- All six existing unchanged suites rerun with the same `--headless --path . --script`:
+  `res://tests/stage3b2/test_ai_debug.gd` **33/0**;
+  `res://tests/stage3b1/test_observation_decisions.gd` **45/0**;
+  `res://tests/stage3a1/test_exploration.gd` **25/0**;
+  `res://tests/stage3a/test_foundation.gd` **39/0**;
+  `res://tests/m1/test_graybox.gd` **31/0**;
+  `res://tests/m1/test_camera_clearance.gd` **15/0**.
+  All exit 0 with clean logs (`/tmp/stage3c-{debug,observation,exploration,foundation,m1,camera}.log`).
+  **223 checks passed, 0 failed** in the final seven suites; no existing test edited.
+  Existing navigation tests exercise the actual preserved mesh/sites/obstacle detour;
+  the new suite also exercises the Stage 3C composition and physical report travel.
+- `$GODOT --headless --path . --fixed-fps 60 --quit-after 1800`: PASS, exit 0, clean
+  current default scene startup (`/tmp/stage3c-startup.log`), 30 simulated seconds,
+  not a real-time CPU/FPS benchmark. Explicit standalone M1 startup with
+  `--quit-after 120` also passed (`/tmp/stage3c-m1-startup.log`).
+
+- `python /tmp/validate_false_world_stage3c.py`: PASS, exact intended scope
+  (12 modified + 8 new files), 69 other tracked files byte-preserved against pre-edit
+  SHA-256 hashes, startup-only configuration change, preserved existing path-follower/
+  arrival/recovery bodies, tiny inherited scene with no geometry, valid local links/
+  resources, UID pairs/uniqueness, skill metadata, empty markers, text formatting,
+  clean final engine logs and retained prior history. `git diff --check` also passed.
+
+## Current limitations and exact next step
+
+No agent-run graphical session, Windows export or measured FPS/frame-time/RAM/CPU
+result was performed. Bounded operation counts and headless physics do not establish
+believable movement, visual readability, input feel, camera occlusion or laptop/full
+population performance. The F3 panel and new coordination need graphical acceptance.
+
+Fixed ring routing is not relevance-aware Director dispatch. Multiple genuine
+observations can still prompt independent nearby agents; there is no global lease,
+hard concurrency cap beyond the three-agent setup or dynamic crowd deconfliction.
+The three seed profiles repeat at larger populations. Local direct evidence priority
+and age/ETA limits are provisional heuristics, not proof of reporter reliability or
+current occupancy. Offsets can be invalid; they are rejected rather than endlessly
+searched. Static navigation/congestion, evidence expiry during travel and 10 Hz
+panel sampling remain existing limits. The complete deception proof is unfinished.
+
+**Next exact step:** in Windows/Godot 4.7.2, run F5 and F3. Enter an agent's forward
+view near a solid corner, then hide during its Observe pause. Follow a ring recipient's
+Coordination decision/reason and Report source/age: confirm continued exploration,
+Pause nearby or Check area is supported by actual delivered evidence. Compare frozen
+Selected evidence with the nearby Nav approach; continue moving unseen and verify
+neither follows you or changes under newer reports. Check independent timing, expiry,
+stationary repeat suppression and physical blocking/recovery. Toggle F3 off and
+recheck WASD/camera, E cancel/resume/completion, Escape/click and debugger. Record
+commit/IDs/states/ages/coordinates and readability findings; measure performance
+separately. Fix demonstrated issues before another explicitly scoped feature task.
+
+## Historical Stage 3B.2 and earlier records
+
+The following preserves prior increments and their then-current limits/next steps.
+Current coordination behavior and graphical acceptance are recorded above.
+
+### Current status — Stage 3B.2 developer debugging/validation
 
 Stage 3B.2 adds an off-by-default F3 developer panel to the existing observation
 prototype, without changing AI decisions, movement, camera, controls, interaction,
@@ -25,7 +158,7 @@ Fetched main merge `621b7fb` and created dedicated
 preserved. This task authorizes automatic branch push and remote-HEAD verification,
 never merging into main.
 
-## Completed Stage 3B.2 work
+### Completed Stage 3B.2 work
 
 - Added a small removable read-only adapter and native text overlay under
   `scripts/debug/`, wired through one CanvasLayer in the existing 3B.1 scene.
@@ -51,7 +184,7 @@ never merging into main.
   existing Stage 3B.1 guide with exact display semantics, removal/build gate and
   Windows reproduction steps. All AI tuning stays provisional and unchanged.
 
-## Stage 3B.2 checks actually performed
+### Stage 3B.2 checks actually performed
 
 Used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`, with
 `XDG_CACHE_HOME=/workspace/.cache`, `XDG_DATA_HOME=/workspace/.local/share`,
@@ -97,7 +230,7 @@ Used `/workspace/.tools/godot/4.7.2/Godot_v4.7.2-stable_linux.x86_64`, with
   empty markers, UTF-8/whitespace, clean final engine logs and preserved prior
   implementation/verification ancestry. `git diff --check` also passed.
 
-## Current limits and exact next step
+### Current limits and exact next step
 
 The panel is sampled at 10 Hz; brief transitions may be missed/late. Latest-sample
 labeling follows the existing sensing/decision phase, not a continuously verified
@@ -124,7 +257,7 @@ panel readability and debugger output. Record actual states/coordinates/ages/com
 measure performance separately. Exact steps and legitimate no-investigation cases
 are in STAGE3B1_PROTOTYPE.md. Fix only demonstrated defects before further features.
 
-## Historical Stage 3B.1 and earlier records
+### Historical Stage 3B.1 and earlier records
 
 The following preserves prior increments, then-current limits and next steps.
 Current user evidence, diagnostics and acceptance instructions are recorded above.

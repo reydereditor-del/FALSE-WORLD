@@ -8,8 +8,8 @@ inventory, objectives, mobs, extraction, networking, runtime AI service or new U
 
 ## Run
 
-Use Godot **4.7.2 standard / GDScript**. F5 now starts Stage 3B.1 observation decisions; see
-[STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md). F6 on
+Use Godot **4.7.2 standard / GDScript**. F5 now starts Stage 3C limited coordination; see
+[STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md). F6 on
 `scenes/prototype/stage3a_local.tscn` runs the retained original foundation.
 The original `scenes/prototype/m1_graybox.tscn` remains standalone for F6/M1 checks.
 From repository root:

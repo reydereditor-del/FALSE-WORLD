@@ -70,7 +70,7 @@ func plan(now: int) -> void:
 	_last_position = motor.global_position
 
 
-func try_destination(target: Vector3) -> bool:
+func try_destination(target: Vector3, maximum_path_length: float = INF) -> bool:
 	var map := navigator.get_navigation_map()
 	if NavigationServer3D.map_get_iteration_id(map) == 0:
 		return false
@@ -79,6 +79,12 @@ func try_destination(target: Vector3) -> bool:
 	var path := NavigationServer3D.map_get_path(map, motor.global_position, nearest, true)
 	if nearest.distance_to(target) > 0.75 or path.is_empty() or path[-1].distance_to(nearest) > 0.5:
 		return false
+	var length := 0.0
+	if is_finite(maximum_path_length):
+		for point in range(1, path.size()):
+			length += path[point - 1].distance_to(path[point])
+		if length > maximum_path_length:
+			return false
 	_goal = nearest
 	navigator.target_position = _goal
 	waiting = false

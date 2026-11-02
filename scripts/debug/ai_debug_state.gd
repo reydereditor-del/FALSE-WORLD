@@ -46,6 +46,7 @@ static func read(controller: ObservationController, now: int) -> Dictionary:
 		"direct_subject": "" if direct.is_empty() else String(direct.subject),
 		"direct_age_ticks": -1 if direct.is_empty() else now - int(direct.tick),
 		"direct_at_latest_sample": direct_at_latest_sample,
+		"coordination": {} if controller.decisions.coordination == null else controller.decisions.coordination.inspect(now, memory.freshness_ticks),
 		"selected_source": selected_source, "selected_age_ticks": selected_age,
 		"selected_expired": selected_expired, "selected_position": selected_position}
 
@@ -64,8 +65,15 @@ static func describe(view: Dictionary, ticks_per_second: int) -> String:
 	elif view.selected_position != null:
 		selected += "; " + point(view.selected_position)
 	var nav_label := "Nav destination (retained/inactive)" if view.navigation == "Waiting" else "Nav destination"
+	var coordination_text := ""
+	if not view.coordination.is_empty():
+		var report: Dictionary = view.coordination
+		coordination_text = "\nCoordination: %s; %s" % [report.decision, report.reason]
+		if report.uncertain:
+			coordination_text += "\nReport from %s; %.2fs; uncertain last-seen%s" % [
+				report.reporter, float(report.age_ticks) / ticks_per_second, "; expired" if report.expired else ""]
 	return "%s | %s | %s (retries %d)\n%s: %s\nLast direct: %s\nSelected evidence: %s" % [
-		view.id, view.state, view.navigation, view.retries, nav_label, point(view.destination), direct, selected]
+		view.id, view.state, view.navigation, view.retries, nav_label, point(view.destination), direct, selected] + coordination_text
 
 
 static func point(position: Variant) -> String:

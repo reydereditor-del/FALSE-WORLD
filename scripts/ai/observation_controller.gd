@@ -12,6 +12,9 @@ var _failed: bool = false
 func initialize() -> void:
 	super.initialize()
 	decisions.interval_ticks = update_interval_ticks
+	if decisions.coordination != null:
+		decisions.coordination.move_speed = motor.move_speed
+		decisions.coordination.ticks_per_second = Engine.physics_ticks_per_second
 	decisions.initialize(seed_value)
 	_next_plan_tick = 0
 	_arrived = false
@@ -28,7 +31,10 @@ func plan(now: int) -> void:
 		waiting = true
 		if decisions.state == ObservationDecisions.State.INVESTIGATE:
 			_arrived = false
-			_failed = not try_destination(decisions.evidence.position)
+			var path_limit: float = INF
+			if decisions.coordination != null and decisions.evidence.source == &"team_report":
+				path_limit = decisions.coordination.travel_limit(now, decisions.freshness_ticks, decisions.investigation_timeout_ticks)
+			_failed = not try_destination(decisions.investigation_destination, path_limit)
 			return
 		if decisions.state == ObservationDecisions.State.EXPLORE:
 			_started = false

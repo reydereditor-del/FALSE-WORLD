@@ -10,7 +10,9 @@ perception, memory and a delayed fact interface; see [STAGE3A_PROTOTYPE.md](STAG
 Stage 3A.1 adds only authored exploration and varied local travel/observation pauses;
 see [STAGE3A1_PROTOTYPE.md](STAGE3A1_PROTOTYPE.md). Stage 3B.1 adds bounded
 observation/last-seen investigation decisions; see [STAGE3B1_PROTOTYPE.md](STAGE3B1_PROTOTYPE.md).
-Dialogue/deception and the full gameplay below remain planned.
+Stage 3C adds only limited local assessment of delayed reports and bounded area
+responses; see [STAGE3C_PROTOTYPE.md](STAGE3C_PROTOTYPE.md). Dialogue/deception and
+the full gameplay below remain planned.
 
 ## Concept, participants, and identity (handoff §§1–3)
 
