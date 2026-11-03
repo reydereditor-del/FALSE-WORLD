@@ -2,6 +2,25 @@
 
 Updated: 2026-11-03 (Asia/Tashkent).
 
+## Focused character/turn/camera correction (2026-11-03)
+
+Human instant-turn cause was its zero turn-speed setting; the playable visual
+composition now uses the AI's existing 3.5 rad/s limit, without motor/speed/collision
+or controls changes. Idle froze opposite arms from a walk frame; rest-pose plus
+symmetric downward shoulder/elbow alignment corrects the actual four skeletons,
+retaining imported Walk, breathing and crossfade. A -80 degree downward camera
+endpoint is enabled only in the inherited playable composition after clearance/
+framing tests; the global camera algorithm and old defaults remain unchanged.
+
+New focused test: four failures before, seven passes after. Relevant existing
+visual/M1 camera+movement/AI exploration/Stage4 rules+integration+replay suites passed:
+**176 checks, zero failures**, Godot 4.7.2 import/startup without script/engine errors.
+No new graphical/Windows playtest or naturalness/performance claim; unrelated full
+suites were not rerun under the focused budget. No assets/map/AI architecture or
+extraction changes. Existing Stage4 success was verified; reach the marked yard
+after sending, not the cabinet. [CHARACTER_FIXES.md](CHARACTER_FIXES.md) records causes,
+exact test scope and Windows steps. Next: Windows arm/turn/downward-orbit validation.
+
 ## Latest increment — Stage 4 objective audit (2026-11-03)
 
 Audited published `f07bdc4` against handoff §§4–6 and the authorized single-component

@@ -614,3 +614,12 @@ result into SUCCESS without production actor removal/spectating or match lifecyc
 No replay defect was reproduced; 73 focused checks passed. Only an additional audit
 regression test/docs are added, with no gameplay/asset/setting changes. Final battery
 plus radio and other extraction requirements remain unimplemented, not waived.
+
+## Focused presentation correction (2026-11-03)
+
+The playable visual composition opts its human into the existing 3.5 rad/s facing
+limit and a tested -80 degree downward camera endpoint, preserving motor/camera
+algorithms and all legacy scene defaults. Idle is authored from rig rest plus paired
+world-down shoulder/elbow alignment, rather than a frozen walking contact frame.
+Shared imported assets, AI turn tuning and extraction logic are unchanged. See
+[CHARACTER_FIXES.md](CHARACTER_FIXES.md) for 176 focused checks and Windows limits.

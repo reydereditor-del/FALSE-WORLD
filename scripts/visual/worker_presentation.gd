@@ -39,10 +39,11 @@ func _ready() -> void:
 	animation_player.play(source_clip)
 	animation_player.seek(0.0, true)
 	animation_player.pause()
-	# Original idle: source arm posture, straight resting legs, restrained chest breathing.
+	# A walk contact frame is not a standing pose: reset the rig, then author
+	# matching resting arms in world space, independent of imported bone axes.
 	for index in range(skeleton.get_bone_count()):
-		if String(skeleton.get_bone_name(index)).begins_with("leg_"):
-			skeleton.reset_bone_pose(index)
+		skeleton.reset_bone_pose(index)
+	_rest_arms()
 	var idle := Animation.new()
 	idle.length = 3.0
 	idle.loop_mode = Animation.LOOP_LINEAR
@@ -63,6 +64,29 @@ func _ready() -> void:
 	library.add_animation(&"Idle", idle)
 	animation_player.add_animation_library(&"Presentation", library)
 	animation_player.play(&"Presentation/Idle")
+
+
+func _rest_arms() -> void:
+	var chains := [
+		["Skeleton_arm_joint_L__4_", "Skeleton_arm_joint_L__3_", "Skeleton_arm_joint_L__2_"],
+		["Skeleton_arm_joint_R", "Skeleton_arm_joint_R__2_", "Skeleton_arm_joint_R__3_"]]
+	var left := skeleton.find_bone(chains[0][0])
+	var right := skeleton.find_bone(chains[1][0])
+	var side := (skeleton.get_bone_global_pose(left).origin - skeleton.get_bone_global_pose(right).origin).normalized()
+	var down := (skeleton.global_basis.inverse() * Vector3.DOWN).normalized()
+	for chain_index in range(2):
+		var outward := side * (1.0 if chain_index == 0 else -1.0)
+		for segment in range(2):
+			var bone := skeleton.find_bone(chains[chain_index][segment])
+			var child := skeleton.find_bone(chains[chain_index][segment + 1])
+			var pose := skeleton.get_bone_global_pose(bone)
+			var current := (skeleton.get_bone_global_pose(child).origin - pose.origin).normalized()
+			var desired := (down + outward * (0.1 if segment == 0 else 0.03)).normalized()
+			var basis := Basis(Quaternion(current, desired)) * pose.basis
+			var parent := skeleton.get_bone_parent(bone)
+			if parent >= 0:
+				basis = skeleton.get_bone_global_pose(parent).basis.inverse() * basis
+			skeleton.set_bone_pose_rotation(bone, basis.get_rotation_quaternion())
 
 
 func _physics_process(_delta: float) -> void:
