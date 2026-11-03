@@ -11,6 +11,7 @@ func _ready() -> void:
 	# Legacy capsule fixtures retain their instantaneous default; the playable rig
 	# uses the same bounded visual turning already configured for the three AI.
 	area.get_node("Character").facing_turn_speed = 3.5
+	area.get_node("Character/LocalController").camera_facing_locomotion = true
 	area.get_node("Character/CameraRig").minimum_pitch_degrees = -80.0
 	if place_player_at_entry:
 		area.get_node("Character").position = Vector3(-20, 0.1, -7)

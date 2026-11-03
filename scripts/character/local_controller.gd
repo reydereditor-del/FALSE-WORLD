@@ -4,6 +4,7 @@ extends Node
 @export var motor: CharacterMotor
 @export var camera_rig: FollowCamera
 @export var interactor: CharacterInteractor
+@export var camera_facing_locomotion: bool = false
 var _controls_active: bool = true
 
 
@@ -28,6 +29,8 @@ func _physics_process(delta: float) -> void:
 		interactor.step(false, delta)
 		return
 	var axis := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	if camera_facing_locomotion and axis.length_squared() > 0.001:
+		motor.set_facing_intent(camera_rig.movement_direction(Vector2(0, -1)))
 	motor.set_move_intent(camera_rig.movement_direction(axis))
 	interactor.step(Input.is_action_pressed("interact"), delta)
 

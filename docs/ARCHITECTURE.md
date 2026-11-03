@@ -1,5 +1,16 @@
 # FALSE WORLD — architecture
 
+## Option B movement increment (2026-11-03)
+
+LocalController opts the playable human into independent horizontal facing intent;
+CharacterMotor retains translation/collision/gravity and uses movement-facing by
+default for AI and legacy scenes. The visual composition enables the opt-in, also
+in inherited Stage 4. WorkerPresentation selects existing forward Walk only for
+aligned human velocity; unsupported directions use resting Idle, explicitly a glide
+fallback pending compatible licensed clips. No AnimationTree is added without
+directional source clips. Camera, AI, gameplay and assets remain unchanged, cost 0.
+See [OPTION_B_MOVEMENT.md](OPTION_B_MOVEMENT.md) for limits and 212 passing checks.
+
 Status: planned full-game boundaries; M1 local movement/camera/interaction is
 implemented as described in [M1_PROTOTYPE.md](M1_PROTOTYPE.md). Stage 3A local AI
 foundation is described in [STAGE3A_PROTOTYPE.md](STAGE3A_PROTOTYPE.md). Current local
