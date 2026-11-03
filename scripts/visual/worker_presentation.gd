@@ -8,6 +8,7 @@ var skeleton: Skeleton3D
 var current_state: StringName = &"Idle"
 var source_clip: StringName
 var motor: CharacterMotor
+var directional_clip_missing: bool = false
 
 
 func _ready() -> void:
@@ -91,7 +92,14 @@ func _rest_arms() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var speed := Vector2(motor.velocity.x, motor.velocity.z).length()
+	# The acquired rig has only one forward walk. Never play that as a purported
+	# backward/strafe clip. Human-only neutral fallback until compatible clips exist.
+	var local_velocity: Vector3 = motor.get_node("Visual").global_basis.inverse() * motor.velocity
+	directional_clip_missing = motor.has_facing_intent and speed > 0.12 and (
+		local_velocity.z >= 0.0 or absf(local_velocity.x) > speed * 0.15)
 	var desired: StringName = &"Walk" if speed > 0.12 else &"Idle"
+	if directional_clip_missing:
+		desired = &"Idle"
 	if desired != current_state:
 		current_state = desired
 		animation_player.play(StringName("Presentation/" + String(desired)), 0.18)

@@ -2,6 +2,22 @@
 
 Updated: 2026-11-03 (Asia/Tashkent).
 
+## Option B camera-relative movement (2026-11-03)
+
+Human translation and facing now have separate intents in the playable composition:
+normalized camera-relative WASD, smooth horizontal camera-facing body, no backward
+180-degree reversal. AI and legacy M1 behavior are preserved. Actual GLB inspection
+found one forward clip only; no compatible directional clips were obtained (source
+page HTTP 403). Backward/strafe/diagonal directions use the stable resting fallback
+and visibly glide. Authentic directional animation is explicitly incomplete.
+
+Godot 4.7.2 import/parser/Stage 4 startup passed; 212 focused/regression checks passed
+with zero failures. Software-OpenGL rendered frames were inspected; Vulkan could not
+initialize. Windows visual quality, foot placement and performance remain unverified.
+No assets/map/camera/gameplay-rule changes or cost. Next: Windows controls validation,
+then verified licensed compatible directional clips and visual retargeting checks.
+See [OPTION_B_MOVEMENT.md](OPTION_B_MOVEMENT.md) for test scope and exact manual steps.
+
 ## Focused character/turn/camera correction (2026-11-03)
 
 Human instant-turn cause was its zero turn-speed setting; the playable visual
