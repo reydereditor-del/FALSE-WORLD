@@ -33,7 +33,50 @@ there. Raw source data used during generation stays in the ignored `.godot` cach
 The public code alone preserves the original baseline until the user installs
 their licensed files; it must not be described as containing these asset files.
 
-## Windows installation and F5
+## Simple Windows CMD route (2026-11-06)
+
+**Publication note:** the animation integration was pushed as `63f3abb`. The new
+Windows file-picker helper below is not yet pushed: this cloud session's GitHub
+token is invalid. The supplied chat helper ZIP includes both Windows scripts and
+works against the already-published integration, without needing the helper itself
+on GitHub. Extract it and run `review_licensed_locomotion.cmd`; this clones into a
+new folder, invokes its adjacent PowerShell script with an explicit project root,
+then opens the three file pickers described below. Keep the two scripts together.
+
+Codex web edits and publishes the cloud checkout, not files on the user's laptop.
+`git pull origin main` updates main only; this integration is on the feature branch.
+The previous clean-tree PowerShell block correctly stops on local edits, but does
+not resolve them for the user. For a simple review, clone a separate directory and
+keep the existing `C:\Projects\FALSE-WORLD` and every stash untouched.
+
+After helper publication, the following single command works in **CMD or
+PowerShell**, since it explicitly invokes CMD. Close the existing game/editor.
+It stops if any command fails; if the
+destination already exists, clone refuses to overwrite it and the installer does
+not run. No automatic stash, reset, clean, main merge or settings replacement.
+
+```text
+cmd /c "cd /d C:\Projects && git clone --branch feat/authentic-directional-locomotion --single-branch https://github.com/reydereditor-del/FALSE-WORLD.git FALSE-WORLD-animation-review && cd FALSE-WORLD-animation-review && powershell -NoProfile -STA -ExecutionPolicy Bypass -File tools\windows\install_licensed_locomotion.ps1"
+```
+
+The local helper opens three file pickers: select the installed Godot **4.7.2**
+`.exe`, `real-controller-1.3.0.zip`, and `Human Basic Motions FREE.zip`. Unity is not
+needed. The helper verifies the engine version, waits for headless import and the
+existing hash-verified animation installer, checks all sixteen outputs and opens
+the editor for **`C:\Projects\FALSE-WORLD-animation-review\project.godot`**.
+Press **F5 in that editor**. The old project's editor continues to show its old
+files. The PowerShell execution-policy flag affects only this helper process;
+no machine-wide setting is changed. Git and the existing engine/archives must
+already be present; there is no download, purchase, administrator requirement or
+external service inside the helper.
+
+The Windows wrapper is reviewed statically in this Linux cloud environment;
+PowerShell/Windows Forms execution and the user's laptop remain unverified. The
+underlying Godot installer retains its earlier passing reproducibility checks.
+Do not report that the user's Windows files or uploaded `Projects.zip` were opened:
+the archive exceeds the available transfer tool's 32 MiB limit.
+
+## Windows installation and F5 (existing checkout, advanced)
 
 Close Godot and update the feature branch from PowerShell first. This block stops
 if any tracked or untracked local work exists; it never stashes, resets, cleans,

@@ -1,5 +1,34 @@
 # FALSE WORLD — progress
 
+## Windows review handoff simplified (2026-11-06)
+
+The user's `Projects.zip` cannot be transferred with the available 32 MiB-limited
+attachment tool; its contents were not read or used to infer local Git status.
+The cloud checkout remains separate from the user's Windows machine. Their older
+`git pull origin main` route does not fetch this feature branch's integration.
+
+Added a Windows PowerShell wrapper for the existing Godot installer: three local
+file pickers, exact engine-version check, waited import/install, sixteen-output
+verification and editor launch for the chosen review checkout. It does not run Git
+or modify the original checkout. The guide gives one explicit CMD command, usable
+from either terminal, to clone into a new folder and launch that helper only after
+successful clone. Existing files/stashes are preserved. Original EULA assets remain
+local, with no new paid tool, purchase or service. No runtime gameplay changes.
+
+Validation: static review of argument quoting and failure/cancel paths, helper and
+documentation paths, whitespace and preservation of runtime/configuration. Windows
+PowerShell/Forms is unavailable here, so actual wrapper execution is pending; the
+previous Godot installer and locomotion results are retained, not rerun or relabeled
+as Windows results. GitHub authentication is now unavailable: `gh auth status`
+reports the injected GH_TOKEN invalid, and the remote read requests credentials.
+No interactive login, credential replacement or token disclosure was attempted.
+The last confirmed remote integration is `63f3abb`; helper publication is blocked.
+A small chat ZIP contains both original Windows helper scripts, including a CMD
+launcher that clones the already-published branch and passes the review root to
+the adjacent PowerShell helper. No game/animation asset data is bundled. Next:
+the user runs this helper and reviews F5; restore the Codex GitHub connection before
+publishing this follow-up commit. Existing Windows files and stashes stay intact.
+
 ## Licensed locomotion feature-branch delivery (2026-11-06)
 
 The user explicitly authorizes committing and pushing the current animation work
