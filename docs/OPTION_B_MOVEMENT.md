@@ -1,5 +1,18 @@
 # Option B — camera-relative movement (2026-11-03)
 
+## Current licensed integration (2026-11-05)
+
+After installing the two user-licensed ZIPs with the new local importer, actual F5
+Stage 4 uses retargeted eight-direction walk/run clips on the same worker. Forward
+remains 4 m/s; back/side use 1.6 m/s with bounded diagonals and phase-preserving
+0.18 s transitions. AI, camera, collision and objectives retain their behavior.
+[LICENSED_LOCOMOTION.md](LICENSED_LOCOMOTION.md) gives the exact setup, license
+boundary, actual-game renders and passing checks. The feature branch packages
+this integration. Public clones without the private asset installation retain the
+baseline below; the previously failed authored experiment remains historical.
+
+## Earlier experiments and original baseline
+
 2026-11-05: [bounded moving speed experiment](DIRECTIONAL_SPEED_EXPERIMENT.md)
 evaluated slower backward/lateral motion with forward fixed at 4 m/s. Slower
 cardinal gait is promising, but forward-diagonal blend contact remains unaccepted.

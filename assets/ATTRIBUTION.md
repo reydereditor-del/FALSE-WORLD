@@ -1,5 +1,33 @@
 # Map foundation asset provenance
 
+## User-licensed Basic Motions on the existing worker (2026-11-05)
+
+- Original animation author: **Kevin Iglesias**, Human Basic Motions **2.4 FREE**,
+  <https://kevdev.itch.io/basic-motions-free>. User supplied the Godot/Unreal ZIP,
+  SHA-256 `063d5e1822f85549d14035ef342b1feae45bac37962499a8b478c7eb997200cd`.
+  Its included author PDF specifies Standard Asset Store EULA, royalty-free
+  commercial use allowed and resale prohibited. It is not CC0/MIT content.
+- Normalized Godot donor: **Furkan Demir**, Real Controller **1.3.0**,
+  <https://store.godotengine.org/asset/furkan-demir/real-controller/>;
+  <https://github.com/fdemir/real-controller> pinned to
+  `25cce290ebb538b05216e5e260f0407de71ba36f`. Supplied donor archive SHA-256
+  `945008784ba4f4f6ccd3bd4eee3bb6a8c70623e37c6697260831a442da2a771b`.
+  Donor software MIT notice retained separately; not a replacement animation license.
+- Files: local, Git-ignored `assets/visual/licensed_locomotion/{walk,run}_*.tres`
+  (eight directions each), `manifest.json`, original author PDF and notices.
+  The installer reads only animation data and numeric rest definitions; it does
+  not install the donor character, controller, texture, jump/sprint or camera.
+- Modifications: original project retarget code maps 56 source bones to the existing
+  19 worker joints, solves limb poses, scales trajectories, aligns hands and closes
+  loops. Existing worker mesh, skeleton/rests and original workwear remain unchanged
+  under their existing Cesium Man CC-BY-4.0 records below.
+- Author credit and original PDF/EULA notice are retained with generated local data;
+  keep the applicable notices for any permitted game distribution. Raw/retargeted
+  animations are excluded from the public Git repository. No asset resale, new
+  service, subscription, paid tool or cost (0 UZS).
+
+[Setup, source terms and verification](../docs/LICENSED_LOCOMOTION.md).
+
 ## Directional speed comparison (2026-11-05)
 
 Original preview-only marked-floor shader, meter labels, three-profile composition

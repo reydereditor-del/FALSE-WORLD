@@ -40,12 +40,18 @@ func run() -> void:
 			await frames(3)
 			for action in actions[i]: Input.action_press(action)
 			await frames(16)
-			var expected := rig.movement_direction(vectors[i].normalized()) * 4
+			var speeds := [4.0,1.6,1.6,1.6,2.1009029,2.1009029,1.6,1.6]
+			var scalar: float = speeds[i] if actor.directional_speeds_enabled else 4.0
+			var expected := rig.movement_direction(vectors[i].normalized()) * scalar
 			expect(Vector2(actor.velocity.x-expected.x,actor.velocity.z-expected.z).length() < .01 and
 				absf(angle_difference(actor.get_node("Visual").rotation.y,yaw)) < .001,
 				"real input camera yaw %.2f case %d: normalized translation with camera-facing body" % [yaw,i])
 			if i > 0:
-				expect(skin.directional_clip_missing and skin.current_state == &"Idle", "unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe")
+				if actor.directional_speeds_enabled:
+					var names := ["run_forward","walk_backward","walk_left","walk_right","walk_forward_left","walk_forward_right","walk_backward_left","walk_backward_right"]
+					expect(not skin.directional_clip_missing and skin.animation_player.current_animation == "Licensed/"+names[i], "installed directional clip matches actual local velocity")
+				else:
+					expect(skin.directional_clip_missing and skin.current_state == &"Idle", "uninstalled baseline retains its documented neutral fallback")
 	release()
 	await frames(20)
 	var stopped := actor.global_position

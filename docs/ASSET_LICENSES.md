@@ -1,5 +1,29 @@
 # Visual slice asset licenses
 
+## Human Basic Motions FREE — verified local installation (2026-11-05)
+
+Author: **Kevin Iglesias**. Source: <https://kevdev.itch.io/basic-motions-free>;
+user-supplied **Human Basic Motions FREE.zip**, version **2.4 FREE**. The archive's
+included **Human Basic Motions 2.4 FREE.pdf** states Standard Asset Store EULA,
+royalty-free commercial use allowed, resale prohibited. Retained summary/source
+hash: [usage notice](../assets/licenses/HumanBasicMotions-usage-notice.md).
+This is not CC0/MIT animation content. The original PDF is retained locally.
+
+The second supplied archive, Real Controller 1.3.0, provides the normalized
+eight-direction walk/run animation resources and humanoid rest definitions.
+Its original source is Furkan Demir's `fdemir/real-controller` at commit
+`25cce290ebb538b05216e5e260f0407de71ba36f`; its separate software MIT notice is
+retained in `assets/licenses/RealController-MIT.txt`. That notice does not replace
+Kevin Iglesias's animation terms. Model/controller/scripts from that addon are
+not imported into gameplay; the existing Cesium Man worker remains attributed.
+
+Offline retargeting modifies animation tracks to fit the existing 19 bones, scales
+trajectories to actual limb lengths, corrects hand alignment and closes loops.
+Sixteen generated resources and the license PDF/notices live in the Git-ignored
+`assets/visual/licensed_locomotion/` folder. Original/retargeted asset files are not
+published as an asset pack in the public repository. Setup, hashes, runtime use,
+render evidence and limits: [LICENSED_LOCOMOTION.md](LICENSED_LOCOMOTION.md).
+
 ## Local directional authoring (2026-11-04)
 
 `assets/visual/animations/{backward_walk,strafe_left,strafe_right}.tres` are locally

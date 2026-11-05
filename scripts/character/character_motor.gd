@@ -5,6 +5,9 @@ extends CharacterBody3D
 @export_range(0.1, 20.0) var move_speed: float = 4.0
 @export_range(0.1, 50.0) var gravity: float = 18.0
 @export_range(0.0, 12.0) var facing_turn_speed: float = 0.0
+var directional_speeds_enabled: bool = false
+var backward_move_speed: float = 1.6
+var lateral_move_speed: float = 1.6
 var _move_intent: Vector3 = Vector3.ZERO
 var _facing_intent: Vector3 = Vector3.ZERO
 var has_facing_intent: bool = false
@@ -21,9 +24,22 @@ func set_move_intent(direction: Vector3) -> void:
 	_move_intent = Vector3(direction.x, 0.0, direction.z).limit_length(1.0)
 
 
+func intended_move_speed(direction: Vector3) -> float:
+	if not directional_speeds_enabled or not has_facing_intent or direction.length_squared() < 0.001:
+		return move_speed
+	var unit := direction.normalized()
+	var forward := _facing_intent
+	var right := forward.cross(Vector3.UP)
+	var x := unit.dot(right)
+	var z := -unit.dot(forward)
+	var longitudinal := backward_move_speed if z > 0.0 else move_speed
+	return 1.0 / sqrt(pow(x / lateral_move_speed, 2.0) + pow(z / longitudinal, 2.0))
+
+
 func _physics_process(delta: float) -> void:
-	velocity.x = _move_intent.x * move_speed
-	velocity.z = _move_intent.z * move_speed
+	var speed := intended_move_speed(_move_intent)
+	velocity.x = _move_intent.x * speed
+	velocity.z = _move_intent.z * speed
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:

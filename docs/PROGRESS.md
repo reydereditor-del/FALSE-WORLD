@@ -1,5 +1,90 @@
 # FALSE WORLD — progress
 
+## Licensed locomotion feature-branch delivery (2026-11-06)
+
+The user explicitly authorizes committing and pushing the current animation work
+to `feat/authentic-directional-locomotion`, with no repeated publication question.
+This delivery packages the reviewed runtime integration, original retarget/import
+tools, focused tests, license records and rendered Stage 4 evidence. The original
+and retargeted EULA asset files remain Git-ignored and are reproducible from the
+user's two existing ZIPs; they are not redistributed as a public asset pack.
+
+The Windows guide now includes a clean-working-tree check, guarded branch switch
+and fast-forward update, plus a separate-folder clone alternative when local work
+exists. No automatic stash, reset, clean, force push or main merge is used.
+The earlier 456 ordinary checks, 16 AI runs, six contact gates, rendered footage
+and deterministic installer checks remain the validation evidence; this publication
+increment changes documentation only. Windows human visual acceptance remains
+pending. Obtain the exact delivery commit with `git log -1` on this feature branch.
+
+## Supplied licensed animations integrated locally (2026-11-05)
+
+The user supplied original Human Basic Motions FREE ZIP (Godot/Unreal); the Unity
+package is unnecessary. Its included **Human Basic Motions 2.4 FREE.pdf** explicitly
+states Standard Asset Store EULA, royalty-free commercial use allowed, resale
+prohibited. Earlier source-license blocker is resolved; no further purchase or
+user license search is needed. Original/derived asset data stays local and
+Git-ignored, with original PDF, EULA notice and donor software MIT notice retained.
+
+Added hash-verified Godot-only local installation/retargeting: sixteen walk/run
+clips on the existing 19-bone worker, without copying the donor controller/model.
+Actual F5 Stage 4 now activates these clips after installation, using 4 m/s forward,
+1.6 back/side and bounded diagonals. Eight native direction clips avoid the earlier
+failed mixed-source diagonal blend; actual local physical velocity drives playback.
+Phase-preserving 0.18 s transitions and original breathing/resting Idle are retained.
+AI input, movement speed and old Walk/Idle remain unchanged, as do camera, collision,
+interaction, objectives, map, model/rig/rests and project startup/settings.
+
+Verified installed state: existing acceptance **369/0 + 16/16 AI scenario runs**;
+Option B **36/0**, new installed-asset test **34/0**, character/camera **7/0** and
+Stage 4 replay **10/0**: **456 ordinary checks passed**. Six sampled contact gates
+pass, mean near-ground ankle drift ~0.008–0.011 m/s walking, ~0.039 running. These
+metrics are not a perfect skinned-sole or subjective naturalness claim. A fresh
+public-file export without licensed data imported and passed baseline Option B
+**36/0**; the installed-only suite fails explicitly when private assets are absent.
+Installer rerun generated sixteen byte-identical resources and retained notices.
+
+Captured actual Stage 4 with real Input actions: 480 close-up frames (16 s), plus
+90 ordinary game-camera frames at the normal spawn. Rendered evidence shows strides,
+diagonals, stops and camera-facing turns. Final close-up capture uses a clear existing
+ground patch after an initial station-sign occlusion; no map changes. Known Vulkan
+surface failure falls back automatically to Mesa software OpenGL. Windows/D3D12,
+human control feel, target-hardware performance and exported-game packaging remain
+unverified. The initial late Option B flag setup was corrected before passing checks.
+
+[LICENSED_LOCOMOTION.md](LICENSED_LOCOMOTION.md) records install commands for the two
+already-downloaded ZIPs, EULA/public-source boundary, runtime behavior, evidence and
+manual Windows checks. At this increment the integration was not yet published;
+the later feature-branch delivery is recorded above. Previous review publication
+`8e6eb6d` contains the earlier previews only. No merge,
+asset-pack redistribution, paid service or cost (0 UZS). The older failed experiment
+remains archived/unaccepted; this local installation is a distinct integration.
+
+## User-supplied Real Controller candidate (2026-11-05)
+
+Received `real-controller-1.3.0.zip` and the user's historical Windows transcript.
+The screenshot is unchanged Stage 4; previous `8e6eb6d` intentionally published
+separate F6 previews, and the transcript ends on main `a5299fa`. Do not replay its
+stash/switch commands or assume its local changes exist in this cloud checkout.
+
+Inspected the actual archive: eight directional walking clips (0.8 s loops), run
+and other motions, on a different 56-bone humanoid. Located Furkan Demir's original
+repository and matched 37 source files byte-for-byte. Controller code is MIT; its
+README credits model/animations to Basic Motions Free. That asset's original page
+is blocked here, and the archive has no license file. Requested the specific asset
+License/Usage text; no third-party animation is imported or published pending that
+verification. No renewed broad asset search or paid service.
+
+Completed independent original retarget tooling, with outputs outside the project:
+eight walks plus run_forward mapped to the existing 19-bone worker. **27 structural
+checks passed**; temporary actual renders cover six clips × three views × two cycles,
+882 frames, with wrist alignment corrected. This does not establish final facing,
+foot contact, transitions, speed or gameplay acceptance. No production changes,
+newly published commit or merge. Full existing gameplay suites were not repeated
+for this archive inspection. Next: verify the asset terms, then finish visual
+retarget/contact review and scoped Stage 4 integration. Details and reproducible
+tool command: [REAL_CONTROLLER_UPLOAD_AUDIT.md](REAL_CONTROLLER_UPLOAD_AUDIT.md).
+
 ## Windows review package — unaccepted (2026-11-05)
 
 The user authorizes committing this task's research, local animation resources,

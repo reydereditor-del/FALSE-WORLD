@@ -9,6 +9,8 @@ var current_state: StringName = &"Idle"
 var source_clip: StringName
 var motor: CharacterMotor
 var directional_clip_missing: bool = false
+var licensed_walks_installed: bool = false
+var _licensed_phase: float = 0.0
 
 
 func _ready() -> void:
@@ -65,6 +67,7 @@ func _ready() -> void:
 	library.add_animation(&"Idle", idle)
 	animation_player.add_animation_library(&"Presentation", library)
 	animation_player.play(&"Presentation/Idle")
+	licensed_walks_installed = LicensedWalks.add_library(animation_player)
 
 
 func _rest_arms() -> void:
@@ -92,6 +95,9 @@ func _rest_arms() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var speed := Vector2(motor.velocity.x, motor.velocity.z).length()
+	if licensed_walks_installed and motor.has_facing_intent:
+		_step_licensed(speed)
+		return
 	# The acquired rig has only one forward walk. Never play that as a purported
 	# backward/strafe clip. Human-only neutral fallback until compatible clips exist.
 	var local_velocity: Vector3 = motor.get_node("Visual").global_basis.inverse() * motor.velocity
@@ -104,3 +110,27 @@ func _physics_process(_delta: float) -> void:
 		current_state = desired
 		animation_player.play(StringName("Presentation/" + String(desired)), 0.18)
 	animation_player.speed_scale = clampf(speed / 2.5, 0.4, 1.6) if desired == &"Walk" else 1.0
+
+
+func _step_licensed(speed: float) -> void:
+	directional_clip_missing = false
+	if speed <= 0.12:
+		if current_state != &"Idle":
+			var prior := animation_player.get_animation(animation_player.current_animation)
+			_licensed_phase = animation_player.current_animation_position / prior.length
+			current_state = &"Idle"
+			animation_player.play(&"Presentation/Idle", 0.18)
+		animation_player.speed_scale = 1.0
+		return
+	var local_velocity: Vector3 = motor.get_node("Visual").global_basis.inverse() * motor.velocity
+	var clip_name := LicensedWalks.select_clip(local_velocity)
+	var path := StringName("Licensed/" + String(clip_name))
+	if animation_player.current_animation != path:
+		if current_state != &"Idle":
+			var prior := animation_player.get_animation(animation_player.current_animation)
+			_licensed_phase = animation_player.current_animation_position / prior.length
+		animation_player.play(path, 0.18)
+		animation_player.seek(fposmod(_licensed_phase, 1.0) * animation_player.get_animation(path).length, true)
+	current_state = &"Walk" if clip_name == &"run_forward" or clip_name == &"walk_forward" else clip_name
+	var clip := animation_player.get_animation(path)
+	animation_player.speed_scale = speed / float(clip.get_meta("nominal_speed"))

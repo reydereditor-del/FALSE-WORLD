@@ -1,0 +1,14 @@
+{
+  "ordinary_checks_passed": 456,
+  "ai_scenario_runs_passed": 16,
+  "rendered_stage4_frames": 480,
+  "game_camera_frames": 90,
+  "forward_speed": 4.0,
+  "backward_speed": 1.6,
+  "lateral_speed": 1.6,
+  "forward_diagonal_speed": 2.1009029,
+  "backward_diagonal_speed": 1.6,
+  "visual_renderer": "Mesa software OpenGL fallback",
+  "windows_validation": false,
+  "new_changes_pushed_at_capture": false
+}

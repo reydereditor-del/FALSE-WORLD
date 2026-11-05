@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "success": true,
+  "ordinary_checks": 87,
+  "results": [
+    {
+      "test": "test_option_b",
+      "passed": true,
+      "checks": 36
+    },
+    {
+      "test": "test_licensed_locomotion",
+      "passed": true,
+      "checks": 34
+    },
+    {
+      "test": "test_character_fixes",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "test": "replay",
+      "passed": true,
+      "checks": 10
+    }
+  ]
+}

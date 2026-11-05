@@ -1,0 +1,3842 @@
+[
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 0,
+    "position": "(270.0, 0.085, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, -0.6, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 1,
+    "position": "(270.0, 0.05, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, -1.2, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 2,
+    "position": "(270.0, 0.0025, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 3,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 4,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 5,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 6,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 7,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 8,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 9,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 10,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 11,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 12,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 13,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 14,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 15,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 16,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 17,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 18,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 19,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 20,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 21,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 22,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 23,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 24,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 25,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 26,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 27,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 28,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 0.0,
+    "frame": 29,
+    "position": "(270.0, 0.000937, 155.0)",
+    "stage": "Idle",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 30,
+    "position": "(270.0, 0.000937, 154.8667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 31,
+    "position": "(270.0, 0.000937, 154.7333)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 32,
+    "position": "(270.0, 0.000937, 154.6)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 33,
+    "position": "(270.0, 0.000937, 154.4667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 34,
+    "position": "(270.0, 0.000937, 154.3333)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 35,
+    "position": "(270.0, 0.000937, 154.2)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 36,
+    "position": "(270.0, 0.000937, 154.0667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 37,
+    "position": "(270.0, 0.000937, 153.9333)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 38,
+    "position": "(270.0, 0.000937, 153.8)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 39,
+    "position": "(270.0, 0.000937, 153.6667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 40,
+    "position": "(270.0, 0.000937, 153.5334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 41,
+    "position": "(270.0, 0.000937, 153.4)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 42,
+    "position": "(270.0, 0.000937, 153.2667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 43,
+    "position": "(270.0, 0.000937, 153.1334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 44,
+    "position": "(270.0, 0.000937, 153.0)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 45,
+    "position": "(270.0, 0.000937, 152.8667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 46,
+    "position": "(270.0, 0.000937, 152.7334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 47,
+    "position": "(270.0, 0.000937, 152.6)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 48,
+    "position": "(270.0, 0.000937, 152.4667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 49,
+    "position": "(270.0, 0.000937, 152.3334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 50,
+    "position": "(270.0, 0.000937, 152.2)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 51,
+    "position": "(270.0, 0.000937, 152.0667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 52,
+    "position": "(270.0, 0.000937, 151.9334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 53,
+    "position": "(270.0, 0.000937, 151.8)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 54,
+    "position": "(270.0, 0.000937, 151.6667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 55,
+    "position": "(270.0, 0.000937, 151.5334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 56,
+    "position": "(270.0, 0.000937, 151.4001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 57,
+    "position": "(270.0, 0.000937, 151.2667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 58,
+    "position": "(270.0, 0.000937, 151.1334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 59,
+    "position": "(270.0, 0.000937, 151.0001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 60,
+    "position": "(270.0, 0.000937, 150.8667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 61,
+    "position": "(270.0, 0.000937, 150.7334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 62,
+    "position": "(270.0, 0.000937, 150.6001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 63,
+    "position": "(270.0, 0.000937, 150.4667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 64,
+    "position": "(270.0, 0.000937, 150.3334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 65,
+    "position": "(270.0, 0.000937, 150.2001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 66,
+    "position": "(270.0, 0.000937, 150.0667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 67,
+    "position": "(270.0, 0.000937, 149.9334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 68,
+    "position": "(270.0, 0.000937, 149.8001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 69,
+    "position": "(270.0, 0.000937, 149.6667)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 70,
+    "position": "(270.0, 0.000937, 149.5334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 71,
+    "position": "(270.0, 0.000937, 149.4001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 72,
+    "position": "(270.0, 0.000937, 149.2668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 73,
+    "position": "(270.0, 0.000937, 149.1334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 74,
+    "position": "(270.0, 0.000937, 149.0001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 75,
+    "position": "(270.0, 0.000937, 148.8668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 76,
+    "position": "(270.0, 0.000937, 148.7334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 77,
+    "position": "(270.0, 0.000937, 148.6001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 78,
+    "position": "(270.0, 0.000937, 148.4668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 79,
+    "position": "(270.0, 0.000937, 148.3334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 80,
+    "position": "(270.0, 0.000937, 148.2001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 81,
+    "position": "(270.0, 0.000937, 148.0668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 82,
+    "position": "(270.0, 0.000937, 147.9334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 83,
+    "position": "(270.0, 0.000937, 147.8001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 84,
+    "position": "(270.0, 0.000937, 147.6668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 85,
+    "position": "(270.0, 0.000937, 147.5334)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 86,
+    "position": "(270.0, 0.000937, 147.4001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 87,
+    "position": "(270.0, 0.000937, 147.2668)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 88,
+    "position": "(270.0, 0.000937, 147.1335)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 89,
+    "position": "(270.0, 0.000937, 147.0001)",
+    "stage": "Forward 4 m/s",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 90,
+    "position": "(270.0, 0.000937, 147.0535)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 91,
+    "position": "(270.0, 0.000937, 147.1068)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 92,
+    "position": "(270.0, 0.000937, 147.1602)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 93,
+    "position": "(270.0, 0.000937, 147.2135)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 94,
+    "position": "(270.0, 0.000937, 147.2668)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 95,
+    "position": "(270.0, 0.000937, 147.3202)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 96,
+    "position": "(270.0, 0.000937, 147.3735)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 97,
+    "position": "(270.0, 0.000937, 147.4269)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 98,
+    "position": "(270.0, 0.000937, 147.4802)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 99,
+    "position": "(270.0, 0.000937, 147.5336)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 100,
+    "position": "(270.0, 0.000937, 147.5869)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 101,
+    "position": "(270.0, 0.000937, 147.6403)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 102,
+    "position": "(270.0, 0.000937, 147.6936)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 103,
+    "position": "(270.0, 0.000937, 147.7469)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 104,
+    "position": "(270.0, 0.000937, 147.8003)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 105,
+    "position": "(270.0, 0.000937, 147.8536)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 106,
+    "position": "(270.0, 0.000937, 147.907)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 107,
+    "position": "(270.0, 0.000937, 147.9603)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 108,
+    "position": "(270.0, 0.000937, 148.0137)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 109,
+    "position": "(270.0, 0.000937, 148.067)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 110,
+    "position": "(270.0, 0.000937, 148.1204)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 111,
+    "position": "(270.0, 0.000937, 148.1737)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 112,
+    "position": "(270.0, 0.000937, 148.2271)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 113,
+    "position": "(270.0, 0.000937, 148.2804)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 114,
+    "position": "(270.0, 0.000937, 148.3337)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 115,
+    "position": "(270.0, 0.000937, 148.3871)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 116,
+    "position": "(270.0, 0.000937, 148.4404)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 117,
+    "position": "(270.0, 0.000937, 148.4938)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 118,
+    "position": "(270.0, 0.000937, 148.5471)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 119,
+    "position": "(270.0, 0.000937, 148.6005)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 120,
+    "position": "(270.0, 0.000937, 148.6538)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 121,
+    "position": "(270.0, 0.000937, 148.7072)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 122,
+    "position": "(270.0, 0.000937, 148.7605)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 123,
+    "position": "(270.0, 0.000937, 148.8138)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 124,
+    "position": "(270.0, 0.000937, 148.8672)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 125,
+    "position": "(270.0, 0.000937, 148.9205)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 126,
+    "position": "(270.0, 0.000937, 148.9739)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 127,
+    "position": "(270.0, 0.000937, 149.0272)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 128,
+    "position": "(270.0, 0.000937, 149.0806)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 129,
+    "position": "(270.0, 0.000937, 149.1339)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 130,
+    "position": "(270.0, 0.000937, 149.1873)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 131,
+    "position": "(270.0, 0.000937, 149.2406)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 132,
+    "position": "(270.0, 0.000937, 149.2939)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 133,
+    "position": "(270.0, 0.000937, 149.3473)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 134,
+    "position": "(270.0, 0.000937, 149.4006)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 135,
+    "position": "(270.0, 0.000937, 149.454)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 136,
+    "position": "(270.0, 0.000937, 149.5073)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 137,
+    "position": "(270.0, 0.000937, 149.5607)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 138,
+    "position": "(270.0, 0.000937, 149.614)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 139,
+    "position": "(270.0, 0.000937, 149.6674)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 140,
+    "position": "(270.0, 0.000937, 149.7207)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 141,
+    "position": "(270.0, 0.000937, 149.774)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 142,
+    "position": "(270.0, 0.000937, 149.8274)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 143,
+    "position": "(270.0, 0.000937, 149.8807)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 144,
+    "position": "(270.0, 0.000937, 149.9341)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 145,
+    "position": "(270.0, 0.000937, 149.9874)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 146,
+    "position": "(270.0, 0.000937, 150.0408)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 147,
+    "position": "(270.0, 0.000937, 150.0941)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 148,
+    "position": "(270.0, 0.000937, 150.1475)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_backward",
+    "facing": 0.0,
+    "frame": 149,
+    "position": "(270.0, 0.000937, 150.2008)",
+    "stage": "Backward 1.6 m/s",
+    "velocity": "(0.0, 0.0, 1.6)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 150,
+    "position": "(269.9467, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 151,
+    "position": "(269.8933, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 152,
+    "position": "(269.84, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 153,
+    "position": "(269.7866, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 154,
+    "position": "(269.7333, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 155,
+    "position": "(269.6799, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 156,
+    "position": "(269.6266, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 157,
+    "position": "(269.5732, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 158,
+    "position": "(269.5199, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 159,
+    "position": "(269.4666, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 160,
+    "position": "(269.4132, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 161,
+    "position": "(269.3599, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 162,
+    "position": "(269.3065, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 163,
+    "position": "(269.2532, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 164,
+    "position": "(269.1998, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 165,
+    "position": "(269.1465, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 166,
+    "position": "(269.0931, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 167,
+    "position": "(269.0398, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 168,
+    "position": "(268.9865, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 169,
+    "position": "(268.9331, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 170,
+    "position": "(268.8798, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 171,
+    "position": "(268.8264, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 172,
+    "position": "(268.7731, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 173,
+    "position": "(268.7197, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 174,
+    "position": "(268.6664, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 175,
+    "position": "(268.613, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 176,
+    "position": "(268.5597, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 177,
+    "position": "(268.5063, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 178,
+    "position": "(268.453, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 179,
+    "position": "(268.3997, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 180,
+    "position": "(268.3463, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 181,
+    "position": "(268.293, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 182,
+    "position": "(268.2396, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 183,
+    "position": "(268.1863, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 184,
+    "position": "(268.1329, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 185,
+    "position": "(268.0796, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 186,
+    "position": "(268.0262, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 187,
+    "position": "(267.9729, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 188,
+    "position": "(267.9196, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 189,
+    "position": "(267.8662, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 190,
+    "position": "(267.8129, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 191,
+    "position": "(267.7595, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 192,
+    "position": "(267.7062, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 193,
+    "position": "(267.6528, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 194,
+    "position": "(267.5995, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 195,
+    "position": "(267.5461, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 196,
+    "position": "(267.4928, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 197,
+    "position": "(267.4395, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 198,
+    "position": "(267.3861, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 199,
+    "position": "(267.3328, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 200,
+    "position": "(267.2794, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 201,
+    "position": "(267.2261, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 202,
+    "position": "(267.1727, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 203,
+    "position": "(267.1194, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 204,
+    "position": "(267.066, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 205,
+    "position": "(267.0127, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 206,
+    "position": "(266.9594, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 207,
+    "position": "(266.906, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 208,
+    "position": "(266.8527, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_left",
+    "facing": 0.0,
+    "frame": 209,
+    "position": "(266.7993, 0.000937, 150.2008)",
+    "stage": "Left 1.6 m/s",
+    "velocity": "(-1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 210,
+    "position": "(266.8527, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 211,
+    "position": "(266.906, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 212,
+    "position": "(266.9594, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 213,
+    "position": "(267.0127, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 214,
+    "position": "(267.066, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 215,
+    "position": "(267.1194, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 216,
+    "position": "(267.1727, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 217,
+    "position": "(267.2261, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 218,
+    "position": "(267.2794, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 219,
+    "position": "(267.3328, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 220,
+    "position": "(267.3861, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 221,
+    "position": "(267.4395, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 222,
+    "position": "(267.4928, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 223,
+    "position": "(267.5461, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 224,
+    "position": "(267.5995, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 225,
+    "position": "(267.6528, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 226,
+    "position": "(267.7062, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 227,
+    "position": "(267.7595, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 228,
+    "position": "(267.8129, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 229,
+    "position": "(267.8662, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 230,
+    "position": "(267.9196, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 231,
+    "position": "(267.9729, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 232,
+    "position": "(268.0262, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 233,
+    "position": "(268.0796, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 234,
+    "position": "(268.1329, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 235,
+    "position": "(268.1863, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 236,
+    "position": "(268.2396, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 237,
+    "position": "(268.293, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 238,
+    "position": "(268.3463, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 239,
+    "position": "(268.3997, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 240,
+    "position": "(268.453, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 241,
+    "position": "(268.5063, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 242,
+    "position": "(268.5597, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 243,
+    "position": "(268.613, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 244,
+    "position": "(268.6664, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 245,
+    "position": "(268.7197, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 246,
+    "position": "(268.7731, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 247,
+    "position": "(268.8264, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 248,
+    "position": "(268.8798, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 249,
+    "position": "(268.9331, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 250,
+    "position": "(268.9865, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 251,
+    "position": "(269.0398, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 252,
+    "position": "(269.0931, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 253,
+    "position": "(269.1465, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 254,
+    "position": "(269.1998, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 255,
+    "position": "(269.2532, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 256,
+    "position": "(269.3065, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 257,
+    "position": "(269.3599, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 258,
+    "position": "(269.4132, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 259,
+    "position": "(269.4666, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 260,
+    "position": "(269.5199, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 261,
+    "position": "(269.5732, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 262,
+    "position": "(269.6266, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 263,
+    "position": "(269.6799, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 264,
+    "position": "(269.7333, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 265,
+    "position": "(269.7866, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 266,
+    "position": "(269.84, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 267,
+    "position": "(269.8933, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 268,
+    "position": "(269.9467, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_right",
+    "facing": 0.0,
+    "frame": 269,
+    "position": "(270.0, 0.000937, 150.2008)",
+    "stage": "Right 1.6 m/s",
+    "velocity": "(1.6, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 270,
+    "position": "(270.0495, 0.000937, 150.1513)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 271,
+    "position": "(270.099, 0.000937, 150.1017)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 272,
+    "position": "(270.1485, 0.000937, 150.0522)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 273,
+    "position": "(270.198, 0.000937, 150.0027)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 274,
+    "position": "(270.2475, 0.000937, 149.9532)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 275,
+    "position": "(270.297, 0.000937, 149.9036)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 276,
+    "position": "(270.3465, 0.000937, 149.8541)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 277,
+    "position": "(270.396, 0.000937, 149.8046)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 278,
+    "position": "(270.4455, 0.000937, 149.755)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 279,
+    "position": "(270.495, 0.000937, 149.7055)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 280,
+    "position": "(270.5445, 0.000937, 149.656)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 281,
+    "position": "(270.594, 0.000937, 149.6064)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 282,
+    "position": "(270.6435, 0.000937, 149.5569)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 283,
+    "position": "(270.693, 0.000937, 149.5074)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 284,
+    "position": "(270.7425, 0.000937, 149.4579)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 285,
+    "position": "(270.792, 0.000937, 149.4083)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 286,
+    "position": "(270.8415, 0.000937, 149.3588)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 287,
+    "position": "(270.891, 0.000937, 149.3093)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 288,
+    "position": "(270.9405, 0.000937, 149.2597)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 289,
+    "position": "(270.99, 0.000937, 149.2102)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 290,
+    "position": "(271.0395, 0.000937, 149.1607)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 291,
+    "position": "(271.089, 0.000937, 149.1111)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 292,
+    "position": "(271.1385, 0.000937, 149.0616)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 293,
+    "position": "(271.188, 0.000937, 149.0121)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 294,
+    "position": "(271.2375, 0.000937, 148.9626)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 295,
+    "position": "(271.287, 0.000937, 148.913)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 296,
+    "position": "(271.3365, 0.000937, 148.8635)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 297,
+    "position": "(271.386, 0.000937, 148.814)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 298,
+    "position": "(271.4355, 0.000937, 148.7644)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 299,
+    "position": "(271.485, 0.000937, 148.7149)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 300,
+    "position": "(271.5345, 0.000937, 148.6654)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 301,
+    "position": "(271.584, 0.000937, 148.6158)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 302,
+    "position": "(271.6335, 0.000937, 148.5663)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 303,
+    "position": "(271.683, 0.000937, 148.5168)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 304,
+    "position": "(271.7325, 0.000937, 148.4673)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 305,
+    "position": "(271.782, 0.000937, 148.4177)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 306,
+    "position": "(271.8315, 0.000937, 148.3682)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 307,
+    "position": "(271.881, 0.000937, 148.3187)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 308,
+    "position": "(271.9305, 0.000937, 148.2691)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 309,
+    "position": "(271.98, 0.000937, 148.2196)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 310,
+    "position": "(272.0295, 0.000937, 148.1701)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 311,
+    "position": "(272.079, 0.000937, 148.1205)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 312,
+    "position": "(272.1285, 0.000937, 148.071)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 313,
+    "position": "(272.178, 0.000937, 148.0215)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 314,
+    "position": "(272.2275, 0.000937, 147.972)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 315,
+    "position": "(272.277, 0.000937, 147.9224)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 316,
+    "position": "(272.3265, 0.000937, 147.8729)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 317,
+    "position": "(272.376, 0.000937, 147.8234)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 318,
+    "position": "(272.4255, 0.000937, 147.7738)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 319,
+    "position": "(272.475, 0.000937, 147.7243)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 320,
+    "position": "(272.5245, 0.000937, 147.6748)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 321,
+    "position": "(272.574, 0.000937, 147.6252)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 322,
+    "position": "(272.6235, 0.000937, 147.5757)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 323,
+    "position": "(272.673, 0.000937, 147.5262)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 324,
+    "position": "(272.7225, 0.000937, 147.4767)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 325,
+    "position": "(272.772, 0.000937, 147.4271)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 326,
+    "position": "(272.8215, 0.000937, 147.3776)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 327,
+    "position": "(272.871, 0.000937, 147.3281)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 328,
+    "position": "(272.9205, 0.000937, 147.2785)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_forward_right",
+    "facing": 0.0,
+    "frame": 329,
+    "position": "(272.97, 0.000937, 147.229)",
+    "stage": "Forward-right diagonal",
+    "velocity": "(1.485563, 0.0, -1.485563)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 330,
+    "position": "(272.9323, 0.000937, 147.2667)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 331,
+    "position": "(272.8945, 0.000937, 147.3044)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 332,
+    "position": "(272.8568, 0.000937, 147.3422)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 333,
+    "position": "(272.8191, 0.000937, 147.3799)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 334,
+    "position": "(272.7814, 0.000937, 147.4176)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 335,
+    "position": "(272.7437, 0.000937, 147.4553)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 336,
+    "position": "(272.7059, 0.000937, 147.493)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 337,
+    "position": "(272.6682, 0.000937, 147.5308)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 338,
+    "position": "(272.6305, 0.000937, 147.5685)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 339,
+    "position": "(272.5928, 0.000937, 147.6062)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 340,
+    "position": "(272.5551, 0.000937, 147.6439)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 341,
+    "position": "(272.5173, 0.000937, 147.6816)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 342,
+    "position": "(272.4796, 0.000937, 147.7194)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 343,
+    "position": "(272.4419, 0.000937, 147.7571)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 344,
+    "position": "(272.4042, 0.000937, 147.7948)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 345,
+    "position": "(272.3665, 0.000937, 147.8325)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 346,
+    "position": "(272.3287, 0.000937, 147.8702)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 347,
+    "position": "(272.291, 0.000937, 147.908)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 348,
+    "position": "(272.2533, 0.000937, 147.9457)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 349,
+    "position": "(272.2156, 0.000937, 147.9834)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 350,
+    "position": "(272.1779, 0.000937, 148.0211)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 351,
+    "position": "(272.1401, 0.000937, 148.0588)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 352,
+    "position": "(272.1024, 0.000937, 148.0966)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 353,
+    "position": "(272.0647, 0.000937, 148.1343)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 354,
+    "position": "(272.027, 0.000937, 148.172)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 355,
+    "position": "(271.9893, 0.000937, 148.2097)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 356,
+    "position": "(271.9515, 0.000937, 148.2474)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 357,
+    "position": "(271.9138, 0.000937, 148.2852)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 358,
+    "position": "(271.8761, 0.000937, 148.3229)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 359,
+    "position": "(271.8384, 0.000937, 148.3606)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 360,
+    "position": "(271.8007, 0.000937, 148.3983)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 361,
+    "position": "(271.7629, 0.000937, 148.436)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 362,
+    "position": "(271.7252, 0.000937, 148.4738)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 363,
+    "position": "(271.6875, 0.000937, 148.5115)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 364,
+    "position": "(271.6498, 0.000937, 148.5492)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 365,
+    "position": "(271.6121, 0.000937, 148.5869)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 366,
+    "position": "(271.5743, 0.000937, 148.6246)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 367,
+    "position": "(271.5366, 0.000937, 148.6624)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 368,
+    "position": "(271.4989, 0.000937, 148.7001)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 369,
+    "position": "(271.4612, 0.000937, 148.7378)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 370,
+    "position": "(271.4235, 0.000937, 148.7755)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 371,
+    "position": "(271.3857, 0.000937, 148.8132)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 372,
+    "position": "(271.348, 0.000937, 148.851)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 373,
+    "position": "(271.3103, 0.000937, 148.8887)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 374,
+    "position": "(271.2726, 0.000937, 148.9264)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 375,
+    "position": "(271.2349, 0.000937, 148.9641)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 376,
+    "position": "(271.1971, 0.000937, 149.0018)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 377,
+    "position": "(271.1594, 0.000937, 149.0396)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 378,
+    "position": "(271.1217, 0.000937, 149.0773)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 379,
+    "position": "(271.084, 0.000937, 149.115)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 380,
+    "position": "(271.0463, 0.000937, 149.1527)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 381,
+    "position": "(271.0085, 0.000937, 149.1904)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 382,
+    "position": "(270.9708, 0.000937, 149.2281)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 383,
+    "position": "(270.9331, 0.000937, 149.2659)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 384,
+    "position": "(270.8954, 0.000937, 149.3036)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 385,
+    "position": "(270.8577, 0.000937, 149.3413)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 386,
+    "position": "(270.8199, 0.000937, 149.379)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 387,
+    "position": "(270.7822, 0.000937, 149.4167)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 388,
+    "position": "(270.7445, 0.000937, 149.4545)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/walk_backward_left",
+    "facing": 0.0,
+    "frame": 389,
+    "position": "(270.7068, 0.000937, 149.4922)",
+    "stage": "Back-left diagonal",
+    "velocity": "(-1.131371, 0.0, 1.131371)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0,
+    "frame": 390,
+    "position": "(270.7068, 0.000937, 149.3589)",
+    "stage": "Forward while camera turns",
+    "velocity": "(0.0, 0.0, -4.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.0523598827421665,
+    "frame": 391,
+    "position": "(270.6998, 0.000937, 149.2257)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-0.209344, 0.0, -3.994518)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.104719750583172,
+    "frame": 392,
+    "position": "(270.6859, 0.000937, 149.0931)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-0.418114, 0.0, -3.978088)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.157079637050629,
+    "frame": 393,
+    "position": "(270.665, 0.000937, 148.9614)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-0.625738, 0.0, -3.950753)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.209439516067505,
+    "frame": 394,
+    "position": "(270.6373, 0.000937, 148.831)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-0.831647, 0.0, -3.91259)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.261799395084381,
+    "frame": 395,
+    "position": "(270.6028, 0.000937, 148.7022)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-1.035276, 0.0, -3.863703)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.314159274101257,
+    "frame": 396,
+    "position": "(270.5616, 0.000937, 148.5754)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-1.236068, 0.0, -3.804226)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.366519153118134,
+    "frame": 397,
+    "position": "(270.5139, 0.000937, 148.4509)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-1.433472, 0.0, -3.734321)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.41887903213501,
+    "frame": 398,
+    "position": "(270.4596, 0.000937, 148.3291)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-1.626947, 0.0, -3.654182)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.471238911151886,
+    "frame": 399,
+    "position": "(270.399, 0.000937, 148.2103)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-1.815962, 0.0, -3.564026)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.523598790168762,
+    "frame": 400,
+    "position": "(270.3324, 0.000937, 148.0948)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.0, 0.0, -3.464102)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.575958669185638,
+    "frame": 401,
+    "position": "(270.2598, 0.000937, 147.983)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.178556, 0.0, -3.354682)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.628318548202515,
+    "frame": 402,
+    "position": "(270.1814, 0.000937, 147.8752)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.351141, 0.0, -3.236068)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.680678427219391,
+    "frame": 403,
+    "position": "(270.0975, 0.000937, 147.7715)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.517281, 0.0, -3.108583)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.733038306236267,
+    "frame": 404,
+    "position": "(270.0082, 0.000937, 147.6725)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.676522, 0.0, -2.972579)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.785398185253143,
+    "frame": 405,
+    "position": "(269.9139, 0.000937, 147.5782)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.828427, 0.0, -2.828427)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.837758123874664,
+    "frame": 406,
+    "position": "(269.8149, 0.000937, 147.489)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-2.972579, 0.0, -2.676522)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.890117943286896,
+    "frame": 407,
+    "position": "(269.7112, 0.000937, 147.4051)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.108584, 0.0, -2.517282)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.942477822303772,
+    "frame": 408,
+    "position": "(269.6034, 0.000937, 147.3267)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.236068, 0.0, -2.351141)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 0.994837760925293,
+    "frame": 409,
+    "position": "(269.4916, 0.000937, 147.2541)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.354682, 0.0, -2.178556)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.04719758033752,
+    "frame": 410,
+    "position": "(269.3761, 0.000937, 147.1874)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.464102, 0.0, -2.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.09955739974976,
+    "frame": 411,
+    "position": "(269.2573, 0.000937, 147.1268)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.564026, 0.0, -1.815962)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.15191733837128,
+    "frame": 412,
+    "position": "(269.1355, 0.000937, 147.0726)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.654182, 0.0, -1.626946)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.20427715778351,
+    "frame": 413,
+    "position": "(269.011, 0.000937, 147.0248)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.734322, 0.0, -1.433472)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.25663709640503,
+    "frame": 414,
+    "position": "(268.8842, 0.000937, 146.9836)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.804226, 0.0, -1.236068)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.30899691581726,
+    "frame": 415,
+    "position": "(268.7554, 0.000937, 146.9491)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.863703, 0.0, -1.035276)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.36135685443878,
+    "frame": 416,
+    "position": "(268.625, 0.000937, 146.9214)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.912591, 0.0, -0.831647)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.41371667385101,
+    "frame": 417,
+    "position": "(268.4933, 0.000937, 146.9005)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.950753, 0.0, -0.625738)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.46607661247253,
+    "frame": 418,
+    "position": "(268.3607, 0.000937, 146.8866)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.978088, 0.0, -0.418114)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.51843643188477,
+    "frame": 419,
+    "position": "(268.2275, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-3.994518, 0.0, -0.209344)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 420,
+    "position": "(268.0941, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 421,
+    "position": "(267.9608, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 422,
+    "position": "(267.8274, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 423,
+    "position": "(267.694, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 424,
+    "position": "(267.5607, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 425,
+    "position": "(267.4273, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 426,
+    "position": "(267.2939, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 427,
+    "position": "(267.1606, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 428,
+    "position": "(267.0272, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 429,
+    "position": "(266.8939, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 430,
+    "position": "(266.7605, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 431,
+    "position": "(266.6271, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 432,
+    "position": "(266.4938, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 433,
+    "position": "(266.3604, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 434,
+    "position": "(266.2271, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 435,
+    "position": "(266.0937, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 436,
+    "position": "(265.9603, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 437,
+    "position": "(265.827, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 438,
+    "position": "(265.6936, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 439,
+    "position": "(265.5602, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 440,
+    "position": "(265.4269, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 441,
+    "position": "(265.2935, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 442,
+    "position": "(265.1602, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 443,
+    "position": "(265.0268, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 444,
+    "position": "(264.8934, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 445,
+    "position": "(264.7601, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 446,
+    "position": "(264.6267, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 447,
+    "position": "(264.4933, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 448,
+    "position": "(264.36, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Licensed/run_forward",
+    "facing": 1.57079637050629,
+    "frame": 449,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Forward while camera turns",
+    "velocity": "(-4.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 450,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 451,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 452,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 453,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 454,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 455,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 456,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 457,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 458,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 459,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 460,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 461,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 462,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 463,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 464,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 465,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 466,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 467,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 468,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 469,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 470,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 471,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 472,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 473,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 474,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 475,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 476,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 477,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 478,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  },
+  {
+    "clip": "Presentation/Idle",
+    "facing": 1.57079637050629,
+    "frame": 479,
+    "position": "(264.2266, 0.000937, 146.8796)",
+    "stage": "Stop",
+    "velocity": "(0.0, 0.0, 0.0)"
+  }
+]

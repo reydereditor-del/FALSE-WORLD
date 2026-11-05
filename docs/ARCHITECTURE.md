@@ -1,5 +1,24 @@
 # FALSE WORLD — architecture
 
+## Locally licensed directional integration (2026-11-05)
+
+The supplied original Basic Motions 2.4 FREE PDF resolves commercial-use licensing.
+An archive-hash-pinned, Godot-only installer reads the donor's animation/rest data
+without installing its controller and bakes 16 walk/run resources to the existing
+worker. Licensed asset data is Git-ignored; only original code, notices and evidence
+are public. See [LICENSED_LOCOMOTION.md](LICENSED_LOCOMOTION.md) for exact setup.
+
+`LicensedWalks` handles installed-data discovery and eight-sector clip selection.
+`WorkerPresentation` activates it for explicit facing-intent locomotion, preserving
+phase and the existing 0.18 s transition/Idle. The input adapter caches availability,
+then enables the motor's directional cap after the composition opts into Option B.
+This avoids depending on the later composition setting during child `_ready`.
+The motor remains independent of asset/presentation loading and receives only an
+opt-in speed flag: forward 4, side/back 1.6 m/s, normalized elliptical diagonals.
+AI and legacy fixtures keep the original speed and movement-facing presentation.
+No runtime IK, controller replacement, camera/objective changes, framework or cost.
+The older failed authored-blend experiment remains preserved and separate.
+
 ## Bounded speed preview (2026-11-05)
 
 The user permits evaluating slower backward/side movement with forward fixed at

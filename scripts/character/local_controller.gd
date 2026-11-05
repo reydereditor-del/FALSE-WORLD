@@ -6,10 +6,12 @@ extends Node
 @export var interactor: CharacterInteractor
 @export var camera_facing_locomotion: bool = false
 var _controls_active: bool = true
+var _licensed_assets_available: bool = false
 
 
 func _ready() -> void:
 	process_physics_priority = -10
+	_licensed_assets_available = LicensedWalks.installed()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -24,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	motor.directional_speeds_enabled = camera_facing_locomotion and _licensed_assets_available
 	if not _controls_active:
 		motor.set_move_intent(Vector3.ZERO)
 		interactor.step(false, delta)
