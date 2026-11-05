@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: original nineteen-bone skeleton retained
+PASS: BackwardWalk: exact matching loop endpoints on all tracks
+BackwardWalk max planted displacement error/tick=0.00005338770643 lift=0.06497409951687 ankle gap=0.18838303536177 pelvis range=(0.023985, 0.015981, 0.0)
+PASS: BackwardWalk: finite actual bone poses; knees between hips and ankles
+PASS: BackwardWalk: stance feet follow treadmill within 2 mm per sampled tick
+PASS: BackwardWalk: real swing clearance and separated feet
+PASS: BackwardWalk: bounded pelvis sway/bob without horizontal root travel
+PASS: StrafeLeft: exact matching loop endpoints on all tracks
+StrafeLeft max planted displacement error/tick=0.00001390384477 lift=0.06497412931919 ankle gap=0.12666667625308 pelvis range=(0.023985, 0.015981, 0.0)
+PASS: StrafeLeft: finite actual bone poses; knees between hips and ankles
+PASS: StrafeLeft: stance feet follow treadmill within 2 mm per sampled tick
+PASS: StrafeLeft: real swing clearance and separated feet
+PASS: StrafeLeft: bounded pelvis sway/bob without horizontal root travel
+PASS: StrafeRight: exact matching loop endpoints on all tracks
+StrafeRight max planted displacement error/tick=0.0000287264229 lift=0.06497418892384 ankle gap=0.12666665017605 pelvis range=(0.023985, 0.015981, 0.0)
+PASS: StrafeRight: finite actual bone poses; knees between hips and ankles
+PASS: StrafeRight: stance feet follow treadmill within 2 mm per sampled tick
+PASS: StrafeRight: real swing clearance and separated feet
+PASS: StrafeRight: bounded pelvis sway/bob without horizontal root travel
+Local walk resources: 16 checks, 0 failures; complete=true

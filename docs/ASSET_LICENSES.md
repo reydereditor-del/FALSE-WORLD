@@ -1,5 +1,29 @@
 # Visual slice asset licenses
 
+## Local directional authoring (2026-11-04)
+
+`assets/visual/animations/{backward_walk,strafe_left,strafe_right}.tres` are locally
+authored pose/trajectory resources baked by `tools/visual/author_directional_walks.gd`
+on the existing worker skeleton. No Quaternius, KayKit or Mixamo animation is added.
+The existing Cesium Man CC-BY-4.0 source/attribution/modification obligations remain
+unchanged for the worker used in preview renders and these rig-specific resources.
+No additional external asset license, paid tool or service is introduced. The
+authoring and rendered evidence are described in [LOCAL_DIRECTIONAL_WALKS.md](LOCAL_DIRECTIONAL_WALKS.md)
+and [the provenance ledger](../assets/ATTRIBUTION.md). External research is stopped;
+the older candidate review below is historical, not a current download request.
+
+## Directional-animation research (2026-11-04; no new import)
+
+Verified Kay Lousberg's KayKit Adventurers 1.0 original repository license as
+CC0 1.0, permitting commercial use and redistribution with optional attribution.
+The inspected Knight GLB includes backward walking and running strafes, but no
+walking strafes. No candidate was integrated, and no new third-party file ships.
+Quaternius/Mixamo pages were inaccessible; their rights are not verified here.
+[Research record](DIRECTIONAL_ANIMATION_RESEARCH.md) contains pinned original
+source/license URLs, inspected file hash, render findings and download requirements.
+
+## Existing visual-slice imports
+
 Retrieval: 2026-11-02 (Asia/Tashkent). Source repository pinned to
 `KhronosGroup/glTF-Sample-Assets` commit `8f492390ddc7a2ae221a1369ef560589cf8c70fb`.
 Original model-specific legal records were read before project import. Full license

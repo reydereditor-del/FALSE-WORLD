@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: real component reachable
+PASS: current build requires one service module, not two final-game parts
+PASS: real device accepts carrier
+PASS: repeated E cannot replay/reset a pending call
+PASS: waiting at cabinet misses the separate yard; call rearms without success
+PASS: empty arrival retains component and intentionally rearms timed work
+PASS: new activation after empty arrival is permitted
+PASS: retry is a second call with its own wait
+PASS: countdown offers actual spatially gated prototype extraction
+PASS: completed success cannot replay, even after banner expires and player returns
+Replay audit: 10 checks, 0 failures; complete=true

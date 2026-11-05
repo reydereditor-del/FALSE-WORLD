@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: Stage4 human opts into bounded turning without movement changes
+PASS: left/right/back reversals rotate through bounded intermediate angles
+PASS: all four actual idle skeletons have downward, symmetric arms rather than frozen opposite walk swings
+PASS: actual walk/idle arm transitions blend over frames
+PASS: Stage4 downward range grows while upward limit stays unchanged
+PASS: 144 Stage4 open/door/corner orbits retain near-plane/world and character clearance including new endpoint
+PASS: existing whole-body <=80 percent framing criterion preserved at deeper angles
+Character fixes: 7 checks, 0 failures; complete=true

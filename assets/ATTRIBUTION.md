@@ -1,5 +1,38 @@
 # Map foundation asset provenance
 
+## Directional speed comparison (2026-11-05)
+
+Original preview-only marked-floor shader, meter labels, three-profile composition
+and blending/measurement code are in `tools/visual/*walk*experiment*` and
+`tools/visual/experimental_walk_*.gd`. Evidence in `docs/evidence/directional_speed/`
+is actual Godot rendering of the existing attributed worker and unchanged local
+clips, with an explicit unaccepted-blend caption. The floor is original review
+geometry, not map work; screenshots/video are not game assets. No third-party asset,
+animation set, license, paid service or cost is introduced. Existing worker
+CC-BY-4.0 credit obligations remain unchanged. See
+[the experiment record](../docs/DIRECTIONAL_SPEED_EXPERIMENT.md).
+
+## Locally authored directional walks (2026-11-04)
+
+Original pose/trajectory authoring by FALSE WORLD project contributors in this
+Codex-assisted task: `tools/visual/author_directional_walks.gd` reproducibly bakes
+`assets/visual/animations/{backward_walk,strafe_left,strafe_right}.tres` onto the
+existing worker skeleton. The source forward walk was inspected as a timing/style
+reference; no animation channel was copied, time-reversed or rotated into a strafe.
+These are local authoring outputs, not downloaded Quaternius/KayKit/Mixamo assets.
+No third-party tool/plugin, service or paid asset is added. Cost: 0 UZS.
+
+The unchanged worker skin/skeleton and its existing forward walk remain the
+attributed Cesium Man derivative, CC-BY-4.0; retain its existing source, license
+and modification notices with distributions. This authoring does not remove those
+obligations or introduce a new blanket repository license.
+
+`scenes/preview/directional_walks.tscn` and its script use original checker-floor
+geometry for isolated review, not new map content. Evidence in
+`docs/evidence/directional_local/` contains actual Godot renders of that existing
+attributed character and the local clips, plus test results; it is documentation,
+excluded from Godot imports. No screenshot is used as a game texture or model.
+
 Recorded 2026-11-02 (Asia/Tashkent). No third-party art is imported in this task.
 
 ## Original project work

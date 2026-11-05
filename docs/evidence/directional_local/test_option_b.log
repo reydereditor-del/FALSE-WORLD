@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS: real input camera yaw 0.00 case 0: normalized translation with camera-facing body
+PASS: real input camera yaw 0.00 case 1: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 2: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 3: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 4: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 5: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 6: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 0.00 case 7: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 0: normalized translation with camera-facing body
+PASS: real input camera yaw 1.57 case 1: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 2: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 3: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 4: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 5: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 6: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: real input camera yaw 1.57 case 7: normalized translation with camera-facing body
+PASS: unsupported direction uses explicit neutral fallback, not fake forward/reversed strafe
+PASS: released input is stationary with corrected resting pose
+PASS: existing verified forward clip plays for actual forward locomotion
+PASS: body smoothly tracks changed camera yaw during locomotion
+PASS: camera pitch does not tilt body or add vertical movement
+PASS: rapid WASD switches do not teleport or increase speed
+PASS: AI keeps movement-facing orientation independent of human camera
+Option B: 36 checks, 0 failures; complete=true

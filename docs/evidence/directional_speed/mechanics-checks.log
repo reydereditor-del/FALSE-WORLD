@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Profile 0 physics space RID(180388626432)
+Profile 1 physics space RID(511101108225)
+Profile 2 physics space RID(833223655426)
+PASS: comparison profiles have independent physics spaces
+PASS: profile 0: Forward actual speed and normalized diagonal cap
+PASS: profile 0: Forward -> left strafe actual speed and normalized diagonal cap
+PASS: profile 0: Strafe -> forward actual speed and normalized diagonal cap
+PASS: profile 0: Forward -> backward actual speed and normalized diagonal cap
+PASS: profile 0: Backward -> back-right diagonal actual speed and normalized diagonal cap
+PASS: profile 0: Stop actual speed and normalized diagonal cap
+PASS: profile 0: Forward-right diagonal actual speed and normalized diagonal cap
+PASS: profile 0: Right strafe actual speed and normalized diagonal cap
+PASS: profile 0: Camera yaw +90 actual speed and normalized diagonal cap
+PASS: profile 0: Stop actual speed and normalized diagonal cap
+PASS: profile 1: Forward actual speed and normalized diagonal cap
+PASS: profile 1: Forward -> left strafe actual speed and normalized diagonal cap
+PASS: profile 1: Strafe -> forward actual speed and normalized diagonal cap
+PASS: profile 1: Forward -> backward actual speed and normalized diagonal cap
+PASS: profile 1: Backward -> back-right diagonal actual speed and normalized diagonal cap
+PASS: profile 1: Stop actual speed and normalized diagonal cap
+PASS: profile 1: Forward-right diagonal actual speed and normalized diagonal cap
+PASS: profile 1: Right strafe actual speed and normalized diagonal cap
+PASS: profile 1: Camera yaw +90 actual speed and normalized diagonal cap
+PASS: profile 1: Stop actual speed and normalized diagonal cap
+PASS: profile 2: Forward actual speed and normalized diagonal cap
+PASS: profile 2: Forward -> left strafe actual speed and normalized diagonal cap
+PASS: profile 2: Strafe -> forward actual speed and normalized diagonal cap
+PASS: profile 2: Forward -> backward actual speed and normalized diagonal cap
+PASS: profile 2: Backward -> back-right diagonal actual speed and normalized diagonal cap
+PASS: profile 2: Stop actual speed and normalized diagonal cap
+PASS: profile 2: Forward-right diagonal actual speed and normalized diagonal cap
+PASS: profile 2: Right strafe actual speed and normalized diagonal cap
+PASS: profile 2: Camera yaw +90 actual speed and normalized diagonal cap
+PASS: profile 2: Stop actual speed and normalized diagonal cap
+PASS: actual translation stays within 4 m/s; no diagonal boost or teleport
+PASS: Option B body yaw remains bounded while camera-relative input turns
+PASS: all shared worker rigs retain nineteen finite bones
+PASS: all transition stages executed within finite budgets
+Moving walk experiment: 35 checks, 0 failures; complete=true; visual_acceptance=false

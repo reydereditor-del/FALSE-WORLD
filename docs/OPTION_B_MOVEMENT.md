@@ -1,5 +1,23 @@
 # Option B — camera-relative movement (2026-11-03)
 
+2026-11-05: [bounded moving speed experiment](DIRECTIONAL_SPEED_EXPERIMENT.md)
+evaluated slower backward/lateral motion with forward fixed at 4 m/s. Slower
+cardinal gait is promising, but forward-diagonal blend contact remains unaccepted.
+No gameplay speed or animation integration has been applied; details below remain
+the actual production state. The comparison video and failed contact gate are saved.
+
+2026-11-04 local authoring follow-up: [three editable directional clips and
+rendered preview](LOCAL_DIRECTIONAL_WALKS.md) are available on the existing rig.
+Their authored pace is inspectable, but matching the preserved 4 m/s produces
+unacceptable rapid stepping. They are **not integrated**; gameplay and its
+documented fallback below remain unchanged. External asset research is stopped.
+
+2026-11-04 follow-up: [directional asset research](DIRECTIONAL_ANIMATION_RESEARCH.md)
+records the actual rig, verified CC0 KayKit candidate, rendered source evaluation,
+blocked alternative downloads and exact handoff requirements. No complete walking
+set was accepted or integrated; the fallback below remains. Fresh regression:
+422 ordinary checks and 16 AI scenario runs passed; new locomotion is not validated.
+
 Movement semantics are implemented; directional animation remains incomplete.
 Stage 4 and the visual slice enable human camera-facing locomotion. W/S/A/D move
 along camera horizontal forward/back/left/right axes; diagonals normalize to the

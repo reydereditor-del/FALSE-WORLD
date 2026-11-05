@@ -1,5 +1,44 @@
 # FALSE WORLD — architecture
 
+## Bounded speed preview (2026-11-05)
+
+The user permits evaluating slower backward/side movement with forward fixed at
+4 m/s. Preview-only motor/presentation subclasses run three actual bodies over
+fixed marked floors in distinct physics spaces. The normalized directional envelope
+is elliptical, with no independent-axis diagonal boost; phase-aligned sampling blends
+only the existing clips. No production module references these helpers. Cardinal
+contact/cadence improves, but forward-diagonal planted-foot motion still fails the
+review gate. Keep gameplay and shared AI animation users unchanged rather than
+integrating the candidate. No new set/framework/service/cost (0 UZS).
+[DIRECTIONAL_SPEED_EXPERIMENT.md](DIRECTIONAL_SPEED_EXPERIMENT.md) records evidence,
+263 passing mechanics/regression checks and the separate failed contact diagnostic.
+
+## Local directional animation authoring (2026-11-04)
+
+Offline deterministic Godot authoring bakes original stance/swing and two-bone leg
+solutions to three editable Animation resources on the unchanged 19-bone worker.
+No runtime IK, new framework, controller or AI change. An isolated preview scene
+plays these clips with a moving checker ground and three cameras, including a
+4 m/s comparison. This follows the user's replacement of external sourcing with
+local authoring, cost 0 UZS. [LOCAL_DIRECTIONAL_WALKS.md](LOCAL_DIRECTIONAL_WALKS.md)
+records rig measurements, evidence and 16 resource checks plus preserved regressions.
+Speed-matched cadence at 4 m/s is not convincing, so stage-2 integration is withheld:
+WorkerPresentation and gameplay remain unchanged. Diagonal/transition work remains
+pending visual acceptance rather than speculative runtime infrastructure.
+
+## Directional-animation research (2026-11-04)
+
+Inspected the existing 19-joint/one-clip worker and official CC0 KayKit candidate
+(41-joint rig). No compatible complete walking set was accepted in the bounded
+search: accessible lateral clips are stylized running with body rotation; other
+source/license pages are blocked. Keep runtime unchanged pending verified input
+and target-rig visual acceptance. Do not introduce a speculative animation loader,
+new framework or altered movement to hide missing assets. Retargeting belongs in
+offline authoring; future runtime integration belongs in shared WorkerPresentation,
+reading actual local velocity while CharacterMotor retains movement authority.
+No new dependency, paid service or cost (0 UZS).
+See [research and anatomical mapping](DIRECTIONAL_ANIMATION_RESEARCH.md).
+
 ## Option B movement increment (2026-11-03)
 
 LocalController opts the playable human into independent horizontal facing intent;

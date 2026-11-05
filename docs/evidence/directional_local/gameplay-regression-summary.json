@@ -1,0 +1,65 @@
+{
+  "complete": true,
+  "success": true,
+  "results": [
+    {
+      "check": "preserved-regressions",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-component_pickup",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-signal_activation",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-signal_loop",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-signal_objective",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-bake_stage4_navigation",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "signal-rules",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "signal-integration",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": [
+        "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+      ]
+    },
+    {
+      "check": "stage4-startup",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    }
+  ],
+  "new_checks": 63,
+  "preserved_checks": 306,
+  "ai_scenarios": 16
+}

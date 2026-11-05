@@ -1,0 +1,52 @@
+{
+  "mechanics_regression_checks_passed": 263,
+  "checks": [
+    {
+      "test": "test_camera_clearance",
+      "passed_checks": 15
+    },
+    {
+      "test": "test_character_fixes",
+      "passed_checks": 7
+    },
+    {
+      "test": "test_exploration",
+      "passed_checks": 25
+    },
+    {
+      "test": "test_graybox",
+      "passed_checks": 31
+    },
+    {
+      "test": "test_local_walk_resources",
+      "passed_checks": 16
+    },
+    {
+      "test": "test_option_b",
+      "passed_checks": 36
+    },
+    {
+      "test": "test_showcase",
+      "passed_checks": 25
+    },
+    {
+      "test": "test_signal_integration",
+      "passed_checks": 36
+    },
+    {
+      "test": "test_signal_replay_audit",
+      "passed_checks": 10
+    },
+    {
+      "test": "test_signal_rules",
+      "passed_checks": 27
+    },
+    {
+      "test": "test_moving_walk_experiment",
+      "passed_checks": 35
+    }
+  ],
+  "contact_gate_passed": false,
+  "integrated": false,
+  "production_changed": false
+}

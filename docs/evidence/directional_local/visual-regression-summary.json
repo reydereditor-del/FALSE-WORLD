@@ -1,0 +1,83 @@
+{
+  "complete": true,
+  "success": true,
+  "checks": [
+    {
+      "check": "gameplay-regressions",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-visual_slice",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-worker_presentation",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-author_directional_walks",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-bake_navigation",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-build_showcase",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-capture_preview",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "parse-directional_walk_preview",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "showcase-integration",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": []
+    },
+    {
+      "check": "showcase-startup",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": [
+        "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+      ]
+    },
+    {
+      "check": "graybox-fallback-startup",
+      "exit": 0,
+      "passed": true,
+      "engine_warnings": [
+        "WARNING: Jolt Physics job system exceeded the maximum number of jobs. This should not happen. Please report this. Waiting for jobs to become available..."
+      ]
+    },
+    {
+      "check": "licensed-assets-and-unbranded-worker",
+      "passed": true
+    }
+  ],
+  "new_assertions": 25,
+  "legacy_map_assertions": 281,
+  "legacy_scenarios": 16
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "contact_gate_m_per_s": 0.05,
+  "definition": "Mean horizontal ankle velocity during authored phase .1-.5; not skinned-sole velocity.",
+  "frames": 510,
+  "profiles": [
+    {
+      "backward_speed": 1.75,
+      "side_speed": 2.25,
+      "forward_speed": 4,
+      "back_cycles_per_second": 2.3863636363636362,
+      "side_cycles_per_second": 4.821428571428571,
+      "windows": [
+        {
+          "stage": "left",
+          "samples": 11,
+          "mean_ankle_drift_m_per_s": 8.685914151744632e-05,
+          "max_ankle_drift_m_per_s": 0.0001499999999916713,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward",
+          "samples": 15,
+          "mean_ankle_drift_m_per_s": 7.410110452545914e-05,
+          "max_ankle_drift_m_per_s": 0.0001529705854030503,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward_diagonal",
+          "samples": 12,
+          "mean_ankle_drift_m_per_s": 0.023245789335766633,
+          "max_ankle_drift_m_per_s": 0.05600942956324278,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "forward_diagonal",
+          "samples": 10,
+          "mean_ankle_drift_m_per_s": 0.5856215166018943,
+          "max_ankle_drift_m_per_s": 1.0948500201408113,
+          "contact_gate_passed": false
+        }
+      ],
+      "contact_gate_passed": false
+    },
+    {
+      "backward_speed": 1.1,
+      "side_speed": 0.85,
+      "forward_speed": 4,
+      "back_cycles_per_second": 1.5,
+      "side_cycles_per_second": 1.8214285714285712,
+      "windows": [
+        {
+          "stage": "left",
+          "samples": 16,
+          "mean_ankle_drift_m_per_s": 4.5546127245988676e-05,
+          "max_ankle_drift_m_per_s": 9.486832980568206e-05,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward",
+          "samples": 17,
+          "mean_ankle_drift_m_per_s": 7.014779704986481e-05,
+          "max_ankle_drift_m_per_s": 0.00012369316873251784,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward_diagonal",
+          "samples": 15,
+          "mean_ankle_drift_m_per_s": 0.012566910701134726,
+          "max_ankle_drift_m_per_s": 0.032055852819726074,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "forward_diagonal",
+          "samples": 16,
+          "mean_ankle_drift_m_per_s": 0.2950722474180744,
+          "max_ankle_drift_m_per_s": 0.6889922619290305,
+          "contact_gate_passed": false
+        }
+      ],
+      "contact_gate_passed": false
+    },
+    {
+      "backward_speed": 0.9,
+      "side_speed": 0.65,
+      "forward_speed": 4,
+      "back_cycles_per_second": 1.2272727272727273,
+      "side_cycles_per_second": 1.3928571428571428,
+      "windows": [
+        {
+          "stage": "left",
+          "samples": 17,
+          "mean_ankle_drift_m_per_s": 4.269438583491622e-05,
+          "max_ankle_drift_m_per_s": 0.00013416407864194217,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward",
+          "samples": 18,
+          "mean_ankle_drift_m_per_s": 6.143645751774343e-05,
+          "max_ankle_drift_m_per_s": 0.00012369316878579347,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "backward_diagonal",
+          "samples": 18,
+          "mean_ankle_drift_m_per_s": 0.011890612444231445,
+          "max_ankle_drift_m_per_s": 0.03134280778743179,
+          "contact_gate_passed": true
+        },
+        {
+          "stage": "forward_diagonal",
+          "samples": 17,
+          "mean_ankle_drift_m_per_s": 0.285690611055332,
+          "max_ankle_drift_m_per_s": 0.7512822439011408,
+          "contact_gate_passed": false
+        }
+      ],
+      "contact_gate_passed": false
+    }
+  ],
+  "production_integration": false,
+  "contact_gate_passed": false
+}

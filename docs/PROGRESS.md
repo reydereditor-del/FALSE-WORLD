@@ -1,5 +1,138 @@
 # FALSE WORLD — progress
 
+## Windows review package — unaccepted (2026-11-05)
+
+The user authorizes committing this task's research, local animation resources,
+preview/scripts/tests, necessary documentation and rendered evidence, then pushing
+`feat/authentic-directional-locomotion` to origin. No production integration or
+main merge is authorized. Earlier no-commit entries below describe their historical
+increments before this publication request. The review package keeps the failed
+forward-diagonal contact gate explicit; it does not mark locomotion complete.
+
+Inspected the complete pending file list and staged only experiment-related paths.
+No production script, project setting, worker model, existing gameplay scene or
+existing test is changed. The 17-second comparison MP4 is small enough to include
+directly in Git, alongside the editable clips; neither scene needs a chat attachment,
+temporary cloud path or asset download. The experiment guide now specifies F6,
+automatic comparison playback and the separate individual-clip controls.
+
+Fresh export of the staged files, with no existing `.godot` cache: Godot 4.7.2
+import passed; **16 resource + 35 preview mechanics checks passed**; regenerating
+the three clips reproduced their SHA-256s byte-for-byte; both preview scenes started;
+the moving comparison rendered 12 actual startup frames using software OpenGL
+after the known Vulkan fallback. Recomputed contact diagnostic failed as documented,
+exit 1. These are packaging/reproducibility checks, not new visual acceptance or a
+Windows playtest. Existing 263-check and rendered comparison evidence is retained.
+
+The commit packages review work only. Identify its exact ID with `git log -1` and
+verify publication against the remote branch; no reset, clean, automatic stash or
+force push is part of this workflow. Next implementation step remains correcting
+the unaccepted forward-diagonal contact before production adoption.
+
+## Direction-dependent speed experiment — unaccepted (2026-11-05)
+
+Continued the current branch and preserved all existing uncommitted work. Measured
+planted ankle motion independently of metadata: authored backward 0.814815 m/s,
+left/right 0.518519 m/s. Compared actual-body profiles back/side 1.75/2.25,
+1.10/0.85 and 0.90/0.65, each with forward 4 m/s, on stationary 1 m grids.
+The 17-second rendered comparison includes direct forward→strafe and forward→back,
+both diagonal types, stops, opposite-side walking and a 90-degree facing-frame turn.
+
+Promising provisional cardinal choice: back **1.10**, side **0.85** m/s. Production
+is **not integrated**: forward-diagonal blending still loses expected foot contact
+(middle-column mean ankle drift ~0.295 m/s versus provisional 0.05 m/s gate).
+Backward-diagonal drift ~0.013 m/s and cardinal planted drift <0.001 m/s; those do
+not compensate for the failed forward-diagonal gate. Lower speeds alone do not fix
+the imported-forward/authored-strafe contact mismatch. No new animation sets,
+curve edits, asset search, controller rewrite or new gameplay; all original
+production code/settings/model/scenes and existing tests remain unchanged.
+
+Checks after preview work: **35/0** new mechanics checks; **212/0** unchanged
+focused movement/camera/interaction/shared-rig/AI/Stage 4 checks; **16/0** authored
+resource checks = **263 passed**. Contact diagnostic **failed**, exit 1, for every
+profile's forward diagonal. Final Godot 4.7.2 import passed; animation checksums
+match prior outputs. 510 actual software-OpenGL frames encode a 17 s comparison;
+the known Vulkan surface failure precedes automatic fallback. No Windows/GPU
+performance or human input-feel claim. Initial preview physics interference was
+corrected with separate spaces before final evidence. No full-suite rerun loop.
+
+[DIRECTIONAL_SPEED_EXPERIMENT.md](DIRECTIONAL_SPEED_EXPERIMENT.md) contains the
+comparison video, motion trace, failed gate, checks and Windows launch command.
+Next: correct forward-diagonal contact/phase blending and repeat bounded visual
+acceptance before adopting directional speed and animation in WorkerPresentation.
+No commit, staging, push or merge; no paid tool/service or cost (0 UZS).
+
+## Locally authored directional preview (2026-11-04)
+
+Continued on `feat/authentic-directional-locomotion`, preserving all pre-existing
+research/documentation edits. User changed approach to local authoring; external
+research stopped. Inspected actual rest transforms/bone axes and sampled the source
+2-second forward walk. Added reproducible offline Godot authoring, three editable
+backward/left/right clips and an isolated preview on the unchanged worker skeleton.
+Original contact/swing trajectories, analytic leg solving, ankle/toe roll, restrained
+pelvis/torso and opposing arms; not reversed/rotated forward animation. No paid
+tool, download, model replacement/re-rigging or cost (0 UZS).
+
+**Stage 1 editable preview delivered; stage 2 not accepted/integrated.** Actual
+front/side/three-quarter renders cover three cycles per clip; separate 4 m/s
+captures expose an unresolved cadence problem: 4.91× backward / 7.71× lateral
+playback is implausibly fast, while normal playback at 4 m/s would slide. Preserved
+gameplay speed/scale/controller rather than presenting this as finished locomotion.
+No new runtime fallback; existing WorkerPresentation and its glide remain unchanged.
+Diagonals, transitions and final new-clip gameplay acceptance are still pending.
+
+Fresh Godot 4.7.2 validation: new resource checks **16/0** (actual posed skeleton,
+loop joins, finite/knee ordering, stance travel, foot clearance/separation, root
+bounds); deterministic SHA-256 regeneration; one final existing acceptance run
+**369/0 + 16/16 AI scenarios**, plus Option B **36/0**, character **7/0**, replay
+**10/0**. Total **438 ordinary checks** including new checks. Existing tests are
+unchanged. Automatic Mesa software OpenGL rendered 657 authored-pace frames and
+543 speed-comparison frames after Vulkan initialization failed; this is not a
+Windows Forward Plus/iGPU performance pass. Saved videos, contact sheet, result
+summaries and focused logs in `docs/evidence/directional_local/`.
+
+[LOCAL_DIRECTIONAL_WALKS.md](LOCAL_DIRECTIONAL_WALKS.md) has exact authoring/test
+commands, source/licensing distinction, measurements and Windows preview controls.
+Current model, source forward clip, physics, cameras, interaction, AI, Stage 4,
+project settings and old tests remain unchanged. Whitespace/local links and intended
+scope checked; no staging, commit, push or merge. Next: improve/evaluate gait at
+the required speed until visually acceptable, then integrate local-velocity
+selection/diagonal blends/transitions and revalidate gameplay. No download needed.
+
+## Directional locomotion sourcing — blocked (2026-11-04)
+
+On `feat/authentic-directional-locomotion` from clean `a5299fa` (merged Option B).
+Inspected current source/rig, rules, relevant Godot/testing skills and project docs;
+no Windows-only preview assumed. Read original KayKit CC0 1.0 license, inventoried
+actual Knight GLB and rendered backward/run-strafe source clips in Blender 4.3.2.
+No complete authentic walking set accepted: accessible strafes are stylized running
+with body rotation; Quaternius/storefront/Mixamo requests were denied by the proxy.
+No policy bypass, login, purchase or third-party asset import. Cost 0 UZS.
+
+Added [source research, rig mapping and precise input handoff](DIRECTIONAL_ANIMATION_RESEARCH.md),
+and linked current limits from Option B, architecture and licensing docs. Runtime,
+worker model/skeleton, scenes, settings, tests and AI remain unchanged. Authentic
+backward/strafe/diagonal integration is **not complete**; idle-glide fallback remains.
+
+Fresh Godot `4.7.2.stable.official.ed1daf0bf`: `tools/run_stage4_checks.py` with
+`--output /tmp/directional-stage4-validation` passed, including nested map/visual
+regressions, import/startups and asset integrity: 369 ordinary checks and 16/16 AI
+scenario runs. Direct Option B 36/0, character-fixes 7/0, replay-audit 10/0 passed:
+**422 ordinary checks total**, no tests weakened. Source-quarter-cycle renders
+were inspected; actual current Stage 4 captured with automatic software OpenGL
+fallback after Vulkan initialization failed. No target-worker new-clip visual pass,
+Windows check or performance claim. The temporary gameplay review camera was
+occluded by building geometry, so its capture is not a character-quality pass.
+Temporary render setup errors (Blender NLA API,
+absent world, unsupported denoiser) were corrected before rendering; they are not
+application failures. Existing gameplay tests validate preservation, not new motion.
+
+Documentation links and `git diff --check` passed. Only the five intended Markdown
+files are modified/added; no assets or source changed. No staging, commit, push or
+merge. Exact next step: acquire a full directional walking set and original license
+as described in the research handoff, verify rights, then retarget and visually
+validate on the existing worker before integrating its shared presentation.
+
 Updated: 2026-11-03 (Asia/Tashkent).
 
 ## Option B camera-relative movement (2026-11-03)
