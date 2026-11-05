@@ -35,13 +35,12 @@ their licensed files; it must not be described as containing these asset files.
 
 ## Simple Windows CMD route (2026-11-06)
 
-**Publication note:** the animation integration was pushed as `63f3abb`. The new
-Windows file-picker helper below is not yet pushed: this cloud session's GitHub
-token is invalid. The supplied chat helper ZIP includes both Windows scripts and
-works against the already-published integration, without needing the helper itself
-on GitHub. Extract it and run `review_licensed_locomotion.cmd`; this clones into a
-new folder, invokes its adjacent PowerShell script with an explicit project root,
-then opens the three file pickers described below. Keep the two scripts together.
+**Publication:** the animation integration was pushed as `63f3abb`, followed by the
+Windows file-picker helper as `782f219`, on the same feature branch. The supplied
+chat helper ZIP is an optional copy of the two Windows scripts. Extract it and run
+`review_licensed_locomotion.cmd`; this clones into a new folder, invokes its adjacent
+PowerShell script with an explicit project root, then opens the three file pickers
+described below. Keep the two scripts together.
 
 Codex web edits and publishes the cloud checkout, not files on the user's laptop.
 `git pull origin main` updates main only; this integration is on the feature branch.
@@ -49,7 +48,7 @@ The previous clean-tree PowerShell block correctly stops on local edits, but doe
 not resolve them for the user. For a simple review, clone a separate directory and
 keep the existing `C:\Projects\FALSE-WORLD` and every stash untouched.
 
-After helper publication, the following single command works in **CMD or
+The following single command works in **CMD or
 PowerShell**, since it explicitly invokes CMD. Close the existing game/editor.
 It stops if any command fails; if the
 destination already exists, clone refuses to overwrite it and the installer does

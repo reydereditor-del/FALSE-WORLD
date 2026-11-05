@@ -19,15 +19,16 @@ Validation: static review of argument quoting and failure/cancel paths, helper a
 documentation paths, whitespace and preservation of runtime/configuration. Windows
 PowerShell/Forms is unavailable here, so actual wrapper execution is pending; the
 previous Godot installer and locomotion results are retained, not rerun or relabeled
-as Windows results. GitHub authentication is now unavailable: `gh auth status`
-reports the injected GH_TOKEN invalid, and the remote read requests credentials.
-No interactive login, credential replacement or token disclosure was attempted.
-The last confirmed remote integration is `63f3abb`; helper publication is blocked.
+as Windows results. A Git remote-read and CLI authentication diagnostic initially
+failed, but the subsequent ordinary Git push succeeded: `782f219` was published
+after integration commit `63f3abb`. No interactive login, credential replacement,
+token disclosure, proxy bypass or force push was needed. The earlier diagnostic
+failure does not establish that the actual Git push route is unavailable.
 A small chat ZIP contains both original Windows helper scripts, including a CMD
 launcher that clones the already-published branch and passes the review root to
 the adjacent PowerShell helper. No game/animation asset data is bundled. Next:
-the user runs this helper and reviews F5; restore the Codex GitHub connection before
-publishing this follow-up commit. Existing Windows files and stashes stay intact.
+the user runs this helper and reviews F5. Existing Windows files and stashes stay
+intact. This documentation follow-up corrects the temporary publication warning.
 
 ## Licensed locomotion feature-branch delivery (2026-11-06)
 
