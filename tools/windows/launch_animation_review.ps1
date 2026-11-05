@@ -57,6 +57,16 @@ try {
     Write-Host "Project: $ProjectRoot" -ForegroundColor Cyan
 
     if ($Mode -eq 'preview') {
+        # Newly cloned Godot projects do not contain the generated .godot/imported/
+        # SCN resources. Import once before starting the runtime-only preview.
+        Write-Host 'Importing Godot models/textures for this review project...'
+        & $Godot --headless --path $ProjectRoot --editor --import
+        if ($LASTEXITCODE -ne 0) {
+            throw "Godot import failed (exit $LASTEXITCODE). See errors above. Preview not started."
+        }
+        if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot '.godot\imported') -PathType Container)) {
+            throw "Godot import directory is still missing. Preview not started."
+        }
         Write-Host 'Opening the THREE locally authored preview-only clips (not F5 gameplay)...'
         & $Godot --path $ProjectRoot 'res://scenes/preview/directional_walks.tscn'
         if ($LASTEXITCODE -ne 0) { throw "Preview failed with code $LASTEXITCODE" }
